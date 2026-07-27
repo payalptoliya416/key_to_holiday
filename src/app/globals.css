@@ -1,26 +1,212 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Poppins 100 */
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-v24-latin-100.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Poppins 200 */
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-v24-latin-200.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Poppins 300 */
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-v24-latin-300.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Poppins 400 */
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-v24-latin-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Poppins 500 */
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-v24-latin-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Poppins 600 */
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-v24-latin-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Poppins 700 */
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-v24-latin-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Poppins 800 */
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-v24-latin-800.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Poppins 900 */
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-v24-latin-900.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+/* TikTok Sans 300 */
+@font-face {
+  font-family: "TikTok Sans";
+  src: url("/fonts/tiktok-sans-v8-latin-300.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* TikTok Sans 400 */
+@font-face {
+  font-family: "TikTok Sans";
+  src: url("/fonts/tiktok-sans-v8-latin-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* TikTok Sans 600 */
+@font-face {
+  font-family: "TikTok Sans";
+  src: url("/fonts/tiktok-sans-v8-latin-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* TikTok Sans 800 */
+@font-face {
+  font-family: "TikTok Sans";
+  src: url("/fonts/tiktok-sans-v8-latin-800.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* TikTok Sans 900 */
+@font-face {
+  font-family: "TikTok Sans";
+  src: url("/fonts/tiktok-sans-v8-latin-900.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+  --font-tiktok: "TikTok Sans", sans-serif;
+}
+
+.font-tiktok {
+  font-family: "TikTok Sans", sans-serif;
+}
+
+
+.container-custom {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    max-width: 540px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (min-width: 768px) {
+  .container-custom {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-custom {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-custom {
+    max-width: 1170px;
+    padding-inline: 0;
+  }
+}
+
+@utility section-space {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  @media (width >= 1024px) {
+    padding-top: 110px;
+    padding-bottom: 110px;
+  }
+}
+@utility section-bottom {
+  padding-bottom: 60px;
+
+  @media (width >= 1024px) {
+    padding-bottom: 110px;
+  }
+}
+.gold-gradient {
+  background: linear-gradient(180deg, #F2B62D 0%, #B56E05 100%);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(180deg, #F2B62D 0%, #B56E05 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+@layer components {
+  .section-tag {
+    @apply text-sm font-semibold uppercase tracking-[1.2px] text-[#D4A017];
+  }
+   .section-title {
+    @apply mt-[10px] text-[36px] font-bold leading-none text-[#0F172A];
+  }
+   .section-link {
+    @apply hidden lg:flex items-center gap-2 font-semibold text-[#C99700] transition-all duration-300 hover:gap-3;
+  }
 }
