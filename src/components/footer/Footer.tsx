@@ -49,9 +49,9 @@ function Footer() {
     <>
      {!hideNewsletter && <NewsletterSection />}
       <footer className="bg-[#11182C] text-white">
-        <div className="mx-auto max-w-7xl px-6 pt-[70px]">
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5">
-            <div className="lg:col-span-1">
+        <div className="container-custom pt-[70px]">
+          <div className="grid grid-cols-12 gap-y-10 gap-x-8">
+            <div className="col-span-12 lg:col-span-4">
               <Image
                 src="/images/light-logo.svg"
                 alt="logo"
@@ -105,7 +105,7 @@ function Footer() {
             </div>
 
             {/* Company */}
-            <div>
+            <div className="col-span-12 sm:col-span-6 lg:col-span-2">
               <h3 className="mb-4 text-sm font-semibold">Company</h3>
 
               <ul className="space-y-[10px]">
@@ -123,7 +123,7 @@ function Footer() {
             </div>
 
             {/* Holiday Homes */}
-            <div>
+            <div className="col-span-12 sm:col-span-4 lg:col-span-2">
               <h3 className="mb-4 text-sm font-semibold">Holiday Homes</h3>
 
               <ul className="space-y-[10px]">
@@ -141,7 +141,7 @@ function Footer() {
             </div>
 
             {/* Destinations */}
-            <div>
+            <div className="col-span-12 sm:col-span-4 lg:col-span-2">
               <h3 className="mb-4 text-sm font-semibold">Destinations</h3>
 
               <ul className="space-y-[10px]">
@@ -159,7 +159,7 @@ function Footer() {
             </div>
 
             {/* Support */}
-            <div>
+            <div className="col-span-12 sm:col-span-4 lg:col-span-2">
               <h3 className="mb-4 text-sm font-semibold">Support</h3>
 
               <ul className="space-y-[10px]">
@@ -179,7 +179,7 @@ function Footer() {
 
           {/* Contact */}
 
-          <div className="mt-12 flex flex-col gap-6 pt-8 xl:flex-row xl:items-center xl:justify-between">
+          <div className="mt-12 flex flex-col gap-6 md:pt-8 xl:flex-row xl:items-center xl:justify-between">
             <div className="flex flex-col gap-5 md:flex-row md:flex-wrap md:items-center">
               {/* Email */}
               <Link

@@ -26,7 +26,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-10 lg:py-16">
+    <section className="pt-10">
       <div className="container-custom">
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-[22px]">
           {features.map((item, index) => {

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function PropertyOwnerCTA() {
   return (
-    <section className="py-20">
+    <section className="section-space">
       <div className="container-custom">
         <div
           className="relative overflow-hidden rounded-[32px] bg-cover bg-center"

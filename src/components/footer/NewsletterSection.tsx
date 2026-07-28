@@ -2,7 +2,7 @@ import { Mail } from "lucide-react";
 
 export default function NewsletterSection() {
   return (
-    <section className="bg-[#F1F5F9] py-20 lg:py-24">
+    <section className="bg-[#F1F5F9] py-12 lg:py-[90px]">
       <div className="container-custom">
         <div className="mx-auto max-w-4xl text-center">
           {/* Small Heading */}
@@ -22,7 +22,7 @@ export default function NewsletterSection() {
           </p>
 
           {/* Subscribe Form */}
-          <div className="mx-auto mt-10 flex w-full max-w-2xl flex-col overflow-hidden rounded-full border border-[#E8E4DC] bg-white sm:flex-row">
+          <div className="mx-auto mt-10 flex w-full sm:max-w-2xl flex-col overflow-hidden rounded-3xl sm:rounded-full border border-[#E8E4DC] bg-white sm:flex-row">
             {/* Input */}
             <div className="flex flex-1 items-center px-6 py-4">
               <Mail size={20} className="mr-3 text-black" />
@@ -35,7 +35,7 @@ export default function NewsletterSection() {
             </div>
 
             {/* Button */}
-            <button className="gold-gradient m-1 rounded-full px-8 py-4 font-semibold text-white transition hover:opacity-90 sm:px-10 text-sm">
+            <button className="gold-gradient m-1 rounded-3xl sm:rounded-full px-8 py-4 font-semibold text-white transition hover:opacity-90 sm:px-10 text-sm">
               Subscribe
             </button>
           </div>

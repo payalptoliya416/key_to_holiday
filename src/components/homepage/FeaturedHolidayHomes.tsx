@@ -65,7 +65,7 @@ export default function FeaturedHolidayHomes() {
   const router = useRouter();
 
   return (
-    <section className="py-20">
+    <section className="section-space">
       {/* Heading */}
       <div className="container-custom">
         <div className="mb-8 flex items-end justify-between">

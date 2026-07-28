@@ -26,7 +26,7 @@ const features = [
 
 export default function ReferralSection() {
   return (
-    <section className="bg-[#131A2E] py-20 lg:py-[90px]">
+    <section className="bg-[#131A2E] py-12 lg:py-[90px]">
       <div className="container-custom">
         {/* Heading */}
         <div className="mx-auto max-w-3xl text-center">

@@ -48,7 +48,7 @@ export default function PopularDestinations() {
   const router = useRouter();
 
   return (
-    <section className="py-20 bg-[#F8F6F2]">
+    <section className="py-12 lg:py-[90px] bg-[#F8F6F2]">
       <div className="container-custom">
         <div className="mb-10 flex items-end justify-between">
           <div>

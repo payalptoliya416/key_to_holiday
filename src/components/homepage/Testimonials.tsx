@@ -34,7 +34,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-[#F8F6F2] py-[90px]">
+    <section className="bg-[#F8F6F2] py-12 lg:py-[90px]">
       <div className="container-custom">
 
         <div className="text-center">

@@ -204,7 +204,7 @@ body {
     @apply text-sm font-semibold uppercase tracking-[1.2px] text-[#D4A017];
   }
    .section-title {
-    @apply mt-[10px] text-[36px] font-bold leading-none text-[#0F172A];
+    @apply mt-[10px] text-[36px] font-bold lg:leading-none text-[#0F172A];
   }
    .section-link {
     @apply hidden lg:flex items-center gap-2 font-semibold text-[#C99700] transition-all duration-300 hover:gap-3;

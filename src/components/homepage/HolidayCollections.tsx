@@ -45,7 +45,7 @@ const collections = [
 
 export default function HolidayCollections() {
   return (
-    <section className="py-20">
+    <section className="section-space">
       <div className="container-custom">
 
         {/* Heading */}
@@ -96,7 +96,7 @@ export default function HolidayCollections() {
                   }}
                 />
 
-            <div className="absolute bottom-6 left-6">
+            <div className="absolute bottom-6 left-6 z-10">
              <h3 className="text-xl leading-none font-semibold text-white">
                 {collections[0].title}
               </h3>
