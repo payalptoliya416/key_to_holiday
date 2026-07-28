@@ -4,6 +4,11 @@ import Image from "next/image";
 import { Star, MapPin, Users, BedDouble, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
 
 const homes = [
   {
@@ -61,70 +66,74 @@ export default function FeaturedHolidayHomes() {
 
   return (
     <section className="py-20">
+      {/* Heading */}
       <div className="container-custom">
-        <div className="mb-[30px] flex items-end justify-between">
+        <div className="mb-8 flex items-end justify-between">
           <div>
-            <p className="section-tag">
-              Handpicked For You
-            </p>
+            <p className="section-tag">Handpicked For You</p>
 
-            <h2 className="section-title">
-              Featured Holiday Homes
-            </h2>
+            <h2 className="section-title">Featured Holiday Homes</h2>
           </div>
 
-          <Link
-            href="/holiday-homes"
-            className="section-link"
-            >
+          <Link href="/holiday-homes" className="section-link">
             <span>Explore all destinations</span>
             <ArrowRight size={18} />
-            </Link>
+          </Link>
         </div>
-        {/* Cards */}
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
-          {homes.map((home) => (
+      </div>
+      {/*
+        Left-indent = container-custom na same breakpoints
+        Right side viewport end sudhi bleed thay (overflow visible)
+      */}
+      <div className="overflow-hidden">
+        <div
+          className="pl-4 sm:pl-[max(1rem,calc((100vw-540px)/2))] md:pl-[max(1rem,calc((100vw-720px)/2))] lg:pl-[max(1rem,calc((100vw-960px)/2))] xl:pl-[max(0px,calc((100vw-1170px)/2))]"
+        >
+      <Swiper
+        modules={[Navigation]}
+        slidesPerView="auto"
+        spaceBetween={20}
+        grabCursor
+        watchOverflow
+        centeredSlides={false}
+        className="featuredHomesSlider !overflow-visible"
+      >
+        {homes.map((home) => (
+          <SwiperSlide key={home.id} className="!w-[305px]">
             <div
-              key={home.id}
               onClick={() => router.push(`/holiday-homes/${home.slug}`)}
               className="group overflow-hidden rounded-[22px] border border-[#E8E4DC] bg-white cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
             >
-
+              {/* Image */}
               <div className="relative overflow-hidden">
                 <div className="relative h-[224px] w-full overflow-hidden rounded-t-[22px]">
                   <Image
                     src={home.image}
                     alt={home.title}
                     fill
-                    sizes="(max-width:768px) 100vw, (max-width:1280px) 50vw, 303px"
-                    className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                    priority={home.id === 1}
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
 
-                {/* Rating */}
+                <div className="absolute right-5 top-5 flex items-center gap-2 rounded-full bg-white px-3 py-[6px] shadow-lg">
+                  <Star size={14} className="fill-[#0F172A] text-[#0F172A]" />
 
-                <div className="absolute right-5 top-5 rounded-full bg-white px-3 py-[6px] shadow-lg flex items-center gap-2">
-                  <Star size={14} className="fill-white text-[#0F172A]" />
-
-                  <span className="font-semibold text-xs text-[#0F172A]">{home.rating}</span>
+                  <span className="text-xs font-semibold">{home.rating}</span>
                 </div>
               </div>
 
               {/* Content */}
-
-              <div className="py-5 px-[17px]">
+              <div className="px-[17px] py-5">
                 <h3 className="text-base font-semibold text-[#0F172A]">
                   {home.title}
                 </h3>
 
-                <div className="mt-[10px] flex items-center gap-1 text-sm leading-none text-[#6B7280]">
+                <div className="mt-[10px] flex items-center gap-1 text-sm text-[#6B7280]">
                   <MapPin size={13} />
                   {home.location}
                 </div>
 
-                <div className="mt-5 flex items-center gap-2 text-xs text-[#6B7280]">
+                <div className="mt-5 flex items-center gap-[10px] text-xs text-[#6B7280]">
                   <div className="flex items-center gap-1">
                     <Users size={12} />
                     {home.guests} guests
@@ -143,13 +152,13 @@ export default function FeaturedHolidayHomes() {
 
                 <div className="mt-5 flex items-center justify-between">
                   <div className="flex items-end">
-                    <span className="text-xl font-semibold leading-none text-[#0F172A]">
+                    <span className="text-xl font-semibold text-[#0F172A]">
                       £{home.price}
                     </span>
 
-                    <sub className="text-xs mb-[2px] text-[#6B7280]">
+                    <span className="mb-[2px] ml-1 text-xs text-[#6B7280]">
                       / night
-                    </sub>
+                    </span>
                   </div>
 
                   <button
@@ -164,7 +173,9 @@ export default function FeaturedHolidayHomes() {
                 </div>
               </div>
             </div>
-          ))}
+          </SwiperSlide>
+        ))}
+      </Swiper>
         </div>
       </div>
     </section>

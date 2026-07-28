@@ -9,7 +9,7 @@ const collections = [
     id: 1,
     title: "Beachfront Villas",
     properties: "340 properties",
-    image: "/images/collection01.png",
+    image: "/images/collection01.jpg",
     large: true,
     slug: "beachfront-villas",
   },
@@ -17,28 +17,28 @@ const collections = [
     id: 2,
     title: "Luxury Escapes",
     properties: "280 properties",
-    image: "/images/collection.png",
+    image: "/images/collection02.jpg",
     slug: "luxury-escapes",
   },
   {
     id: 3,
     title: "Pet Friendly",
     properties: "520 properties",
-    image: "/images/collection03.png",
+    image: "/images/collection03.jpg",
     slug: "pet-friendly",
   },
   {
     id: 4,
     title: "Family Holidays",
     properties: "760 properties",
-    image: "/images/collection04.png",
+    image: "/images/collection04.jpg",
     slug: "family-holidays",
   },
   {
     id: 5,
     title: "Private Pools",
     properties: "440 properties",
-    image: "/images/collection05.png",
+    image: "/images/collection05.jpg",
     slug: "private-pools",
   },
 ];
@@ -89,7 +89,13 @@ export default function HolidayCollections() {
               className="object-cover transition duration-500 group-hover:scale-110"
             />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+           <div
+                  className="absolute inset-0 z-[1]"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.75) 100%)",
+                  }}
+                />
 
             <div className="absolute bottom-6 left-6">
              <h3 className="text-xl leading-none font-semibold text-white">
@@ -119,8 +125,14 @@ export default function HolidayCollections() {
                   fill
                   className="object-cover transition duration-500 group-hover:scale-110"
                 />
-
-                <div className="absolute bottom-5 left-5">
+                <div
+                  className="absolute inset-0 z-[1]"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.75) 100%)",
+                  }}
+                />
+                <div className="absolute bottom-5 left-5 z-10">
                   <h3 className="text-xl leading-none font-semibold text-white">
                     {item.title}
                   </h3>

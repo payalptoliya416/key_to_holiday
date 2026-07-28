@@ -10,37 +10,37 @@ const destinations = [
     id: 1,
     title: "Spain",
     homes: "1,240 homes",
-    image: "/images/Link-6.png",
+    image: "/images/Link-1.jpg",
   },
   {
     id: 2,
     title: "Cyprus",
     homes: "680 homes",
-    image: "/images/Link-1.png",
+    image: "/images/Link-2.jpg",
   },
   {
     id: 3,
     title: "Portugal",
     homes: "920 homes",
-    image: "/images/Link-2.png",
+    image: "/images/Link-3.jpg",
   },
   {
     id: 4,
     title: "Greece",
     homes: "1,560 homes",
-    image: "/images/Link-3.png",
+    image: "/images/Link-4.jpg",
   },
   {
     id: 5,
     title: "Italy",
     homes: "1,840 homes",
-    image: "/images/Link-4.png",
+    image: "/images/Link-5.jpg",
   },
   {
     id: 6,
     title: "United Kingdom",
     homes: "2,100 homes",
-    image: "/images/Link-5.png",
+    image: "/images/Link-6.jpg",
   },
 ];
 
@@ -57,17 +57,11 @@ export default function PopularDestinations() {
             <h2 className="section-title">Popular Destinations</h2>
           </div>
 
-          <Link
-            href="/destinations"
-            className="section-link"
-            >
+          <Link href="/destinations" className="section-link">
             <span>Explore all destinations</span>
             <ArrowRight size={18} />
-            </Link>
+          </Link>
         </div>
-
-        {/* Cards */}
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px]">
           {destinations.map((item) => (
             <div
@@ -77,6 +71,7 @@ export default function PopularDestinations() {
               }
               className="group relative h-[196px] cursor-pointer overflow-hidden rounded-2xl"
             >
+              {/* Image */}
               <Image
                 src={item.image}
                 alt={item.title}
@@ -85,12 +80,24 @@ export default function PopularDestinations() {
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
 
-              <div className="absolute left-5 bottom-5">
-                <h3 className="text-xl leading-none font-semibold text-white">
+              {/* Overlay */}
+              <div
+                className="absolute inset-0 z-[1]"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%)",
+                }}
+              />
+
+              {/* Content */}
+              <div className="absolute bottom-5 left-5 z-10">
+                <h3 className="text-xl font-semibold leading-none text-white">
                   {item.title}
                 </h3>
 
-                <p className="mt-[10px] text-xs text-[#FFFFFFB2]">{item.homes}</p>
+                <p className="mt-[10px] text-xs text-[#FFFFFFB2]">
+                  {item.homes}
+                </p>
               </div>
             </div>
           ))}

@@ -7,11 +7,18 @@ export default function PropertyOwnerCTA() {
     <section className="py-20">
       <div className="container-custom">
         <div
-          className="relative overflow-hidden rounded-[32px] bg-cover sm:bg-[length:100%_100%] bg-center"
+          className="relative overflow-hidden rounded-[32px] bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/income.png')",
+            backgroundImage: "url('/images/income.jpg')",
           }}
         >
+          <div
+            className="absolute inset-0 z-[1]"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(15, 23, 42, 0.3) 0%, rgba(15, 23, 42, 0.88) 100%)",
+            }}
+          />
           {/* Content */}
           <div className="relative z-10 px-8 py-14 sm:px-12 lg:px-[60px] lg:py-[60px]">
             <div className="max-w-xl">
