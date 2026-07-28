@@ -35,7 +35,7 @@ import {
   ShoppingBag,
   Landmark,
   Flag,
-CigaretteOff,
+  CigaretteOff,
   PartyPopper,
   Clock3,
 } from "lucide-react";
@@ -392,7 +392,9 @@ function GuestDropdown({
                   {cfg.icon}
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-[#1A1A1A]">{cfg.label}</p>
+                  <p className="text-sm font-medium text-[#1A1A1A]">
+                    {cfg.label}
+                  </p>
                   <p className="text-xs text-[#888888]">{cfg.sub}</p>
                 </div>
               </div>
@@ -426,7 +428,9 @@ function GuestDropdown({
                 <Users size={18} className="text-[#E8A020]" />
               </div>
               <div>
-                <p className="text-sm font-medium text-[#1A1A1A]">Total Guest</p>
+                <p className="text-sm font-medium text-[#1A1A1A]">
+                  Total Guest
+                </p>
                 <p className="text-xs text-[#AAAAAA]">{totalGuests} Guests</p>
               </div>
             </div>
@@ -439,6 +443,94 @@ function GuestDropdown({
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+/* ─── FAQ data ─────────────────────────────────────────────── */
+const faqs = [
+  {
+    q: "How do I book a property?",
+    a: "Simply select your dates, number of guests, and click Book Now. You can pay securely online and receive instant confirmation.",
+  },
+  {
+    q: "What is the cancellation policy?",
+    a: "Free cancellation is available up to 14 days before check-in. Cancellations within 14 days are subject to a 50% charge. Please review the full policy on your booking confirmation.",
+  },
+  {
+    q: "Are there any hidden fees?",
+    a: "No hidden fees. The total shown at checkout includes the nightly rate, cleaning fee, and service fee — nothing extra.",
+  },
+  {
+    q: "What time is check-in and check-out?",
+    a: "Check-in is from 3:00 PM and check-out is by 11:00 AM. Early check-in or late check-out may be available on request.",
+  },
+  {
+    q: "Are pets allowed?",
+    a: "Yes, well-behaved pets are welcome at this property. Please inform the host in advance.",
+  },
+  {
+    q: "Can children stay at the property?",
+    a: "Absolutely. This villa is family-friendly and suitable for children of all ages. A travel cot and highchair can be arranged on request.",
+  },
+];
+
+function FaqSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  return (
+    <div className="section-space">
+      {/* Heading */}
+      <div className="mb-8 text-center">
+        <p className="section-tag">FAQ</p>
+        <h2 className="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      {/* Accordion items */}
+      <div className="space-y-3">
+        {faqs.map((faq, i) => {
+          const isOpen = openIndex === i;
+          return (
+            <div
+              key={i}
+              className="overflow-hidden rounded-[14px] border border-[#E8E4DC] bg-white"
+            >
+              <button
+                onClick={() => setOpenIndex(isOpen ? null : i)}
+                className="flex w-full items-center justify-between px-6 py-[18px] text-left transition hover:bg-[#FAFAFA]"
+              >
+                <span className="text-sm font-medium text-[#1A1A1A]">
+                  {faq.q}
+                </span>
+                <span
+                  className={`ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border transition ${
+                    isOpen
+                      ? "border-[#E8A020] text-[#E8A020]"
+                      : "border-[#E8E4DC] text-[#E8A020]"
+                  }`}
+                >
+                  {isOpen ? (
+                    <span className="text-lg font-light leading-none">−</span>
+                  ) : (
+                    <span className="text-lg font-light leading-none">+</span>
+                  )}
+                </span>
+              </button>
+
+              {/* Answer — animated */}
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  isOpen ? "max-h-60" : "max-h-0"
+                }`}
+              >
+                <p className="px-6 pb-5 text-sm leading-[22px] text-[#888888]">
+                  {faq.a}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -483,11 +575,20 @@ export default function PropertyDetails() {
       {/* ── Breadcrumb ──────────────────────────────────── */}
       <div className="mx-[30px] pt-5">
         <nav className="flex items-center gap-1 text-sm text-[#6B7280]">
-          <Link href="/" className="hover:text-[#E39A16] transition">Home</Link>
+          <Link href="/" className="hover:text-[#E39A16] transition">
+            Home
+          </Link>
           <ChevronRight size={14} />
-          <Link href="/destinations" className="hover:text-[#E39A16] transition">Destinations</Link>
+          <Link
+            href="/destinations"
+            className="hover:text-[#E39A16] transition"
+          >
+            Destinations
+          </Link>
           <ChevronRight size={14} />
-          <span className="cursor-pointer hover:text-[#E39A16] transition">Spain</span>
+          <span className="cursor-pointer hover:text-[#E39A16] transition">
+            Spain
+          </span>
           <ChevronRight size={14} />
           <span className="font-medium text-[#0F172A]">{property.title}</span>
         </nav>
@@ -497,23 +598,49 @@ export default function PropertyDetails() {
       <div className="mx-[30px] mt-5">
         <div className="grid gap-3 lg:grid-cols-[2fr_1fr_1fr]">
           <div className="relative h-[260px] overflow-hidden rounded-[24px] sm:h-[380px] lg:h-[530px]">
-            <Image src={property.images[0]} alt={property.title} fill priority className="object-cover transition duration-700 hover:scale-105" />
+            <Image
+              src={property.images[0]}
+              alt={property.title}
+              fill
+              priority
+              className="object-cover transition duration-700 hover:scale-105"
+            />
           </div>
           <div className="hidden gap-3 lg:grid lg:grid-rows-2">
             {[property.images[1], property.images[3]].map((img, i) => (
-              <div key={i} className="relative h-[258px] overflow-hidden rounded-[24px]">
-                <Image src={img} alt="" fill className="object-cover transition duration-700 hover:scale-105" />
+              <div
+                key={i}
+                className="relative h-[258px] overflow-hidden rounded-[24px]"
+              >
+                <Image
+                  src={img}
+                  alt=""
+                  fill
+                  className="object-cover transition duration-700 hover:scale-105"
+                />
               </div>
             ))}
           </div>
           <div className="hidden gap-3 lg:grid lg:grid-rows-2">
             {[property.images[2], property.images[4]].map((img, i) => (
-              <div key={i} className="relative h-[258px] overflow-hidden rounded-[24px]">
-                <Image src={img} alt="" fill className="object-cover transition duration-700 hover:scale-105" />
+              <div
+                key={i}
+                className="relative h-[258px] overflow-hidden rounded-[24px]"
+              >
+                <Image
+                  src={img}
+                  alt=""
+                  fill
+                  className="object-cover transition duration-700 hover:scale-105"
+                />
                 {i === 0 && (
                   <div className="absolute right-4 top-4 flex gap-3">
-                    <button className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white shadow-lg transition hover:bg-[#FFF7EA]"><Heart size={16} /></button>
-                    <button className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white shadow-lg transition hover:bg-[#FFF7EA]"><Share2 size={16} /></button>
+                    <button className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white shadow-lg transition hover:bg-[#FFF7EA]">
+                      <Heart size={16} />
+                    </button>
+                    <button className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white shadow-lg transition hover:bg-[#FFF7EA]">
+                      <Share2 size={16} />
+                    </button>
                   </div>
                 )}
                 {i === 1 && (
@@ -530,7 +657,6 @@ export default function PropertyDetails() {
       {/* ── Content + Booking sidebar ──────────────────── */}
       <div className="container-custom py-[45px]">
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1fr_380px]">
-
           {/* ── LEFT ──────────────────────────────────── */}
           <div className="space-y-8">
             {/* Tabs */}
@@ -561,25 +687,38 @@ export default function PropertyDetails() {
                   <div className="text-right">
                     <div className="flex items-center justify-end gap-1">
                       {Array.from({ length: 5 }).map((_, i) => (
-                        <Star key={i} size={14} className="fill-[#F5A623] text-[#F5A623]" />
+                        <Star
+                          key={i}
+                          size={14}
+                          className="fill-[#F5A623] text-[#F5A623]"
+                        />
                       ))}
                       <span className="mx-2 text-base font-bold">4.9</span>
-                      <span className="text-sm text-[#888888] underline">120 Reviews</span>
+                      <span className="text-sm text-[#888888] underline">
+                        120 Reviews
+                      </span>
                     </div>
                   </div>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-4 text-sm text-[#888888]">
-                  <div className="flex items-center gap-2"><MapPin size={14} />Costa Blanca, Spain</div>
+                  <div className="flex items-center gap-2">
+                    <MapPin size={14} />
+                    Costa Blanca, Spain
+                  </div>
                   <span className="flex items-center gap-[6px] rounded-full bg-[#2ECC71] px-[10px] py-[6px] text-sm text-white">
-                    <ShieldCheck size={16} />Verified Property
+                    <ShieldCheck size={16} />
+                    Verified Property
                   </span>
                   <span>Property ID: KTH-29471</span>
                 </div>
 
                 <div className="flex flex-wrap gap-[10px]">
                   {featurePills.map(({ Icon, text }, i) => (
-                    <div key={i} className="flex h-[35px] items-center gap-[10px] rounded-full bg-[#F5F5F5] px-3 text-sm font-normal text-[#1A1A1A]">
+                    <div
+                      key={i}
+                      className="flex h-[35px] items-center gap-[10px] rounded-full bg-[#F5F5F5] px-3 text-sm font-normal text-[#1A1A1A]"
+                    >
                       <Icon size={14} className="text-[#E8A020]" />
                       {text}
                     </div>
@@ -589,245 +728,282 @@ export default function PropertyDetails() {
                 <div className="border-t border-[#EBEBEB]" />
 
                 <div>
-                  <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">About Villa Sol Paradise</h2>
+                  <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">
+                    About Villa Sol Paradise
+                  </h2>
                   <div className="space-y-[15px] text-sm leading-[24px] text-[#888888]">
-                    <p>Nestled along the sun-kissed shores of Costa Blanca, Villa Sol Paradise is a masterpiece of Mediterranean luxury. With its sweeping sea views, lush tropical gardens, and a private infinity pool overlooking the sparkling waters, this exceptional villa offers an unrivalled holiday experience for families and groups seeking the finest.</p>
-                    <p>The four spacious bedrooms are elegantly furnished with premium linens and feature private en-suite bathrooms, air conditioning, and direct garden access. The open-plan living space flows seamlessly to the outdoor entertaining terrace, where al fresco dining under the stars becomes an every-night occasion.</p>
-                    <p>Just a 4-minute stroll from Playa del Cura beach and minutes from charming local restaurants and boutiques, Villa Sol Paradise places you at the heart of the best Costa Blanca has to offer — while keeping you wrapped in the ultimate private luxury.</p>
+                    <p>
+                      Nestled along the sun-kissed shores of Costa Blanca, Villa
+                      Sol Paradise is a masterpiece of Mediterranean luxury.
+                      With its sweeping sea views, lush tropical gardens, and a
+                      private infinity pool overlooking the sparkling waters,
+                      this exceptional villa offers an unrivalled holiday
+                      experience for families and groups seeking the finest.
+                    </p>
+                    <p>
+                      The four spacious bedrooms are elegantly furnished with
+                      premium linens and feature private en-suite bathrooms, air
+                      conditioning, and direct garden access. The open-plan
+                      living space flows seamlessly to the outdoor entertaining
+                      terrace, where al fresco dining under the stars becomes an
+                      every-night occasion.
+                    </p>
+                    <p>
+                      Just a 4-minute stroll from Playa del Cura beach and
+                      minutes from charming local restaurants and boutiques,
+                      Villa Sol Paradise places you at the heart of the best
+                      Costa Blanca has to offer — while keeping you wrapped in
+                      the ultimate private luxury.
+                    </p>
                   </div>
                 </div>
               </>
             )}
 
-            {activeTab === "features" && <div className="text-sm text-[#888888]">Features content coming soon.</div>}
-            {activeTab === "location" && <div className="text-sm text-[#888888]">Location content coming soon.</div>}
-            {activeTab === "reviews" && <div className="text-sm text-[#888888]">Reviews content coming soon.</div>}
-   
-           {/* ---start---- */}
-            <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">Property Highlights</h2>
-             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-[15px]">
-                        {highlights.map((item, index) => {
-                        const Icon = item.icon;
-
-                        return (
-                            <div
-                            key={index}
-                            className="flex items-center gap-[10px] rounded-[14px] border border-[#EBEBEB] p-5 transition-all duration-300 hover:shadow-lg"
-                            >
-                            {/* Icon */}
-                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FDF3E0]">
-                                <Icon size={18} className="text-[#E39A16]" />
-                            </div>
-
-                            {/* Content */}
-                            <div>
-                                <h3 className="text-sm font-semibold text-[#1A1A1A]">
-                                {item.title}
-                                </h3>
-
-                                <p className="mt-[10px] text-xs text-[#888888]">
-                                {item.subtitle}
-                                </p>
-                            </div>
-                            </div>
-                        );
-                        })}
-             </div>
-           {/* ---end---- */}
-
-                {/* ------start---- */}
-            <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">Property Location</h2>
-            <p className="text-[#888888] text-sm leading-0">Costa Blanca, Orihuela Costa, Spain</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-[15px]">
-                        {highlightsData.map((item, index) => {
-                        const Icon = item.icon;
-
-                        return (
-                            <div
-                            key={index}
-                            className="flex items-center gap-[10px] rounded-[14px] border border-[#EBEBEB] p-5 transition-all duration-300 hover:shadow-lg"
-                            >
-                            {/* Icon */}
-                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FDF3E0]">
-                                <Icon size={18} className="text-[#E39A16]" />
-                            </div>
-
-                            {/* Content */}
-                            <div>
-                                <h3 className="text-sm font-semibold text-[#1A1A1A]">
-                                {item.title}
-                                </h3>
-
-                                <p className="mt-[10px] text-xs text-[#888888]">
-                                {item.subtitle}
-                                </p>
-                            </div>
-                            </div>
-                        );
-                        })}
-             </div>
-             {/* ---------end--- */}
-
-             {/* ----start---- */}
-                <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]"> House Rules </h2>
-
-                <div className="grid grid-cols-1 gap-[18px] md:grid-cols-2 xl:grid-cols-3">
-                    {houseRules.map((item, index) => {
+            {activeTab === "features" && (
+              <div className="text-sm text-[#888888]">
+                {/* ---start---- */}
+                <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">
+                  Property Highlights
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-[15px]">
+                  {highlights.map((item, index) => {
                     const Icon = item.icon;
 
                     return (
-                        <div
+                      <div
+                        key={index}
+                        className="flex items-center gap-[10px] rounded-[14px] border border-[#EBEBEB] p-5 transition-all duration-300 hover:shadow-lg"
+                      >
+                        {/* Icon */}
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FDF3E0]">
+                          <Icon size={18} className="text-[#E39A16]" />
+                        </div>
+
+                        {/* Content */}
+                        <div>
+                          <h3 className="text-sm font-semibold text-[#1A1A1A]">
+                            {item.title}
+                          </h3>
+
+                          <p className="mt-[10px] text-xs text-[#888888]">
+                            {item.subtitle}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                {/* ---end---- */}
+              </div>
+            )}
+            {activeTab === "location" && (
+              <div className="text-sm text-[#888888]">
+                {/* ------start---- */}
+                <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">
+                  Property Location
+                </h2>
+                <p className="text-[#888888] text-sm leading-0">
+                  Costa Blanca, Orihuela Costa, Spain
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-[15px]">
+                  {highlightsData.map((item, index) => {
+                    const Icon = item.icon;
+
+                    return (
+                      <div
+                        key={index}
+                        className="flex items-center gap-[10px] rounded-[14px] border border-[#EBEBEB] p-5 transition-all duration-300 hover:shadow-lg"
+                      >
+                        {/* Icon */}
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FDF3E0]">
+                          <Icon size={18} className="text-[#E39A16]" />
+                        </div>
+
+                        {/* Content */}
+                        <div>
+                          <h3 className="text-sm font-semibold text-[#1A1A1A]">
+                            {item.title}
+                          </h3>
+
+                          <p className="mt-[10px] text-xs text-[#888888]">
+                            {item.subtitle}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                {/* ---------end--- */}
+                {/* ----start---- */}
+                <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">
+                  {" "}
+                  House Rules{" "}
+                </h2>
+
+                <div className="grid grid-cols-1 gap-[18px] md:grid-cols-2 xl:grid-cols-3">
+                  {houseRules.map((item, index) => {
+                    const Icon = item.icon;
+
+                    return (
+                      <div
                         key={index}
                         className="flex items-center gap-[10px] rounded-[16px] border border-[#EBEBEB] p-[15px] transition duration-300 hover:shadow-md"
-                        >
+                      >
                         {/* Icon */}
                         <div className="flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full bg-[#F0F0F0]">
-                            <Icon
-                            size={16}
-                            className="text-[#1A1A1A]"
-                            />
+                          <Icon size={16} className="text-[#1A1A1A]" />
                         </div>
 
                         {/* Title */}
                         <h3 className="text-xs font-medium text-[#1A1A1A]">
-                            {item.title}
+                          {item.title}
                         </h3>
-                        </div>
+                      </div>
                     );
-                    })}
+                  })}
                 </div>
-             {/* -----end--- */}
+                {/* -----end--- */}
+              </div>
+            )}
+            {activeTab === "reviews" && (
+              <div className="text-sm text-[#888888]">
+                {/* ---start-- */}
+                <div className="mb-10 flex flex-col justify-between gap-8 lg:flex-row lg:items-start">
+                  <div>
+                    <h2 className="text-lg leading-[18px] font-semibold text-[#1A1A1A]">
+                      Guest Reviews
+                    </h2>
 
-             {/* ---start-- */}
-    {/* Header */}
-    <div className="mb-10 flex flex-col justify-between gap-8 lg:flex-row lg:items-start">
+                    <div className="mt-[10px] flex items-center gap-3">
+                      <div className="flex gap-1">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star
+                            key={i}
+                            size={12}
+                            className="fill-[#F5A623] text-[#F5A623]"
+                          />
+                        ))}
+                      </div>
 
-      <div>
-        <h2 className="text-lg leading-[18px] font-semibold text-[#1A1A1A]">
-          Guest Reviews
-        </h2>
+                      <span className="text-sm font-semibold text-[#1A1A1A]">
+                        4.9
+                      </span>
 
-        <div className="mt-[10px] flex items-center gap-3">
-          <div className="flex gap-1">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star
-                key={i}
-                size={12}
-                className="fill-[#F5A623] text-[#F5A623]"
-              />
-            ))}
-          </div>
+                      <span className="text-[#888888] text-xs">
+                        · 120 reviews
+                      </span>
+                    </div>
+                  </div>
 
-          <span className="text-sm font-semibold text-[#1A1A1A]">4.9</span>
+                  {/* Rating Bars */}
+                  <div className="w-full max-w-[380px] space-y-4">
+                    {ratingBreakdown.map((item) => (
+                      <div key={item.label} className="flex items-center gap-4">
+                        <span className="w-[120px] text-[#888888] text-sm leading-[14px]">
+                          {item.label}
+                        </span>
 
-          <span className="text-[#888888] text-xs">· 120 reviews</span>
-        </div>
-      </div>
+                        <div className="h-[8px] flex-1 rounded-full bg-[#F3F3F3]">
+                          <div
+                            className="h-full rounded-full bg-[#E8A020]"
+                            style={{
+                              width: `${(item.value / 5) * 100}%`,
+                            }}
+                          />
+                        </div>
 
-      {/* Rating Bars */}
-      <div className="w-full max-w-[380px] space-y-4">
-        {ratingBreakdown.map((item) => (
-          <div
-            key={item.label}
-            className="flex items-center gap-4"
-          >
-            <span className="w-[120px] text-[#888888] text-sm leading-[14px]">
-              {item.label}
-            </span>
+                        <span className="w-8 text-right font-medium text-xs text-[#888888]">
+                          {item.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
-            <div className="h-[8px] flex-1 rounded-full bg-[#F3F3F3]">
-              <div
-                className="h-full rounded-full bg-[#E8A020]"
-                style={{
-                  width: `${(item.value / 5) * 100}%`,
-                }}
-              />
-            </div>
+                <div className="mt-14 grid grid-cols-1 gap-[20px] md:grid-cols-2">
+                  {reviews.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex h-full flex-col rounded-[18px] border border-[#E8E4DC] bg-white p-[25px] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                    >
+                      {/* Stars */}
+                      <div className="mb-[16px] flex gap-1">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star
+                            key={i}
+                            size={14}
+                            fill="#F97316"
+                            className="text-[#F5A623]"
+                          />
+                        ))}
+                      </div>
 
-            <span className="w-8 text-right font-medium text-xs text-[#888888]">
-              {item.value}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
+                      {/* Review */}
+                      <p className="flex-1 text-xs !leading-[20px] text-[#1A1A1A]">
+                        "{item.review}"
+                      </p>
 
-    {/* Review Cards */}
+                      <div className="mt-5 mb-[9px] border-t border-[#E8E4DC]" />
 
-   <div className="mt-14 grid grid-cols-1 gap-[20px] md:grid-cols-2">
-            {reviews.map((item, index) => (
-              <div
-                key={index}
-                className="flex h-full flex-col rounded-[18px] border border-[#E8E4DC] bg-white p-[25px] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-              >
-                {/* Stars */}
-                <div className="mb-[16px] flex gap-1">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      size={14}
-                      fill="#F97316"
-                      className="text-[#F5A623]"
-                    />
+                      {/* User */}
+                      <div className="flex items-center gap-4">
+                        <div className="relative h-12 w-12 overflow-hidden rounded-full">
+                          <Image
+                            src={item.avatar}
+                            alt={item.name}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+
+                        <div>
+                          <h4 className="text-sm font-medium text-[#1A1A1A]">
+                            {item.name}
+                          </h4>
+
+                          <p className="text-xs text-[#888888]">
+                            {item.country} · {item.date}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   ))}
                 </div>
-  
-                {/* Review */}
-                <p className="flex-1 text-xs !leading-[20px] text-[#1A1A1A]">
-                  "{item.review}"
-                </p>
-  
-                <div className="mt-5 mb-[9px] border-t border-[#E8E4DC]" />
-  
-                {/* User */}
-           <div className="flex items-center gap-4">
-        <div className="relative h-12 w-12 overflow-hidden rounded-full">
-          <Image
-            src={item.avatar}
-            alt={item.name}
-            fill
-            className="object-cover"
-          />
-        </div>
-
-        <div>
-          <h4 className="text-sm font-medium text-[#1A1A1A]">
-            {item.name}
-          </h4>
-
-          <p className="text-xs text-[#888888]">
-            {item.country} · {item.date}
-          </p>
-        </div>
-      </div>
+                {/* Show all button */}
+                <button className="rounded-[24px] border border-[#EBEBEB] px-[18px] py-[15px] text-sm leading-[14px] font-semibold transition hover:bg-[#F8F8F8] cursor-pointer">
+                  Show all 120 reviews
+                </button>
+                {/* Review Cards */}
               </div>
-            ))}
-  </div>
-
-    {/* Button */}
-
-    <button className="rounded-[24px] border border-[#EBEBEB] px-[18px] py-[15px] text-sm leading-[14px] font-semibold transition hover:bg-[#F8F8F8] cursor-pointer">
-      Show all 120 reviews
-    </button>
-             {/* ---end-- */}
+            )}
           </div>
 
           {/* ── RIGHT – Booking card ───────────────────── */}
           <div className="lg:sticky lg:top-[110px] h-fit">
             <div className="space-y-4 rounded-[16px] border border-[#EBEBEB] bg-[#F8F6F2] px-5 py-[30px]">
-
               {/* Price */}
               <div className="mb-[10px] flex items-end gap-1">
                 <span className="text-[28px] font-bold leading-none text-[#1A1A1A]">
                   £{property.pricePerNight}
                 </span>
-                <span className="mb-[2px] text-sm text-[#888888]">per night</span>
+                <span className="mb-[2px] text-sm text-[#888888]">
+                  per night
+                </span>
               </div>
 
               {/* Date fields — pill with divider */}
               <div className="grid grid-cols-2 overflow-hidden rounded-[160px] border border-[#E3E3E3] divide-x divide-[#E3E3E3]">
-                <DateField label="Check In" value={checkIn} onChange={setCheckIn} />
-                <DateField label="Check Out" value={checkOut} onChange={setCheckOut} />
+                <DateField
+                  label="Check In"
+                  value={checkIn}
+                  onChange={setCheckIn}
+                />
+                <DateField
+                  label="Check Out"
+                  value={checkOut}
+                  onChange={setCheckOut}
+                />
               </div>
 
               {/* Guests dropdown */}
@@ -836,7 +1012,9 @@ export default function PropertyDetails() {
               {/* Price breakdown */}
               <div className="space-y-[12px] text-sm text-[#1A1A1A]">
                 <div className="flex justify-between">
-                  <span>£{property.pricePerNight} × {nights} nights</span>
+                  <span>
+                    £{property.pricePerNight} × {nights} nights
+                  </span>
                   <span>£{subtotal.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
@@ -869,8 +1047,11 @@ export default function PropertyDetails() {
               </div>
             </div>
           </div>
-
         </div>
+
+         {/* ---FAQ start--- */}
+             <FaqSection />
+             {/* ---FAQ end--- */}
       </div>
     </main>
   );
