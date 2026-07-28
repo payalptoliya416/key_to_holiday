@@ -1,7 +1,10 @@
+"use client";
+
 import NewsletterSection from "./NewsletterSection";
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, Phone, MapPin, ShieldCheck, Lock } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const company = [
   "About Us",
@@ -37,9 +40,14 @@ const support = [
 ];
 
 function Footer() {
+    const pathname = usePathname();
+
+  const hideNewsletter =
+    pathname === "/sign-in" ||
+    pathname === "/login";
   return (
     <>
-      <NewsletterSection />
+     {!hideNewsletter && <NewsletterSection />}
       <footer className="bg-[#11182C] text-white">
         <div className="mx-auto max-w-7xl px-6 pt-[70px]">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5">
@@ -225,7 +233,7 @@ function Footer() {
           {/* Bottom */}
 
           <div className="mt-[39px] border-t border-white/10 py-5 text-center text-sm text-[#FFFFFF80]">
-           © {new Date().getFullYear()} KeyToHolidays Ltd. All rights reserved.
+            © {new Date().getFullYear()} KeyToHolidays Ltd. All rights reserved.
           </div>
         </div>
       </footer>

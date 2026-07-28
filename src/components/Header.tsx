@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { name: "Destinations", href: "#" },
@@ -13,7 +14,9 @@ const navItems = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+    const pathname = usePathname();
 
+    const isSignInPage = pathname === "/sign-in";
   return (
     <header className="sticky top-0 z-50 bg-white px-[30px] py-[25px]">
       <div className="">
@@ -31,12 +34,14 @@ export default function Header() {
           </nav>
 
          <div className="hidden items-center gap-[15px] lg:flex">
-        <Link
-          href="/sign-in"
-          className="flex h-12 items-center justify-center rounded-full border border-[#E8E4DC] px-8 text-base !leading-[16px] font-medium transition hover:border-[#E39A16] hover:text-[#E39A16] text-[#0F172A]"
-        >
-          Sign In
-        </Link>
+         {!isSignInPage && (
+          <Link
+            href="/sign-in"
+            className="flex h-12 items-center justify-center rounded-full border border-[#E8E4DC] px-8 text-base font-medium text-[#0F172A] transition hover:border-[#E39A16] hover:text-[#E39A16]"
+          >
+            Sign In
+          </Link>
+        )}
 
         <Link
           href="/list-your-property"
@@ -63,7 +68,15 @@ export default function Header() {
           </nav>
 
           <div className="mt-8 flex flex-col gap-4">
-            <button className="h-12 rounded-full border border-gray-300 font-medium">Sign In</button>
+           {!isSignInPage && (
+            <Link
+              href="/sign-in"
+              onClick={() => setOpen(false)}
+              className="flex h-12 items-center justify-center rounded-full border border-gray-300 font-medium"
+            >
+              Sign In
+            </Link>
+          )}
             <button className="h-12 rounded-full bg-[#D89216] font-semibold text-white">List Your Property</button>
           </div>
         </div>
