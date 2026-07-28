@@ -59,6 +59,54 @@ const homes = [
     image: "/images/feature4.png",
     slug: "the-coastal-retreat",
   },
+  {
+    id: 5,
+    title: "Villa Sol Dorrado",
+    location: "Marbella, Spain",
+    guests: 8,
+    bedrooms: 4,
+    reviews: 124,
+    rating: 4.97,
+    price: 420,
+    image: "/images/feature1.png",
+    slug: "villa-sol-dorrado",
+  },
+  {
+    id: 6,
+    title: "Aegean Dream Villa",
+    location: "Santorini, Greece",
+    guests: 6,
+    bedrooms: 3,
+    reviews: 89,
+    rating: 4.95,
+    price: 580,
+    image: "/images/feature2.png",
+    slug: "aegean-dream-villa",
+  },
+   {
+    id: 7,
+    title: "Quinta da Serra",
+    location: "Algarve, Portugal",
+    guests: 10,
+    bedrooms: 5,
+    reviews: 176,
+    rating: 4.96,
+    price: 390,
+    image: "/images/feature3.png",
+    slug: "quinta-da-serra",
+  },
+  {
+    id: 8,
+    title: "The Coastal Retreat",
+    location: "Paphos, Cyprus",
+    guests: 6,
+    bedrooms: 3,
+    reviews: 102,
+    rating: 4.88,
+    price: 310,
+    image: "/images/feature4.png",
+    slug: "the-coastal-retreat",
+  },
 ];
 
 export default function FeaturedHolidayHomes() {
@@ -76,7 +124,7 @@ export default function FeaturedHolidayHomes() {
           </div>
 
           <Link href="/holiday-homes" className="section-link">
-            <span>Explore all destinations</span>
+            <span>View all properties</span>
             <ArrowRight size={18} />
           </Link>
         </div>

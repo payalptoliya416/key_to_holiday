@@ -89,7 +89,7 @@ export default function PopularDestinations() {
                   {item.properties}
                 </p>
 
-                <div className="mt-[15px] flex items-center justify-between">
+                <div className="mt-[15px] flex md:items-center justify-between flex-col md:flex-row gap-2">
                   <div className="flex items-center gap-[5px] text-white text-sm">
                     <span className="pr-[5px]">{item.price}</span>
 
