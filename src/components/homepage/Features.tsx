@@ -1,4 +1,4 @@
-import { BadgeCheck, Tag, LockKeyhole, Headphones } from "lucide-react";
+
 import Image from "next/image";
 
 const features = [
