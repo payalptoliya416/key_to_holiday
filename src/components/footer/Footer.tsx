@@ -53,7 +53,7 @@ function Footer() {
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5">
             <div className="lg:col-span-1">
               <Image
-                src="/images/logo.png"
+                src="/images/light-logo.svg"
                 alt="logo"
                 width={210}
                 height={60}
