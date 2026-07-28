@@ -50,7 +50,7 @@ export default function PopularDestinations() {
   return (
     <section className="py-12 lg:py-[90px] bg-[#F8F6F2]">
       <div className="container-custom">
-        <div className="mb-10 flex items-end justify-between">
+        <div className="mb-10 flex items-center justify-between">
           <div>
             <p className="section-tag">Top Locations</p>
 

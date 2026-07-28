@@ -68,7 +68,7 @@ export default function FeaturedHolidayHomes() {
     <section className="section-space">
       {/* Heading */}
       <div className="container-custom">
-        <div className="mb-8 flex items-end justify-between">
+        <div className="mb-8 flex items-center justify-between">
           <div>
             <p className="section-tag">Handpicked For You</p>
 
