@@ -50,7 +50,7 @@ function Footer() {
      {!hideNewsletter && <NewsletterSection />}
       <footer className="bg-[#11182C] text-white">
         <div className="container-custom pt-[70px]">
-          <div className="grid grid-cols-12 gap-y-10 gap-x-8">
+          <div className="grid grid-cols-12 sm:gap-10">
             <div className="col-span-12 lg:col-span-4">
               <Image
                 src="/images/light-logo.svg"
