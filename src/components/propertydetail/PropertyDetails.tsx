@@ -42,6 +42,7 @@ import {
 } from "lucide-react";
 import SimilarProperti from "./SimilarProperti";
 import FaqSection from "./FaqSection";
+import LightboxGallery from "./LightboxGallery";
 
 /* ─── Static mock data ─────────────────────────────────────── */
 const property = {
@@ -474,6 +475,8 @@ export default function PropertyDetails() {
     infants: 0,
     pets: 0,
   });
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [initialSlide, setInitialSlide] = useState(0);
 
   const nights = 7;
   const subtotal = property.pricePerNight * nights;
@@ -612,12 +615,25 @@ export default function PropertyDetails() {
                   </div>
                 )}
                 {i === 1 && (
-                  <button className="absolute bottom-4 right-4 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#1A1A1A] shadow-md transition hover:bg-[#FFF7EA]">
-                    <Grid2x2 size={14} /> View All Photos (32)
-                  </button>
+                  <button
+                onClick={() => {
+                  setInitialSlide(0);
+                  setGalleryOpen(true);
+                }}
+                className="absolute bottom-4 right-4 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#1A1A1A] shadow-md transition hover:bg-[#FFF7EA] cursor-pointer"
+              >
+                <Grid2x2 size={14} />
+                View All Photos ({property.images.length})
+              </button>
                 )}
               </div>
             ))}
+            <LightboxGallery
+              open={galleryOpen}
+              images={property.images}
+              initialSlide={initialSlide}
+              onClose={() => setGalleryOpen(false)}
+            />
           </div>
         </div>
       </div>
