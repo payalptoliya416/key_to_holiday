@@ -141,7 +141,7 @@ function renderCalendar(year: number, month: number) {
 
       <div className="grid grid-cols-7 gap-1 text-center sm:gap-y-2">
         {WEEK_DAYS.map((wd) => (
-          <span key={wd} className="text-xs font-medium text-[#9DA4B1]">
+          <span key={wd} className="text-[10px] sm:text-xs font-medium text-[#9DA4B1]">
             {wd}
           </span>
         ))}
@@ -341,11 +341,11 @@ function renderCalendar(year: number, month: number) {
 bg-white p-4 shadow-[0_15px_45px_rgba(0,0,0,0.12)] sm:w-[340px] lg:w-[380px]">
     {renderCalendar(leftMonth.year, leftMonth.month)}
 
-    <div className="mt-4 flex justify-end">
+    <div className="mt-2 sm:mt-4 flex justify-end">
       <button
         type="button"
         onClick={() => setDateOpen(false)}
-        className="gold-gradient rounded-full px-6 py-2 text-sm font-semibold text-white"
+        className="gold-gradient rounded-full px-6 py-2 text-xs sm:text-sm font-semibold text-white"
       >
         Done
       </button>
