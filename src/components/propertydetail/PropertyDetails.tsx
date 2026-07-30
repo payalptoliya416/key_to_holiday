@@ -568,7 +568,7 @@ export default function PropertyDetails() {
       {/* ── Photo Gallery ───────────────────────────────── */}
       <div className="mx-[30px] mt-5">
         <div className="grid lg:gap-3 lg:grid-cols-[2fr_1fr_1fr]">
-          <div className="relative h-[260px] overflow-hidden rounded-[24px] sm:h-[380px] lg:h-[530px]">
+          <div className="relative h-[260px] overflow-hidden rounded-[24px] sm:h-[380px] lg:h-[530px] mb-3 lg:mb-0">
             <Image
               src={property.images[0]}
               alt={property.title}
