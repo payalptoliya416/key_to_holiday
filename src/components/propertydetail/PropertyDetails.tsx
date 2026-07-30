@@ -38,8 +38,6 @@ import {
   CigaretteOff,
   PartyPopper,
   Clock3,
-  Plus,
-  Minus,
   ExternalLink,
 } from "lucide-react";
 import SimilarProperti from "./SimilarProperti";
@@ -336,7 +334,7 @@ function GuestDropdown({
       : `${totalGuests} guests${counts.infants ? `, ${counts.infants} infant${counts.infants > 1 ? "s" : ""}` : ""}${counts.pets ? `, ${counts.pets} pet${counts.pets > 1 ? "s" : ""}` : ""}`;
 
   // Close on outside click
-  useEffect(() => {
+ useEffect(() => { 
     function handleClick(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) {
         setOpen(false);
@@ -501,12 +499,44 @@ export default function PropertyDetails() {
     reviews: reviewsRef,
   };
 
+  useEffect(() => {
+  const sections = [
+    { id: "overview", ref: overviewRef },
+    { id: "features", ref: featuresRef },
+    { id: "location", ref: locationRef },
+    { id: "reviews", ref: reviewsRef },
+  ];
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveTab(entry.target.id);
+        }
+      });
+    },
+    {
+      root: null,
+      rootMargin: "-140px 0px -55% 0px", // header + sticky tabs offset
+      threshold: 0.2,
+    }
+  );
+
+  sections.forEach(({ ref }) => {
+    if (ref.current) observer.observe(ref.current);
+  });
+
+  return () => observer.disconnect();
+}, []);
+
   const scrollToSection = (id: keyof typeof sectionRefs) => {
-    sectionRefs[id].current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
+  setActiveTab(id);
+
+  sectionRefs[id].current?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+};
 
   return (
     <main className="">
@@ -598,27 +628,27 @@ export default function PropertyDetails() {
           {/* ── LEFT ──────────────────────────────────── */}
           <div className="space-y-8">
             {/* Tabs */}
-            <div className="border-b border-[#E8E4DC]">
-  <div className="overflow-x-auto scrollbar-hide">
-    <div className="flex w-max min-w-full gap-2 sm:gap-4 lg:gap-8">
-      {tabs.map((tab) => (
-        <button
-          key={tab.id}
-          onClick={() => scrollToSection(tab.id as keyof typeof sectionRefs)}
-          className={`shrink-0 cursor-pointer whitespace-nowrap border-b-2 px-1 py-3 text-sm font-medium transition sm:text-base lg:py-5 lg:text-lg ${
-            activeTab === tab.id
-              ? "border-[#E39A16] gold-gradient-text"
-              : "border-transparent text-[#7C7C7C] hover:text-[#0F172A]"
-          }`}
-        >
-          {tab.label}
-        </button>
-      ))}
-    </div>
-  </div>
-</div>
+          <div className="sticky top-[80px] z-40 bg-white border-b border-[#E8E4DC]">
+            <div className="overflow-x-auto scrollbar-hide">
+              <div className="flex w-max min-w-full gap-2 sm:gap-4 lg:gap-8">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => scrollToSection(tab.id as keyof typeof sectionRefs)}
+                    className={`shrink-0 whitespace-nowrap border-b-2 px-1 py-3 text-sm font-medium transition sm:text-base lg:py-5 lg:text-lg ${
+                      activeTab === tab.id
+                        ? "border-[#E39A16] gold-gradient-text"
+                        : "border-transparent text-[#7C7C7C] hover:text-[#0F172A]"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
 
-            <div ref={overviewRef} id="overview" className="scroll-mt-[120px]">
+            <div ref={overviewRef} id="overview" className="scroll-mt-[170px]">
                 <div className="flex flex-col gap-[15px] lg:flex-row lg:items-start lg:justify-between mt-[30px]">
                   <h1 className="text-[28px] font-bold text-[#1A1A1A] md:text-[36px]">
                     Villa Sol Paradise
@@ -700,7 +730,7 @@ export default function PropertyDetails() {
             </div>
               <div className="border-t border-[#EBEBEB] my-[35px]" />
 
-           <div ref={featuresRef} id="features" className="scroll-mt-[120px]">
+           <div ref={featuresRef} id="features" className="scroll-mt-[170px]">
               <div className="text-sm text-[#888888]">
                 {/* ---start---- */}
                 <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">
@@ -737,7 +767,7 @@ export default function PropertyDetails() {
                 {/* ---end---- */}
               </div>
            </div>
-           <div ref={locationRef} id="location" className="scroll-mt-[120px]">
+           <div ref={locationRef} id="location" className="scroll-mt-[170px]">
               <div className="text-sm text-[#888888]">
                 {/* ------start---- */}
                 <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">
@@ -832,7 +862,7 @@ export default function PropertyDetails() {
               </div>
           </div>
           <div className="border-t border-[#EBEBEB] my-[35px]" />
-           <div ref={reviewsRef} id="reviews" className="scroll-mt-[120px] mt-16">
+           <div ref={reviewsRef} id="reviews" className="scroll-mt-[170px]">
               <div className="text-sm text-[#888888]">
                 {/* ---start-- */}
                 <div className="mb-10 flex flex-col justify-between gap-8 lg:flex-row lg:items-start">

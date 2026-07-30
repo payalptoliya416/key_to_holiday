@@ -75,12 +75,6 @@ function BookingSearch() {
     year: today.getFullYear(),
     month: today.getMonth(),
   });
-  const rightMonth = (() => {
-    const m = leftMonth.month + 1;
-    return m > 11
-      ? { year: leftMonth.year + 1, month: 0 }
-      : { year: leftMonth.year, month: m };
-  })();
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -118,74 +112,73 @@ function BookingSearch() {
     });
   }
 
-  function renderCalendar(year: number, month: number, showPrevArrow: boolean, showNextArrow: boolean) {
-    const cells = getMonthMatrix(year, month);
-    return (
-      <div className="flex-1">
-        <div className="mb-3 flex items-center justify-between">
-          {showPrevArrow ? (
-            <button
-              type="button"
-              onClick={goPrevMonth}
-              className="rounded-full p-1 text-[#0F172A] hover:bg-[#F5F3EE]"
-            >
-              <ChevronLeft size={18} />
-            </button>
-          ) : (
-            <span className="w-6" />
-          )}
-          <p className="text-sm font-semibold text-[#0F172A]">
-            {MONTH_NAMES[month]} {year}
-          </p>
-          {showNextArrow ? (
-            <button
-              type="button"
-              onClick={goNextMonth}
-              className="rounded-full p-1 text-[#0F172A] hover:bg-[#F5F3EE]"
-            >
-              <ChevronRight size={18} />
-            </button>
-          ) : (
-            <span className="w-6" />
-          )}
-        </div>
+function renderCalendar(year: number, month: number) {
+  const cells = getMonthMatrix(year, month);
 
-        <div className="grid grid-cols-7 gap-y-2 text-center">
-          {WEEK_DAYS.map((wd) => (
-            <span key={wd} className="text-xs font-medium text-[#9DA4B1]">
-              {wd}
-            </span>
-          ))}
+  return (
+    <div className="flex-1">
+      <div className="mb-3 flex items-center justify-between">
+        <button
+          type="button"
+          onClick={goPrevMonth}
+          className="rounded-full p-1 bg-slate-700"
+        >
+          <ChevronLeft size={18} />
+        </button>
 
-          {cells.map((day, idx) => {
-            if (day === null) return <span key={idx} />;
+        <p className="text-sm font-semibold text-[#0F172A]">
+          {MONTH_NAMES[month]} {year}
+        </p>
 
-            const past = isPastDate(year, month, day);
-            const selected = sameDate(checkIn, { y: year, m: month, d: day });
-
-            return (
-              <button
-                type="button"
-                key={idx}
-                disabled={past}
-                onClick={() => setCheckIn(new Date(year, month, day))}
-                className={[
-                  "mx-auto flex h-8 w-8 items-center justify-center rounded-full text-sm transition-colors",
-                  past
-                    ? "text-[#D8D8D8] line-through cursor-not-allowed"
-                    : selected
-                    ? "bg-[#0F172A] text-white font-semibold"
-                    : "text-[#0F172A] hover:bg-[#F5F3EE]",
-                ].join(" ")}
-              >
-                {day}
-              </button>
-            );
-          })}
-        </div>
+        <button
+          type="button"
+          onClick={goNextMonth}
+          className="rounded-full p-1 bg-slate-700"
+        >
+          <ChevronRight size={18} />
+        </button>
       </div>
-    );
-  }
+
+      <div className="grid grid-cols-7 gap-y-2 text-center">
+        {WEEK_DAYS.map((wd) => (
+          <span key={wd} className="text-xs font-medium text-[#9DA4B1]">
+            {wd}
+          </span>
+        ))}
+
+        {cells.map((day, idx) => {
+          if (day === null) return <span key={idx} />;
+
+          const past = isPastDate(year, month, day);
+          const selected = sameDate(checkIn, {
+            y: year,
+            m: month,
+            d: day,
+          });
+
+          return (
+            <button
+              key={idx}
+              type="button"
+              disabled={past}
+              onClick={() => setCheckIn(new Date(year, month, day))}
+              className={[
+                "mx-auto flex h-8 w-8 items-center justify-center rounded-full text-sm transition-colors",
+                past
+                  ? "text-[#D8D8D8] line-through cursor-not-allowed"
+                  : selected
+                  ? "bg-[#0F172A] text-white font-semibold"
+                  : "text-[#0F172A] hover:bg-[#F5F3EE]",
+              ].join(" ")}
+            >
+              {day}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
   function Counter({
     label,
@@ -341,56 +334,21 @@ function BookingSearch() {
               </span>
             </div>
 
-            {dateOpen && (
-              <div className="absolute left-0 top-full z-20 mt-2 w-[320px] sm:w-[600px] rounded-2xl border border-[#ECE7DF] bg-white p-5 shadow-[0_15px_45px_rgba(0,0,0,0.12)]">
-                <div className="mb-5 grid grid-cols-2 gap-4">
-                  <div>
-                    <p className="mb-2 text-xs font-semibold text-[#9DA4B1]">Duration</p>
-                    <select
-                      value={duration}
-                      onChange={(e) => setDuration(e.target.value)}
-                      className="w-full rounded-full border border-[#E8E4DC] px-4 py-2 text-sm text-[#0F172A] outline-none"
-                    >
-                      {DURATIONS.map((d) => (
-                        <option key={d} value={d}>
-                          {d}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <p className="mb-2 text-xs font-semibold text-[#9DA4B1]">Flexibility</p>
-                    <select
-                      value={flexibility}
-                      onChange={(e) => setFlexibility(e.target.value)}
-                      className="w-full rounded-full border border-[#E8E4DC] px-4 py-2 text-sm text-[#0F172A] outline-none"
-                    >
-                      {FLEXIBILITY.map((f) => (
-                        <option key={f} value={f}>
-                          {f}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
+           {dateOpen && (
+  <div className="absolute left-0 top-full z-20 mt-2 w-[340px] rounded-2xl border border-[#ECE7DF] bg-white p-5 shadow-[0_15px_45px_rgba(0,0,0,0.12)]">
+    {renderCalendar(leftMonth.year, leftMonth.month)}
 
-                <div className="flex flex-col sm:flex-row gap-6">
-                  {renderCalendar(leftMonth.year, leftMonth.month, true, false)}
-                  <div className="hidden sm:block w-px bg-[#ECE7DF]" />
-                  {renderCalendar(rightMonth.year, rightMonth.month, false, true)}
-                </div>
-
-                <div className="mt-4 flex justify-end">
-                  <button
-                    type="button"
-                    onClick={() => setDateOpen(false)}
-                    className="gold-gradient rounded-full px-6 py-2 text-sm font-semibold text-white"
-                  >
-                    Done
-                  </button>
-                </div>
-              </div>
-            )}
+    <div className="mt-4 flex justify-end">
+      <button
+        type="button"
+        onClick={() => setDateOpen(false)}
+        className="gold-gradient rounded-full px-6 py-2 text-sm font-semibold text-white"
+      >
+        Done
+      </button>
+    </div>
+  </div>
+)}
           </div>
 
           {/* Check Out */}
