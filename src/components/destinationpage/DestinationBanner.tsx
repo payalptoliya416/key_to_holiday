@@ -5,7 +5,7 @@ import BookingSearch from "../Booking/BookingSearch";
 function DestinationBanner() {
   return (
     <>
-      <div className="px-[30px]">
+      <div className="px-4 md:px-[30px]">
         <div className="relative min-h-[765px] w-full flex flex-col justify-between p-4 md:p-8 text-white rounded-[22px]">
           <div className="absolute inset-0 -z-10 bg-[url('/images/destination-banner.png')] bg-cover bg-center" />
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0F172ABF] via-[#0F172A8C] to-[#0F172ABF]" />
@@ -24,29 +24,29 @@ function DestinationBanner() {
             escapes to mountain retreats, find your perfect holiday.
             </p>
              <BookingSearch />
-            <div className="flex items-center justify-center gap-2 md:gap-3 flex-wrap flex-col sm:flex-row pb-4 mt-5">
-              <button className="px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-[15px]">
+            <div className="flex items-center justify-center gap-2 md:gap-3 flex-wrap pb-4 mt-5">
+              <button className="basis-[calc(50%-6px)] sm:basis-auto px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-[15px]">
                  <span>Spain</span>
               </button>
-              <button className="px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-[15px]">
+              <button className="basis-[calc(50%-6px)] sm:basis-auto px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-[15px]">
                  <span>Portugal</span>
               </button>
-              <button className="px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-[15px]">
+              <button className="basis-[calc(50%-6px)] sm:basis-auto px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-[15px]">
                  <span>Italy</span>
               </button>
-              <button className="px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-[15px]">
+              <button className="basis-[calc(50%-6px)] sm:basis-auto px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-[15px]">
                 <span>Greece</span>
               </button>
-              <button className="px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-[15px]">
+              <button className="basis-[calc(50%-6px)] sm:basis-auto px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-[15px]">
                 <span>Cyprus</span>
               </button>
-              <button className="px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-[15px]">
+              <button className="basis-[calc(50%-6px)] sm:basis-auto px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-[15px]">
                  <span>France</span>
               </button>
-              <button className="px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-[15px]">
+              <button className="basis-[calc(50%-6px)] sm:basis-auto px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-[15px]">
                  <span>Croatia</span>
               </button>
-              <button className="px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-[15px]">
+              <button className="basis-[calc(50%-6px)] sm:basis-auto px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-[15px]">
                  <span>United Kingdom</span>
               </button>
             </div>

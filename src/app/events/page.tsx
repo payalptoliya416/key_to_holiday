@@ -250,7 +250,7 @@ function Events() {
   const router = useRouter();
   return (
     <>
-      <div className="px-[30px]">
+      <div className="px-4 md:px-[30px]">
         <div className="relative min-h-[623px] w-full flex flex-col justify-between p-4 md:p-8 text-white rounded-[22px]">
           <div className="absolute inset-0 -z-10 bg-[url('/images/destination-banner.png')] bg-cover bg-center" />
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0F172ABF] via-[#0F172A8C] to-[#0F172ABF]" />
@@ -313,7 +313,7 @@ function Events() {
                  <SwiperSlide key={home.id} className="!w-[305px]">
                    <div
                      onClick={() => router.push(`/`)}
-                     className="group overflow-hidden rounded-[22px] border border-[#E8E4DC] bg-white cursor-pointer transition-all duration-300 hover:shadow-xl"
+                     className="group overflow-hidden rounded-[22px] border border-[#E8E4DC] bg-white cursor-pointer transition-all duration-300"
                    >
                      {/* Image */}
                      <div className="relative overflow-hidden">

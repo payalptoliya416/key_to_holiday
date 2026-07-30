@@ -34,7 +34,7 @@ export default function Header() {
   setOpen(false);
 };
   return (
-    <header className="sticky top-0 z-50 bg-white px-5 py-4 sm:px-6 lg:px-[30px] lg:py-[25px]">
+    <header className="sticky top-0 z-50 bg-white px-5 py-4 md:px-6 lg:px-[30px] lg:py-[25px]">
       <div className="">
         <div className="flex items-center justify-between pb-5 lg:pb-0">
           <Link href="/" className="flex items-center">
