@@ -38,7 +38,10 @@ import {
   CigaretteOff,
   PartyPopper,
   Clock3,
+  Plus,
+  Minus,
 } from "lucide-react";
+import SimilarProperti from "./SimilarProperti";
 
 /* ─── Static mock data ─────────────────────────────────────── */
 const property = {
@@ -110,11 +113,11 @@ function DateField({
     <button
       type="button"
       onClick={() => inputRef.current?.showPicker?.()}
-      className="flex flex-col gap-[9px] px-5 py-[13px] text-left w-full relative"
+      className="flex flex-col gap-2.25 px-3 md:px-5 py-3.25 text-left w-full relative"
     >
       <span className="text-xs font-semibold text-[#1A1A1A]">{label}</span>
       <span
-        className={`flex items-center gap-2 text-sm ${
+        className={`flex items-center gap-2 text-xs sm:text-sm ${
           formatted ? "text-[#1A1A1A] font-medium" : "text-[#888888]"
         }`}
       >
@@ -487,32 +490,31 @@ function FaqSection() {
       </div>
 
       {/* Accordion items */}
-      <div className="space-y-3">
+      <div className="space-y-3.75">
         {faqs.map((faq, i) => {
           const isOpen = openIndex === i;
           return (
             <div
               key={i}
-              className="overflow-hidden rounded-[14px] border border-[#E8E4DC] bg-white"
+              className="overflow-hidden rounded-[10px] border border-[#EBEBEB] bg-white"
             >
               <button
                 onClick={() => setOpenIndex(isOpen ? null : i)}
-                className="flex w-full items-center justify-between px-6 py-[18px] text-left transition hover:bg-[#FAFAFA]"
+              className={`flex w-full items-center justify-between px-5 py-5.5 text-left transition cursor-pointer ${
+              isOpen ? "border-b border-[#EBEBEB]" : ""
+            }`}
+
               >
-                <span className="text-sm font-medium text-[#1A1A1A]">
+                <span className="text-sm leading-3.5 font-medium text-[#1A1A1A]">
                   {faq.q}
                 </span>
                 <span
-                  className={`ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border transition ${
-                    isOpen
-                      ? "border-[#E8A020] text-[#E8A020]"
-                      : "border-[#E8E4DC] text-[#E8A020]"
-                  }`}
+                  className={`ml-4 flex shrink-0 items-center justify-center transition`}
                 >
                   {isOpen ? (
-                    <span className="text-lg font-light leading-none">−</span>
+                    <span className="text-base font-light leading-none text-[#E8A020]"><Minus  size={14}/></span>
                   ) : (
-                    <span className="text-lg font-light leading-none">+</span>
+                    <span className="text-base font-light leading-none text-[#E8A020]"><Plus size={14}/></span>
                   )}
                 </span>
               </button>
@@ -523,7 +525,7 @@ function FaqSection() {
                   isOpen ? "max-h-60" : "max-h-0"
                 }`}
               >
-                <p className="px-6 pb-5 text-sm leading-[22px] text-[#888888]">
+                <p className="p-5 text-sm leading-5 text-[#888888]">
                   {faq.a}
                 </p>
               </div>
@@ -661,22 +663,24 @@ export default function PropertyDetails() {
           <div className="space-y-8">
             {/* Tabs */}
             <div className="border-b border-[#E8E4DC]">
-              <div className="flex justify-between gap-10">
-                {tabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`cursor-pointer whitespace-nowrap border-b-2 py-5 text-lg font-medium transition ${
-                      activeTab === tab.id
-                        ? "border-[#E39A16] gold-gradient-text"
-                        : "border-transparent text-[#7C7C7C] hover:text-[#0F172A]"
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
-              </div>
-            </div>
+  <div className="overflow-x-auto scrollbar-hide">
+    <div className="flex w-max min-w-full gap-2 sm:gap-4 lg:gap-8">
+      {tabs.map((tab) => (
+        <button
+          key={tab.id}
+          onClick={() => setActiveTab(tab.id)}
+          className={`shrink-0 cursor-pointer whitespace-nowrap border-b-2 px-1 py-3 text-sm font-medium transition sm:text-base lg:py-5 lg:text-lg ${
+            activeTab === tab.id
+              ? "border-[#E39A16] gold-gradient-text"
+              : "border-transparent text-[#7C7C7C] hover:text-[#0F172A]"
+          }`}
+        >
+          {tab.label}
+        </button>
+      ))}
+    </div>
+  </div>
+</div>
 
             {activeTab === "overview" && (
               <>
@@ -971,7 +975,7 @@ export default function PropertyDetails() {
                   ))}
                 </div>
                 {/* Show all button */}
-                <button className="rounded-[24px] border border-[#EBEBEB] px-[18px] py-[15px] text-sm leading-[14px] font-semibold transition hover:bg-[#F8F8F8] cursor-pointer">
+                <button className="rounded-[24px] border border-[#EBEBEB] px-[18px] py-[15px] text-sm leading-[14px] font-semibold transition hover:bg-[#F8F8F8] cursor-pointer mt-[25px]">
                   Show all 120 reviews
                 </button>
                 {/* Review Cards */}
@@ -1052,6 +1056,10 @@ export default function PropertyDetails() {
          {/* ---FAQ start--- */}
              <FaqSection />
              {/* ---FAQ end--- */}
+
+             {/* ----SimilarProperti--start */}
+             <SimilarProperti/>
+             {/* ----SimilarProperti--end */}
       </div>
     </main>
   );
