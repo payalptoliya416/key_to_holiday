@@ -139,7 +139,7 @@ function renderCalendar(year: number, month: number) {
         </button>
       </div>
 
-      <div className="grid grid-cols-7 gap-y-2 text-center">
+      <div className="grid grid-cols-7 gap-1 text-center sm:gap-y-2">
         {WEEK_DAYS.map((wd) => (
           <span key={wd} className="text-xs font-medium text-[#9DA4B1]">
             {wd}
@@ -163,7 +163,7 @@ function renderCalendar(year: number, month: number) {
               disabled={past}
               onClick={() => setCheckIn(new Date(year, month, day))}
               className={[
-                "mx-auto flex h-8 w-8 items-center justify-center rounded-full text-sm transition-colors",
+                "mx-auto flex h-8 w-8 items-center justify-center rounded-full text-xs sm:h-9 sm:w-9 sm:text-sm",
                 past
                   ? "text-[#D8D8D8] line-through cursor-not-allowed"
                   : selected
@@ -272,7 +272,9 @@ function renderCalendar(year: number, month: number) {
             </div>
 
             {destOpen && (
-              <div className="absolute left-0 top-full z-20 mt-2 w-full min-w-[280px] rounded-2xl border border-[#ECE7DF] bg-white p-4 shadow-[0_15px_45px_rgba(0,0,0,0.12)]">
+              <div className="absolute left-0 right-0 top-full z-30 mt-2 w-full min-w-0
+                rounded-2xl border border-[#ECE7DF] bg-white p-4 shadow-[0_15px_45px_rgba(0,0,0,0.12)]
+                xl:w-[350px]">
                 <p className="mb-2 text-xs font-semibold text-[#9DA4B1]">
                   Popular destinations
                 </p>
@@ -335,7 +337,8 @@ function renderCalendar(year: number, month: number) {
             </div>
 
            {dateOpen && (
-  <div className="absolute left-0 top-full z-20 mt-2 w-[340px] rounded-2xl border border-[#ECE7DF] bg-white p-5 shadow-[0_15px_45px_rgba(0,0,0,0.12)]">
+  <div className="absolute left-0 top-full z-30 mt-2 w-full min-w-0 rounded-2xl border border-[#ECE7DF]
+bg-white p-4 shadow-[0_15px_45px_rgba(0,0,0,0.12)] sm:w-[340px] lg:w-[380px]">
     {renderCalendar(leftMonth.year, leftMonth.month)}
 
     <div className="mt-4 flex justify-end">
@@ -397,7 +400,7 @@ function renderCalendar(year: number, month: number) {
             </div>
 
             {guestsOpen && (
-              <div className="absolute left-0 top-full z-20 mt-2 w-full min-w-[280px] rounded-2xl border border-[#ECE7DF] bg-white p-5 shadow-[0_15px_45px_rgba(0,0,0,0.12)] divide-y divide-[#ECE7DF]">
+              <div className="absolute left-0 top-full z-20 mt-2 w-full min-w-[180px] md:min-w-[280px] rounded-2xl border border-[#ECE7DF] bg-white p-5 shadow-[0_15px_45px_rgba(0,0,0,0.12)] divide-y divide-[#ECE7DF]">
                 <Counter label="Adults" value={adults} setValue={setAdults} min={0} />
                 <Counter
                   label="Children"
