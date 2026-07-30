@@ -28,6 +28,7 @@ const categories = [
   "Pet Friendly",
   "Long Stay Discounts",
 ];
+
 export const homes = [
   {
     id: 1,

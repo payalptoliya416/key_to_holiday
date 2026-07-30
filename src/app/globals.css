@@ -209,4 +209,7 @@ body {
    .section-link {
     @apply hidden lg:flex items-center gap-2 font-semibold text-[#D4A017] transition-all duration-300 hover:gap-3;
   }
+  .input-style {
+  @apply h-[60px] w-full rounded-full border border-[#EBEBEB] bg-white px-[25px] text-[#17213C] outline-none transition placeholder:text-[#888888] focus:border-[#D69A17];
+}
 }
