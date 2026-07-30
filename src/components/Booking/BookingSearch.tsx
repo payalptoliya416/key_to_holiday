@@ -337,21 +337,21 @@ function renderCalendar(year: number, month: number) {
             </div>
 
            {dateOpen && (
-  <div className="absolute left-0 top-full z-30 mt-2 w-full min-w-0 rounded-2xl border border-[#ECE7DF]
-bg-white p-4 shadow-[0_15px_45px_rgba(0,0,0,0.12)] sm:w-[340px] lg:w-[380px]">
-    {renderCalendar(leftMonth.year, leftMonth.month)}
+            <div className="absolute left-0 top-full z-30 mt-2 w-full min-w-0 rounded-2xl border border-[#ECE7DF]
+            bg-white p-4 shadow-[0_15px_45px_rgba(0,0,0,0.12)] sm:w-[340px] lg:w-[380px]">
+                {renderCalendar(leftMonth.year, leftMonth.month)}
 
-    <div className="mt-2 sm:mt-4 flex justify-end">
-      <button
-        type="button"
-        onClick={() => setDateOpen(false)}
-        className="gold-gradient rounded-full px-6 py-2 text-xs sm:text-sm font-semibold text-white"
-      >
-        Done
-      </button>
-    </div>
-  </div>
-)}
+                <div className="mt-2 sm:mt-4 flex justify-end">
+                <button
+                    type="button"
+                    onClick={() => setDateOpen(false)}
+                    className="gold-gradient rounded-full px-6 py-2 text-xs sm:text-sm font-semibold text-white"
+                >
+                    Done
+                </button>
+                </div>
+            </div>
+            )}
           </div>
 
           {/* Check Out */}
