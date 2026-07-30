@@ -23,7 +23,6 @@ export default function NewsletterSection() {
 
           {/* Subscribe Form */}
           <div className="mx-auto mt-10 flex w-full sm:max-w-2xl flex-col overflow-hidden rounded-3xl sm:rounded-full border border-[#E8E4DC] bg-white sm:flex-row">
-            {/* Input */}
             <div className="flex flex-1 items-center px-6 py-4">
               <Mail size={20} className="mr-3 text-black" />
 

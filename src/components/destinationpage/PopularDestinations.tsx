@@ -61,7 +61,7 @@ export default function PopularDestinations() {
             <h2 className="section-title">Featured Holiday Homes</h2>
           </div>
 
-          <Link href="/holiday-homes" className="section-link">
+          <Link href="/" className="section-link">
             <span>Explore all destinations</span>
             <ArrowRight size={18} />
           </Link>

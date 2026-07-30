@@ -361,7 +361,7 @@ function Events() {
                 </div>
 
                 {/* Search Button */}
-                <div className="md:col-span-2 xl:col-span-1 flex items-end">
+                <div className="md:col-span-2 xl:col-span-1 flex items-center">
                   <button className="gold-gradient flex h-10 sm:h-12 w-full items-center justify-center gap-2 rounded-full px-8 text-base font-semibold text-white xl:w-auto">
                     <Search size={20} />
                     Search
@@ -383,7 +383,7 @@ function Events() {
               <h2 className="section-title">Featured Events</h2>
             </div>
 
-            <Link href="/holiday-homes" className="section-link">
+            <Link href="/" className="section-link">
               <span>View all event</span>
               <ArrowRight size={18} />
             </Link>
@@ -393,99 +393,98 @@ function Events() {
         Left-indent = container-custom na same breakpoints
         Right side viewport end sudhi bleed thay (overflow visible)
       */}
-        <div className="overflow-hidden">
-          <div className="pl-4 sm:pl-[max(1rem,calc((100vw-540px)/2))] md:pl-[max(1rem,calc((100vw-720px)/2))] lg:pl-[max(1rem,calc((100vw-960px)/2))] ">
-            <Swiper
-              modules={[Navigation]}
-              slidesPerView="auto"
-              spaceBetween={20}
-              grabCursor
-              watchOverflow
-              centeredSlides={false}
-              className="featuredHomesSlider !overflow-visible"
-            >
-              {homes.map((home) => (
-                <SwiperSlide key={home.id} className="!w-[305px]">
-                  <div
-                    onClick={() => router.push(`/holiday-homes/${home.slug}`)}
-                    className="group overflow-hidden rounded-[22px] border border-[#E8E4DC] bg-white cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-                  >
-                    {/* Image */}
-                    <div className="relative overflow-hidden">
-                      <div className="relative h-[224px] w-full overflow-hidden rounded-t-[22px]">
-                        <Image
-                          src={home.image}
-                          alt={home.title}
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
+         <div className="overflow-hidden">
+               <div
+                 className="pl-4 sm:pl-[max(1rem,calc((100vw-540px)/2))] md:pl-[max(1rem,calc((100vw-720px)/2))] lg:pl-[max(1rem,calc((100vw-960px)/2))] xl:pl-[max(0px,calc((100vw-1170px)/2))]"
+               >
+             <Swiper
+               modules={[Navigation]}
+               slidesPerView="auto"
+               spaceBetween={20}
+               grabCursor
+               watchOverflow
+               centeredSlides={false}
+               className="featuredHomesSlider !overflow-visible"
+             >
+               {homes.map((home) => (
+                 <SwiperSlide key={home.id} className="!w-[305px]">
+                   <div
+                     onClick={() => router.push(`/`)}
+                     className="group overflow-hidden rounded-[22px] border border-[#E8E4DC] bg-white cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                   >
+                     {/* Image */}
+                     <div className="relative overflow-hidden">
+                       <div className="relative h-[224px] w-full overflow-hidden rounded-t-[22px]">
+                         <Image
+                           src={home.image}
+                           alt={home.title}
+                           fill
+                           className="object-cover transition-transform duration-500 group-hover:scale-105"
+                         />
+                       </div>
+       
+                       <div className="absolute right-5 top-5 flex items-center gap-2 rounded-full bg-white px-3 py-[6px] shadow-lg">
+                         <Star size={14} className="ext-[#0F172A]" />
+       
+                         <span className="text-xs font-semibold">{home.rating}</span>
+                       </div>
+                     </div>
+       
+                     {/* Content */}
+                     <div className="px-[17px] py-5">
+                       <h3 className="text-base font-semibold text-[#0F172A]">
+                         {home.title}
+                       </h3>
+       
+                       <div className="mt-[10px] flex items-center gap-1 text-sm text-[#6B7280]">
+                         <MapPin size={13} />
+                         {home.location}
+                       </div>
+       
+                       <div className="mt-5 flex items-center gap-[10px] text-xs text-[#6B7280]">
+                         <div className="flex items-center gap-1">
+                           <Users size={12} />
+                           {home.guests} guests
+                         </div>
+       
+                         <div className="flex items-center gap-1">
+                           <BedDouble size={12} />
+                           {home.bedrooms} bedrooms
+                         </div>
+       
+                         <div className="flex items-center gap-1">
+                           <Star size={12} />
+                           {home.reviews} reviews
+                         </div>
+                       </div>
+       
+                       <div className="mt-5 flex items-center justify-between">
+                         <div className="flex items-end">
+                           <span className="text-xl font-semibold text-[#0F172A]">
+                             £{home.price}
+                           </span>
+       
+                           <span className="mb-[2px] ml-1 text-xs text-[#6B7280]">
+                             / night
+                           </span>
+                         </div>
+       
+                         <Link
+                            href="/"
+                            onClick={(e) => e.stopPropagation()}
 
-                      <div className="absolute right-5 top-5 flex items-center gap-2 rounded-full bg-white px-3 py-[6px] shadow-lg">
-                        <Star size={14} className="ext-[#0F172A]" />
-
-                        <span className="text-xs font-semibold">
-                          {home.rating}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="px-[17px] py-5">
-                      <h3 className="text-base font-semibold text-[#0F172A]">
-                        {home.title}
-                      </h3>
-
-                      <div className="mt-[10px] flex items-center gap-1 text-sm text-[#6B7280]">
-                        <MapPin size={13} />
-                        {home.location}
-                      </div>
-
-                      <div className="mt-5 flex items-center gap-[10px] text-xs text-[#6B7280]">
-                        <div className="flex items-center gap-1">
-                          <Users size={12} />
-                          {home.guests} guests
-                        </div>
-
-                        <div className="flex items-center gap-1">
-                          <BedDouble size={12} />
-                          {home.bedrooms} bedrooms
-                        </div>
-
-                        <div className="flex items-center gap-1">
-                          <Star size={12} />
-                          {home.reviews} reviews
-                        </div>
-                      </div>
-
-                      <div className="mt-5 flex items-center justify-between">
-                        <div className="flex items-end">
-                          <span className="text-xl font-semibold text-[#0F172A]">
-                            £{home.price}
-                          </span>
-
-                          <span className="mb-[2px] ml-1 text-xs text-[#6B7280]">
-                            / night
-                          </span>
-                        </div>
-
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            router.push(`/holiday-homes/${home.slug}`);
-                          }}
-                          className="rounded-full bg-[#0F172A] px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#C99700]"
-                        >
-                          View Details
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </div>
+                           className="rounded-full bg-[#0F172A] px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#C99700]"
+                         >
+                           View Details
+                         </Link>
+                       </div>
+                     </div>
+                   </div>
+                 </SwiperSlide>
+               ))}
+             </Swiper>
+               </div>
+             </div>
       </section>
 
       <section className="py-12 lg:py-[90px] bg-[#F8F6F2]">
@@ -563,7 +562,7 @@ function Events() {
 
               {/* Button */}
 
-              <Link href="/" className="mt-[30px] rounded-full gold-gradient px-[25px] py-4 font-semibold text-white transition hover:opacity-90 text-base !leading-none inline">
+              <Link href="/" className="mt-[30px] rounded-full gold-gradient px-[25px] py-4 font-semibold text-white transition hover:opacity-90 text-base !leading-none inline-block">
                 Explore Nearby Stays
               </Link>
             </div>
@@ -580,7 +579,7 @@ function Events() {
               <h2 className="section-title">Featured Holiday Homes</h2>
             </div>
 
-            <Link href="/holiday-homes" className="section-link">
+            <Link href="/" className="section-link">
               <span>View all properties</span>
               <ArrowRight size={18} />
             </Link>
@@ -589,7 +588,7 @@ function Events() {
             {homesDetails.map((home) => (
               <div
                 key={home.id}
-                onClick={() => router.push(`/holiday-homes/${home.slug}`)}
+                onClick={() => router.push(`/`)}
                 className="group cursor-pointer overflow-hidden rounded-[22px] border border-[#E8E4DC] bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
                 {/* Image */}
@@ -649,7 +648,7 @@ function Events() {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        router.push(`/holiday-homes/${home.slug}`);
+                        router.push(`/`);
                       }}
                       className="rounded-full bg-[#0F172A] px-[24px] py-[9px] text-xs font-semibold text-white transition-all hover:bg-[#C99700]"
                     >

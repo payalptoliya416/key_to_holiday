@@ -123,7 +123,7 @@ export default function FeaturedHolidayHomes() {
             <h2 className="section-title">Featured Holiday Homes</h2>
           </div>
 
-          <Link href="/holiday-homes" className="section-link">
+          <Link href="/" className="section-link">
             <span>View all properties</span>
             <ArrowRight size={18} />
           </Link>
@@ -149,7 +149,7 @@ export default function FeaturedHolidayHomes() {
         {homes.map((home) => (
           <SwiperSlide key={home.id} className="!w-[305px]">
             <div
-              onClick={() => router.push(`/holiday-homes/${home.slug}`)}
+              onClick={() => router.push(`/`)}
               className="group overflow-hidden rounded-[22px] border border-[#E8E4DC] bg-white cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
             >
               {/* Image */}
@@ -209,15 +209,14 @@ export default function FeaturedHolidayHomes() {
                     </span>
                   </div>
 
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      router.push(`/holiday-homes/${home.slug}`);
-                    }}
+                  <Link
+                href="/"
+                onClick={(e) => e.stopPropagation()}
+
                     className="rounded-full bg-[#0F172A] px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#C99700]"
                   >
                     View Details
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

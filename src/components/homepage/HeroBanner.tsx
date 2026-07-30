@@ -114,7 +114,7 @@ function HeroBanner() {
                 </div>
 
                 {/* Search Button */}
-                <div className="md:col-span-2 xl:col-span-1 flex items-end">
+                <div className="md:col-span-2 xl:col-span-1 flex items-center">
                     <button className="gold-gradient flex h-10 sm:h-12 w-full items-center justify-center gap-2 rounded-full px-8 text-base font-semibold text-white xl:w-auto">
                     <Search size={20} />
                     Search

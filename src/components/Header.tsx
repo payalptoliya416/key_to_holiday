@@ -8,8 +8,8 @@ import { usePathname } from "next/navigation";
 
 const navItems = [
   { name: "Destinations", href: "/destinations" },
-  { name: "Offers", href: "#" },
-  { name: "Event", href: "#" },
+  { name: "Offers", href: "offers" },
+  { name: "Event", href: "events" },
 ];
 
 export default function Header() {
@@ -29,6 +29,10 @@ export default function Header() {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  const handleClose = () => {
+  setOpen(false);
+};
   return (
     <header className="sticky top-0 z-50 bg-white px-5 py-4 sm:px-6 lg:px-[30px] lg:py-[25px]">
       <div className="">
@@ -48,7 +52,8 @@ export default function Header() {
             {navItems.map((item) => (
               <Link
                 key={item.name}
-                href={item.href}
+                  href={item.href}
+  onClick={handleClose}
                 className="text-base font-normal text-[#0F172A] transition hover:text-[#E39A16]"
               >
                 {item.name}
@@ -59,7 +64,8 @@ export default function Header() {
           <div className="hidden items-center gap-[15px] lg:flex">
             {!isSignInPage && (
               <Link
-                href="/sign-in"
+                href="/"
+                // href="/sign-in"
                 className="flex h-12 items-center justify-center rounded-full border border-[#E8E4DC] px-8 text-base font-medium text-[#0F172A] transition hover:border-[#E39A16] hover:text-[#E39A16]"
               >
                 Sign In
@@ -67,7 +73,7 @@ export default function Header() {
             )}
 
             <Link
-              href="/list-your-property"
+              href="/list-property"
               className="gold-gradient flex h-12 items-center justify-center rounded-full px-8 text-base !leading-[16px]  font-semibold text-white transition hover:opacity-90"
             >
               List Your Property
@@ -133,7 +139,7 @@ export default function Header() {
             <div className="mt-8 space-y-4">
               {!isSignInPage && (
                 <Link
-                  href="/sign-in"
+                  href="/"
                   onClick={() => setOpen(false)}
                   className="flex h-12 items-center justify-center rounded-full border border-[#E8E4DC] font-medium transition hover:border-[#E39A16] hover:text-[#E39A16]"
                 >
@@ -142,7 +148,7 @@ export default function Header() {
               )}
 
               <Link
-                href="/list-your-property"
+                href="/list-property"
                 onClick={() => setOpen(false)}
                 className="gold-gradient flex h-12 items-center justify-center rounded-full font-semibold text-white"
               >

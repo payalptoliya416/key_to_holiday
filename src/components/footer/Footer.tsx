@@ -50,7 +50,7 @@ function Footer() {
      {!hideNewsletter && <NewsletterSection />}
       <footer className="bg-[#11182C] text-white">
         <div className="container-custom pt-[70px]">
-          <div className="grid grid-cols-12 gap-5 sm:gap-10">
+          <div className="grid grid-cols-12 gap-5 sm:gap-0">
             <div className="col-span-12 lg:col-span-4">
               <Image
                 src="/images/light-logo.svg"
@@ -141,7 +141,7 @@ function Footer() {
             </div>
 
             {/* Destinations */}
-            <div className="col-span-12 sm:col-span-4 lg:col-span-2">
+            <div className="col-span-12 sm:col-span-4 lg:col-span-2 pl-5">
               <h3 className="mb-4 text-sm font-semibold">Destinations</h3>
 
               <ul className="space-y-[10px]">
@@ -159,7 +159,7 @@ function Footer() {
             </div>
 
             {/* Support */}
-            <div className="col-span-12 sm:col-span-4 lg:col-span-2">
+            <div className="col-span-12 sm:col-span-4 lg:col-span-2 pl-6">
               <h3 className="mb-4 text-sm font-semibold">Support</h3>
 
               <ul className="space-y-[10px]">

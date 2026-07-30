@@ -299,7 +299,7 @@ export default function OffersPage() {
               <h2 className="section-title">Featured Holiday Homes</h2>
             </div>
 
-            <Link href="/holiday-homes" className="section-link">
+            <Link href="/" className="section-link">
               <span>View all properties</span>
               <ArrowRight size={18} />
             </Link>
@@ -308,7 +308,7 @@ export default function OffersPage() {
             {homes.map((home) => (
               <div
                 key={home.id}
-                onClick={() => router.push(`/holiday-homes/${home.slug}`)}
+                onClick={() => router.push(`/`)}
                 className="group cursor-pointer overflow-hidden rounded-[22px] border border-[#E8E4DC] bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
                 {/* Image */}
@@ -368,7 +368,7 @@ export default function OffersPage() {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        router.push(`/holiday-homes/${home.slug}`);
+                        router.push(`/`);
                       }}
                       className="rounded-full bg-[#0F172A] px-[24px] py-[9px] text-xs font-semibold text-white transition-all hover:bg-[#C99700]"
                     >
