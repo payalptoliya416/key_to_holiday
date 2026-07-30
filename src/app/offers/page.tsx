@@ -309,7 +309,7 @@ export default function OffersPage() {
               <div
                 key={home.id}
                 onClick={() => router.push(`/`)}
-                className="group cursor-pointer overflow-hidden rounded-[22px] border border-[#E8E4DC] bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                className="group cursor-pointer overflow-hidden rounded-[22px] border border-[#E8E4DC] bg-white transition-all duration-300 hover:-translate-y-2"
               >
                 {/* Image */}
                 <div className="relative h-[230px] overflow-hidden rounded-t-[22px]">

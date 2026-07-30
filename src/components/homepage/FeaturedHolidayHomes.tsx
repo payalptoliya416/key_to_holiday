@@ -150,7 +150,7 @@ export default function FeaturedHolidayHomes() {
           <SwiperSlide key={home.id} className="!w-[305px]">
             <div
               onClick={() => router.push(`/`)}
-              className="group overflow-hidden rounded-[22px] border border-[#E8E4DC] bg-white cursor-pointer transition-all duration-300 hover:shadow-xl"
+              className="group overflow-hidden rounded-[22px] border border-[#E8E4DC] bg-white cursor-pointer transition-all duration-300"
             >
               {/* Image */}
               <div className="relative overflow-hidden">
