@@ -113,7 +113,7 @@ export default function SimilarProperti() {
   const router = useRouter();
 
   return (
-    <section className="section-space">
+    <section className="section-bottom">
       {/* Heading */}
       <div className="container-custom">
         <div className="mb-8 flex items-center justify-between">
@@ -134,7 +134,7 @@ export default function SimilarProperti() {
         Right side viewport end sudhi bleed thay (overflow visible)
       */}
       <div className="overflow-hidden">
-        <div
+       <div
           className="pl-4 sm:pl-[max(1rem,calc((100vw-540px)/2))] md:pl-[max(1rem,calc((100vw-720px)/2))] lg:pl-[max(1rem,calc((100vw-960px)/2))] xl:pl-[max(0px,calc((100vw-1170px)/2))]"
         >
       <Swiper

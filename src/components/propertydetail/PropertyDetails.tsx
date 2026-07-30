@@ -40,6 +40,7 @@ import {
   Clock3,
   Plus,
   Minus,
+  ExternalLink,
 } from "lucide-react";
 import SimilarProperti from "./SimilarProperti";
 import FaqSection from "./FaqSection";
@@ -725,6 +726,30 @@ export default function PropertyDetails() {
                 <p className="text-[#888888] text-sm leading-0">
                   Costa Blanca, Orihuela Costa, Spain
                 </p>
+
+               <div className="relative my-5 overflow-hidden rounded-[24px]">
+                  <iframe
+                    title="Property Location"
+                    src="https://www.google.com/maps?q=Costa+Blanca,+Orihuela+Costa,+Spain&z=15&output=embed"
+                    width="100%"
+                    height="360"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="border-0"
+                  />
+
+                  {/* Open Maps Button */}
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Costa+Blanca,+Orihuela+Costa,+Spain"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-6 right-6 flex items-center gap-2 rounded-full bg-white px-[15px] py-[10px] font-semibold text-[#17213C] transition text-sm h-[34px]"
+                  >
+                    <ExternalLink size={14} />
+                    Open in Maps
+                  </a>
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-[15px]">
                   {highlightsData.map((item, index) => {
                     const Icon = item.icon;
@@ -754,6 +779,7 @@ export default function PropertyDetails() {
                   })}
                 </div>
                 {/* ---------end--- */}
+
                 {/* ----start---- */}
                 <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">
                   {" "}
@@ -968,6 +994,7 @@ export default function PropertyDetails() {
           </div>
         </div>
 
+      </div>
          {/* ---FAQ start--- */}
          <section className="section-space">
              <FaqSection />
@@ -977,7 +1004,6 @@ export default function PropertyDetails() {
              {/* ----SimilarProperti--start */}
              <SimilarProperti/>
              {/* ----SimilarProperti--end */}
-      </div>
     </main>
   );
 }

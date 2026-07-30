@@ -36,6 +36,7 @@ function FaqSection() {
   return (
     <>
         <div className="container-custom">
+            <div className="w-full max-w-[786px] mx-auto">
           {/* Heading */}
           <div className="mb-8 text-center">
             <p className="section-tag">FAQ</p>
@@ -89,6 +90,7 @@ function FaqSection() {
               );
             })}
           </div>
+            </div>
         </div>
     </>
   );
