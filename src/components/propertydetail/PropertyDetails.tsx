@@ -599,6 +599,7 @@ export default function PropertyDetails() {
                 className="relative h-[258px] overflow-hidden rounded-[24px]"
               >
                 <Image
+                
                   src={img}
                   alt=""
                   fill
