@@ -693,7 +693,7 @@ export default function PropertyDetails() {
                     return (
                       <div
                         key={index}
-                        className="flex items-center gap-[10px] rounded-[14px] border border-[#EBEBEB] p-5 transition-all duration-300 hover:shadow-lg"
+                        className="flex items-center gap-[10px] rounded-[14px] border border-[#EBEBEB] p-5 transition-all duration-300 hover:shadow-lg hover:border-[#D69A17] hover:-translate-y-1"
                       >
                         {/* Icon */}
                         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FDF3E0]">
@@ -870,7 +870,7 @@ export default function PropertyDetails() {
                   {reviews.map((item, index) => (
                     <div
                       key={index}
-                      className="flex h-full flex-col rounded-[18px] border border-[#E8E4DC] bg-white p-[25px] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                      className="flex h-full flex-col rounded-[18px] border border-[#E8E4DC] bg-white p-[25px] transition-all duration-300 hover:shadow-xl"
                     >
                       {/* Stars */}
                       <div className="mb-[16px] flex gap-1">

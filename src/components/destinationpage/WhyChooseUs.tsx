@@ -73,7 +73,7 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={item.title}
-                className="flex items-center gap-[15px] rounded-[14px] border border-[#EBEBEB] bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="flex items-center gap-[15px] rounded-[14px] border border-[#EBEBEB] bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#D69A17]"
               >
                 {/* Icon */}
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[18px] bg-[#FDF3E0]">
