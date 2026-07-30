@@ -488,6 +488,26 @@ export default function PropertyDetails() {
     { id: "reviews", label: "Reviews" },
   ];
 
+  
+  const overviewRef = useRef<HTMLDivElement>(null);
+  const featuresRef = useRef<HTMLDivElement>(null);
+  const locationRef = useRef<HTMLDivElement>(null);
+  const reviewsRef = useRef<HTMLDivElement>(null);
+
+  const sectionRefs = {
+    overview: overviewRef,
+    features: featuresRef,
+    location: locationRef,
+    reviews: reviewsRef,
+  };
+
+  const scrollToSection = (id: keyof typeof sectionRefs) => {
+    sectionRefs[id].current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <main className="">
       {/* ── Breadcrumb ──────────────────────────────────── */}
@@ -584,7 +604,7 @@ export default function PropertyDetails() {
       {tabs.map((tab) => (
         <button
           key={tab.id}
-          onClick={() => setActiveTab(tab.id)}
+          onClick={() => scrollToSection(tab.id as keyof typeof sectionRefs)}
           className={`shrink-0 cursor-pointer whitespace-nowrap border-b-2 px-1 py-3 text-sm font-medium transition sm:text-base lg:py-5 lg:text-lg ${
             activeTab === tab.id
               ? "border-[#E39A16] gold-gradient-text"
@@ -598,8 +618,7 @@ export default function PropertyDetails() {
   </div>
 </div>
 
-            {activeTab === "overview" && (
-              <>
+            <div ref={overviewRef} id="overview" className="scroll-mt-[120px]">
                 <div className="flex flex-col gap-[15px] lg:flex-row lg:items-start lg:justify-between mt-[30px]">
                   <h1 className="text-[28px] font-bold text-[#1A1A1A] md:text-[36px]">
                     Villa Sol Paradise
@@ -633,7 +652,7 @@ export default function PropertyDetails() {
                   <span>Property ID: KTH-29471</span>
                 </div>
 
-                <div className="flex flex-wrap gap-[10px]">
+                <div className="flex flex-wrap gap-[10px] mt-5">
                   {featurePills.map(({ Icon, text }, i) => (
                     <div
                       key={i}
@@ -645,7 +664,7 @@ export default function PropertyDetails() {
                   ))}
                 </div>
 
-                <div className="border-t border-[#EBEBEB]" />
+                <div className="border-t border-[#EBEBEB] my-[35px]" />
 
                 <div>
                   <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">
@@ -677,10 +696,11 @@ export default function PropertyDetails() {
                     </p>
                   </div>
                 </div>
-              </>
-            )}
+              
+            </div>
+              <div className="border-t border-[#EBEBEB] my-[35px]" />
 
-            {activeTab === "features" && (
+           <div ref={featuresRef} id="features" className="scroll-mt-[120px]">
               <div className="text-sm text-[#888888]">
                 {/* ---start---- */}
                 <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">
@@ -716,8 +736,8 @@ export default function PropertyDetails() {
                 </div>
                 {/* ---end---- */}
               </div>
-            )}
-            {activeTab === "location" && (
+           </div>
+           <div ref={locationRef} id="location" className="scroll-mt-[120px]">
               <div className="text-sm text-[#888888]">
                 {/* ------start---- */}
                 <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">
@@ -781,7 +801,7 @@ export default function PropertyDetails() {
                 {/* ---------end--- */}
 
                 {/* ----start---- */}
-                <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">
+                <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A] mt-5">
                   {" "}
                   House Rules{" "}
                 </h2>
@@ -810,8 +830,9 @@ export default function PropertyDetails() {
                 </div>
                 {/* -----end--- */}
               </div>
-            )}
-            {activeTab === "reviews" && (
+          </div>
+          <div className="border-t border-[#EBEBEB] my-[35px]" />
+           <div ref={reviewsRef} id="reviews" className="scroll-mt-[120px] mt-16">
               <div className="text-sm text-[#888888]">
                 {/* ---start-- */}
                 <div className="mb-10 flex flex-col justify-between gap-8 lg:flex-row lg:items-start">
@@ -921,7 +942,7 @@ export default function PropertyDetails() {
                 </button>
                 {/* Review Cards */}
               </div>
-            )}
+            </div>
           </div>
 
           {/* ── RIGHT – Booking card ───────────────────── */}
