@@ -50,6 +50,7 @@ const destinations = [
 ];
 
 export default function PopularDestinations() {
+    
   return (
     <section className="section-space">
       <div className="container-custom">

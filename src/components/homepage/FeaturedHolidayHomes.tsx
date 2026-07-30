@@ -164,7 +164,7 @@ export default function FeaturedHolidayHomes() {
                 </div>
 
                 <div className="absolute right-5 top-5 flex items-center gap-2 rounded-full bg-white px-3 py-[6px] shadow-lg">
-                  <Star size={14} className="fill-[#0F172A] text-[#0F172A]" />
+                  <Star size={14} className="ext-[#0F172A]" />
 
                   <span className="text-xs font-semibold">{home.rating}</span>
                 </div>

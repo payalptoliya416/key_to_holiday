@@ -18,7 +18,7 @@ export default function FeaturedDestination() {
               className="h-full w-full object-cover"
             />
 
-            <span className="absolute left-4 top-4 rounded-full bg-[#E8A020] px-5 py-[10px] text-sm font-semibold text-white">
+            <span className="absolute left-4 top-4 rounded-full bg-[#E8A020] px-5 py-[10px] text-sm !leading-[14px] font-semibold text-white">
               Featured
             </span>
           </div>
@@ -72,20 +72,20 @@ export default function FeaturedDestination() {
 
             {/* Stats */}
 
-            <div className="mt-[30px] grid grid-cols-3 gap-8">
+            <div className="mt-[30px] grid grid-cols-3 gap-2 md:gap-8">
               <div>
                 <p className="text-xs text-[#888888]">Best Time</p>
-                <h5 className="font-semibold text-sm leading-none mt-[5px] text-[#1A1A1A]">Apr – Oct</h5>
+                <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-[#1A1A1A]">Apr – Oct</h5>
               </div>
 
               <div>
                 <p className="text-xs text-[#888888]">Avg. Nightly</p>
-                <h5 className="font-semibold text-sm leading-none mt-[5px] text-[#1A1A1A]">£420+</h5>
+                <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-[#1A1A1A]">£420+</h5>
               </div>
 
               <div>
                 <p className="text-xs text-[#888888]">Properties</p>
-                <h5 className="font-semibold text-sm leading-none mt-[5px] text-[#1A1A1A]">680+</h5>
+                <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-[#1A1A1A]">680+</h5>
               </div>
             </div>
 
