@@ -567,7 +567,7 @@ export default function PropertyDetails() {
 
       {/* ── Photo Gallery ───────────────────────────────── */}
       <div className="mx-[30px] mt-5">
-        <div className="grid gap-3 lg:grid-cols-[2fr_1fr_1fr]">
+        <div className="grid lg:gap-3 lg:grid-cols-[2fr_1fr_1fr]">
           <div className="relative h-[260px] overflow-hidden rounded-[24px] sm:h-[380px] lg:h-[530px]">
             <Image
               src={property.images[0]}
@@ -577,11 +577,11 @@ export default function PropertyDetails() {
               className="object-cover transition duration-700 hover:scale-105"
             />
           </div>
-          <div className="hidden gap-3 lg:grid lg:grid-rows-2">
+          <div className="gap-3 lg:grid grid-rows-2">
             {[property.images[1], property.images[3]].map((img, i) => (
               <div
                 key={i}
-                className="relative h-[258px] overflow-hidden rounded-[24px]"
+                className="relative h-[258px] overflow-hidden rounded-[24px] mb-3 lg:mb-0"
               >
                 <Image
                   src={img}
@@ -592,11 +592,11 @@ export default function PropertyDetails() {
               </div>
             ))}
           </div>
-          <div className="hidden gap-3 lg:grid lg:grid-rows-2">
+          <div className="gap-3 lg:grid grid-rows-2">
             {[property.images[2], property.images[4]].map((img, i) => (
               <div
                 key={i}
-                className="relative h-[258px] overflow-hidden rounded-[24px]"
+                className="relative h-[258px] overflow-hidden rounded-[24px] mb-3 lg:mb-0"
               >
                 <Image
                 
