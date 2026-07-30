@@ -1,3 +1,4 @@
+import FaqSection from "@/components/propertydetail/FaqSection";
 import { BadgeCheck, BadgeDollarSign, Globe, Headphones, LucideIcon, Pencil, Rocket, ShieldCheck, Star, Tags, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -379,7 +380,7 @@ function ListProperty() {
         </div>
       </section>
 
-       <section className="section-bottom">
+       <section className="section-space">
               <div className="container-custom">
                 {/* Heading */}
                 <div className="mb-[30px] text-center">
@@ -425,7 +426,11 @@ function ListProperty() {
                   })}
                 </div>
               </div>
-            </section>
+      </section>
+      
+       <section className="section-bottom"> 
+        <FaqSection />
+       </section>
     </>
   );
 }
