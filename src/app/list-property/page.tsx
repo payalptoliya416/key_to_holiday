@@ -48,7 +48,6 @@ export const steps = [
   },
 ];
 
-
 type Feature = {
   icon: LucideIcon;
   title: string;
