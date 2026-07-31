@@ -52,6 +52,7 @@ function Footer() {
         <div className="container-custom pt-[70px]">
           <div className="grid grid-cols-12 gap-5 sm:gap-0">
             <div className="col-span-12 lg:col-span-4">
+              <Link href="/">
               <Image
                 src="/images/light-logo.svg"
                 alt="logo"
@@ -59,6 +60,7 @@ function Footer() {
                 height={60}
                 className="mb-[30px]"
               />
+              </Link>
 
               <p className="max-w-[287px] text-[14px] leading-[22px] text-[#FFFFFFCC]">
                 Your trusted holiday rental marketplace. Book direct with
