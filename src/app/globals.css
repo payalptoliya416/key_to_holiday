@@ -133,13 +133,13 @@ body {
 @theme {
   --font-poppins: "Poppins", sans-serif;
   --font-tiktok: "TikTok Sans", sans-serif;
-  --color-gray-dark: #0F172A;
-  --color-light-dark: #6B7280;
+  --color-gray-dark: #0f172a;
+  --color-light-dark: #6b7280;
   --color-gray: #888888;
-  --color-border-color: #E8E4DC;
-  --color-text-primary: #1A1A1A;
-  --color-border-dark: #EBEBEB;
-  --color-gold: #D4A017;
+  --color-border-color: #e8e4dc;
+  --color-text-primary: #1a1a1a;
+  --color-border-dark: #ebebeb;
+  --color-gold: #d4a017;
 }
 
 .font-tiktok {
@@ -218,29 +218,138 @@ body {
   .input-style {
     @apply h-[60px] w-full rounded-full border border-border-dark bg-white px-[25px] text-[#17213C] outline-none transition placeholder:text-gray focus:border-[#D69A17];
   }
-
   .common-btn {
-    @apply flex h-10 sm:h-12 items-center justify-center rounded-full px-[25px] text-base font-semibold text-white transition hover:opacity-90 cursor-pointer w-max;
+    @apply relative flex h-10 sm:h-12 items-center justify-center overflow-hidden
+    rounded-full px-[25px] text-base font-semibold text-white
+    cursor-pointer w-max;
 
     background: linear-gradient(120deg, #f2b62d 0%, #b56e05 100%);
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+
+  /* Shine */
+  .common-btn::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -70%;
+    width: 45%;
+    height: 200%;
+
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.45),
+      transparent
+    );
+
+    transform: rotate(20deg);
+    transition: left 0.65s ease;
+  }
+
+  .common-btn:hover::before {
+    left: 130%;
+  }
+
+  .common-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+
+    box-shadow:
+      0 8px 25px rgba(181, 110, 5, 0.25),
+      0 0 20px rgba(242, 182, 45, 0.15);
+  }
+
+  .common-btn:active {
+    transform: scale(0.96);
   }
 
   .common-subscrib-btn {
-    @apply sm:m-1 rounded-3xl sm:rounded-full px-[25px] py-4 font-semibold text-white transition hover:opacity-90 text-sm cursor-pointer h-10 sm:h-12 flex items-center;
+    @apply relative sm:m-1 rounded-3xl sm:rounded-full px-[25px] py-4 font-semibold text-white transition hover:opacity-90 text-sm cursor-pointer h-10 sm:h-12 flex items-center;
+
     background: linear-gradient(120deg, #f2b62d 0%, #b56e05 100%);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  /* Shine effect */
+  .common-subscrib-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+
+    transform: skewX(-25deg);
+    transition: left 0.6s ease;
+  }
+
+  .common-subscrib-btn:hover::before {
+    left: 130%;
+  }
+
+  .common-subscrib-btn:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+      0 0 0 4px rgba(242, 182, 45, 0.08),
+      0 8px 25px rgba(181, 110, 5, 0.3);
+  }
+
+  .common-subscrib-btn:active {
+    transform: scale(0.96);
   }
 
   .hero-basic-btn {
-     @apply basis-[calc(50%-6px)] sm:basis-auto px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-2 md:gap-[15px];
+    @apply basis-[calc(50%-6px)] sm:basis-auto px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-2 md:gap-[15px];
   }
 
   .hero-tag {
     @apply inline-flex items-center gap-2 backdrop-blur-md text-sm text-[#FFFFFFE5] border border-[#FFFFFF33] bg-[#FFFFFF1A] rounded-[999px] py-[10px] px-[15px] mb-6;
   }
 
-  .home-hero-label{
+  .home-hero-label {
     @apply flex items-center justify-start gap-2 md:gap-[15px] rounded-full border border-[#FFFFFF33] bg-[#FFFFFF1A] px-3 py-2 text-xs font-light backdrop-blur-md transition hover:bg-[#FFFFFF33] md:text-sm;
   }
+
+  .nav-link {
+  @apply relative text-base font-normal text-gray-dark/80 transition-colors duration-300;
+}
+
+/* Gold underline */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+
+  background: linear-gradient(90deg, #f2b62d, #b56e05);
+
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #d4a017;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
 }
 
 .react-tel-input .selected-flag {

@@ -54,7 +54,7 @@ export default function Header() {
                 key={item.name}
                   href={item.href}
                 onClick={handleClose}
-                className="text-base font-normal text-gray-dark/80 transition hover:text-[#E39A16]"
+                className="nav-link"
               >
                 {item.name}
               </Link>
@@ -106,7 +106,7 @@ export default function Header() {
           }`}
         >
           {/* Header */}
-          <div className="flex items-center justify-between border-b px-6 py-5">
+          <div className="flex items-center justify-between border-b px-4 py-5">
             <Image src="/images/logo.svg" alt="logo" width={170} height={40} />
 
             <button
@@ -119,13 +119,13 @@ export default function Header() {
 
           {/* Nav */}
           <nav className="px-6 py-8">
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 text-[17px] font-medium text-gray-dark transition hover:bg-[#FFF8EC] hover:text-[#E39A16]"
+                  className="nav-link"
                 >
                   {item.name}
                 </Link>
@@ -137,7 +137,7 @@ export default function Header() {
                 <Link
                   href="/"
                   onClick={() => setOpen(false)}
-                  className="flex h-12 items-center justify-center rounded-full border border-border-color font-medium transition hover:border-[#E39A16] hover:text-[#E39A16]"
+                  className="flex h-10 sm:h-12 items-center justify-center rounded-full border border-border-color font-medium transition hover:border-[#E39A16] hover:text-[#E39A16] text-sm sm:text-base"
                 >
                   Sign In
                 </Link>
@@ -146,7 +146,7 @@ export default function Header() {
               <Link
                 href="/list-property"
                 onClick={() => setOpen(false)}
-                className="gold-gradient flex h-12 items-center justify-center rounded-full font-semibold text-white"
+                className="gold-gradient flex h-10 sm:h-12 items-center justify-center rounded-full font-semibold text-white text-sm sm:text-base"
               >
                 List Your Property
               </Link>
