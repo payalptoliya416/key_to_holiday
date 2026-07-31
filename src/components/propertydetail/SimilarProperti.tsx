@@ -83,7 +83,7 @@ const homes = [
     image: "/images/feature2.png",
     slug: "aegean-dream-villa",
   },
-   {
+  {
     id: 7,
     title: "Quinta da Serra",
     location: "Algarve, Portugal",
@@ -129,94 +129,97 @@ export default function SimilarProperti() {
         </div>
       </div>
       <div className="overflow-hidden">
-       <div
-          className="pl-4 sm:pl-[max(1rem,calc((100vw-540px)/2))] md:pl-[max(1rem,calc((100vw-720px)/2))] lg:pl-[max(1rem,calc((100vw-960px)/2))] xl:pl-[max(0px,calc((100vw-1170px)/2))]"
-        >
-      <Swiper
-        modules={[Navigation]}
-        slidesPerView="auto"
-        spaceBetween={20}
-        grabCursor
-        watchOverflow
-        centeredSlides={false}
-        className="featuredHomesSlider !overflow-visible"
-      >
-        {homes.map((home) => (
-          <SwiperSlide key={home.id} className="!w-[305px]">
-            <div
-              onClick={() => router.push(`/`)}
-              className="group overflow-hidden rounded-[22px] border border-border-color bg-white cursor-pointer transition-all duration-300 hover:shadow-xl"
-            >
-              {/* Image */}
-              <div className="relative overflow-hidden">
-                <div className="relative h-[224px] w-full overflow-hidden rounded-t-[22px]">
-                  <Image
-                    src={home.image}
-                    alt={home.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
+        <div className="pl-4 sm:pl-[max(1rem,calc((100vw-540px)/2))] md:pl-[max(1rem,calc((100vw-720px)/2))] lg:pl-[max(1rem,calc((100vw-960px)/2))] xl:pl-[max(0px,calc((100vw-1170px)/2))]">
+          <Swiper
+            modules={[Navigation]}
+            slidesPerView="auto"
+            spaceBetween={20}
+            grabCursor
+            watchOverflow
+            centeredSlides={false}
+            className="featuredHomesSlider !overflow-visible"
+          >
+            {homes.map((home) => (
+              <SwiperSlide key={home.id} className="!w-[305px]">
+                <div
+                  onClick={() => router.push(`/`)}
+                  className="group overflow-hidden rounded-[22px] border border-border-color bg-white cursor-pointer transition-all duration-300 hover:shadow-xl"
+                >
+                  {/* Image */}
+                  <div className="relative overflow-hidden">
+                    <div className="relative h-[224px] w-full overflow-hidden rounded-t-[22px]">
+                      <Image
+                        src={home.image}
+                        alt={home.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
 
-                <div className="absolute right-5 top-5 flex items-center gap-2 rounded-full bg-white px-3 py-[6px] shadow-lg">
-                  <Star size={14} className="fill-gray-dark text-gray-dark" />
+                    <div className="absolute right-5 top-5 flex items-center gap-2 rounded-full bg-white px-3 py-[6px] shadow-lg">
+                      <Star
+                        size={14}
+                        className="fill-gray-dark text-gray-dark"
+                      />
 
-                  <span className="text-xs font-semibold">{home.rating}</span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="px-[17px] py-5">
-                <h3 className="text-base font-semibold text-gray-dark">
-                  {home.title}
-                </h3>
-
-                <div className="mt-[10px] flex items-center gap-1 text-sm text-light-dark">
-                  <MapPin size={13} />
-                  {home.location}
-                </div>
-
-                <div className="mt-5 flex items-center gap-[10px] text-xs text-light-dark">
-                  <div className="flex items-center gap-1">
-                    <Users size={12} />
-                    {home.guests} guests
+                      <span className="text-xs font-semibold">
+                        {home.rating}
+                      </span>
+                    </div>
                   </div>
 
-                  <div className="flex items-center gap-1">
-                    <BedDouble size={12} />
-                    {home.bedrooms} bedrooms
-                  </div>
+                  {/* Content */}
+                  <div className="px-[17px] py-5">
+                    <h3 className="text-base font-semibold text-gray-dark">
+                      {home.title}
+                    </h3>
 
-                  <div className="flex items-center gap-1">
-                    <Star size={12} />
-                    {home.reviews} reviews
+                    <div className="mt-[10px] flex items-center gap-1 text-sm text-light-dark">
+                      <MapPin size={13} />
+                      {home.location}
+                    </div>
+
+                    <div className="mt-5 flex items-center gap-[10px] text-xs text-light-dark">
+                      <div className="flex items-center gap-1">
+                        <Users size={12} />
+                        {home.guests} guests
+                      </div>
+
+                      <div className="flex items-center gap-1">
+                        <BedDouble size={12} />
+                        {home.bedrooms} bedrooms
+                      </div>
+
+                      <div className="flex items-center gap-1">
+                        <Star size={12} />
+                        {home.reviews} reviews
+                      </div>
+                    </div>
+
+                    <div className="mt-5 flex items-center justify-between">
+                      <div className="flex items-end">
+                        <span className="text-xl font-semibold text-gray-dark">
+                          £{home.price}
+                        </span>
+
+                        <span className="mb-[2px] ml-1 text-xs text-light-dark">
+                          / night
+                        </span>
+                      </div>
+
+                      <Link
+                        href="/"
+                        onClick={(e) => e.stopPropagation()}
+                        className="rounded-full bg-gray-dark px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#C99700]"
+                      >
+                        View Details
+                      </Link>
+                    </div>
                   </div>
                 </div>
-
-                <div className="mt-5 flex items-center justify-between">
-                  <div className="flex items-end">
-                    <span className="text-xl font-semibold text-gray-dark">
-                      £{home.price}
-                    </span>
-
-                    <span className="mb-[2px] ml-1 text-xs text-light-dark">
-                      / night
-                    </span>
-                  </div>
-
-                  <Link
-                  href="/"
-                  onClick={(e) => e.stopPropagation()}
-                    className="rounded-full bg-gray-dark px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#C99700]"
-                  >
-                    View Details
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </section>

@@ -335,7 +335,7 @@ function GuestDropdown({
       : `${totalGuests} guests${counts.infants ? `, ${counts.infants} infant${counts.infants > 1 ? "s" : ""}` : ""}${counts.pets ? `, ${counts.pets} pet${counts.pets > 1 ? "s" : ""}` : ""}`;
 
   // Close on outside click
- useEffect(() => { 
+  useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) {
         setOpen(false);
@@ -362,7 +362,9 @@ function GuestDropdown({
         }`}
       >
         <div className="flex flex-col gap-[8px]">
-          <span className="text-xs font-semibold text-text-primary">Guests</span>
+          <span className="text-xs font-semibold text-text-primary">
+            Guests
+          </span>
           <span className="flex items-center gap-2 text-sm leading-0 text-gray">
             <Users size={13} className="text-gray shrink-0" />
             {label}
@@ -451,7 +453,6 @@ function GuestDropdown({
   );
 }
 
-
 /* ─── Feature pills data ───────────────────────────────────── */
 const featurePills: { Icon: React.ElementType; text: string }[] = [
   { Icon: Users, text: "8 Guests" },
@@ -489,7 +490,6 @@ export default function PropertyDetails() {
     { id: "reviews", label: "Reviews" },
   ];
 
-  
   const overviewRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
   const locationRef = useRef<HTMLDivElement>(null);
@@ -503,43 +503,43 @@ export default function PropertyDetails() {
   };
 
   useEffect(() => {
-  const sections = [
-    { id: "overview", ref: overviewRef },
-    { id: "features", ref: featuresRef },
-    { id: "location", ref: locationRef },
-    { id: "reviews", ref: reviewsRef },
-  ];
+    const sections = [
+      { id: "overview", ref: overviewRef },
+      { id: "features", ref: featuresRef },
+      { id: "location", ref: locationRef },
+      { id: "reviews", ref: reviewsRef },
+    ];
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveTab(entry.target.id);
-        }
-      });
-    },
-    {
-      root: null,
-      rootMargin: "-140px 0px -55% 0px", // header + sticky tabs offset
-      threshold: 0.2,
-    }
-  );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveTab(entry.target.id);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "-140px 0px -55% 0px", // header + sticky tabs offset
+        threshold: 0.2,
+      },
+    );
 
-  sections.forEach(({ ref }) => {
-    if (ref.current) observer.observe(ref.current);
-  });
+    sections.forEach(({ ref }) => {
+      if (ref.current) observer.observe(ref.current);
+    });
 
-  return () => observer.disconnect();
-}, []);
+    return () => observer.disconnect();
+  }, []);
 
   const scrollToSection = (id: keyof typeof sectionRefs) => {
-  setActiveTab(id);
+    setActiveTab(id);
 
-  sectionRefs[id].current?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-};
+    sectionRefs[id].current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   return (
     <main className="">
@@ -599,7 +599,6 @@ export default function PropertyDetails() {
                 className="relative h-[258px] overflow-hidden rounded-[24px] mb-3 lg:mb-0"
               >
                 <Image
-                
                   src={img}
                   alt=""
                   fill
@@ -617,15 +616,15 @@ export default function PropertyDetails() {
                 )}
                 {i === 1 && (
                   <button
-                onClick={() => {
-                  setInitialSlide(0);
-                  setGalleryOpen(true);
-                }}
-                className="absolute bottom-4 right-4 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-text-primary shadow-md transition hover:bg-[#FFF7EA] cursor-pointer"
-              >
-                <Grid2x2 size={14} />
-                View All Photos ({property.images.length})
-              </button>
+                    onClick={() => {
+                      setInitialSlide(0);
+                      setGalleryOpen(true);
+                    }}
+                    className="absolute bottom-4 right-4 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-text-primary shadow-md transition hover:bg-[#FFF7EA] cursor-pointer"
+                  >
+                    <Grid2x2 size={14} />
+                    View All Photos ({property.images.length})
+                  </button>
                 )}
               </div>
             ))}
@@ -645,109 +644,110 @@ export default function PropertyDetails() {
           {/* ── LEFT ──────────────────────────────────── */}
           <div className="space-y-8">
             {/* Tabs */}
-          <div className="sticky top-[80px] z-40 bg-white border-b border-border-color">
-            <div className="overflow-x-auto scrollbar-hide">
-              <div className="flex w-max min-w-full gap-2 sm:gap-4 lg:gap-8">
-                {tabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => scrollToSection(tab.id as keyof typeof sectionRefs)}
-                    className={`shrink-0 whitespace-nowrap border-b-2 px-1 py-3 text-sm font-medium transition sm:text-base lg:py-5 lg:text-lg cursor-pointer ${
-                      activeTab === tab.id
-                        ? "border-[#E39A16] gold-gradient-text"
-                        : "border-transparent text-[#7C7C7C] hover:text-gray-dark"
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-            <div ref={overviewRef} id="overview" className="scroll-mt-[170px]">
-                <div className="flex flex-col gap-[15px] lg:flex-row lg:items-start lg:justify-between mt-[30px]">
-                  <h1 className="text-[28px] font-bold text-text-primary md:text-[36px]">
-                    Villa Sol Paradise
-                  </h1>
-                  <div className="text-right">
-                    <div className="flex items-center justify-end gap-1">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star
-                          key={i}
-                          size={14}
-                          className="fill-[#F5A623] text-[#F5A623]"
-                        />
-                      ))}
-                      <span className="mx-2 text-base font-bold">4.9</span>
-                      <span className="text-sm text-gray underline">
-                        120 Reviews
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-4 text-sm text-gray">
-                  <div className="flex items-center gap-2">
-                    <MapPin size={14} />
-                    Costa Blanca, Spain
-                  </div>
-                  <span className="flex items-center gap-[6px] rounded-full bg-[#2ECC71] px-[10px] py-[6px] text-sm text-white">
-                    <ShieldCheck size={16} />
-                    Verified Property
-                  </span>
-                  <span>Property ID: KTH-29471</span>
-                </div>
-
-                <div className="flex flex-wrap gap-[10px] mt-5">
-                  {featurePills.map(({ Icon, text }, i) => (
-                    <div
-                      key={i}
-                      className="flex h-[35px] items-center gap-[10px] rounded-full bg-[#F5F5F5] px-3 text-sm font-normal text-text-primary"
+            <div className="sticky top-[80px] z-40 bg-white border-b border-border-color">
+              <div className="overflow-x-auto scrollbar-hide">
+                <div className="flex w-max min-w-full gap-2 sm:gap-4 lg:gap-8">
+                  {tabs.map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() =>
+                        scrollToSection(tab.id as keyof typeof sectionRefs)
+                      }
+                      className={`shrink-0 whitespace-nowrap border-b-2 px-1 py-3 text-sm font-medium transition sm:text-base lg:py-5 lg:text-lg cursor-pointer ${
+                        activeTab === tab.id
+                          ? "border-[#E39A16] gold-gradient-text"
+                          : "border-transparent text-[#7C7C7C] hover:text-gray-dark"
+                      }`}
                     >
-                      <Icon size={14} className="text-[#E8A020]" />
-                      {text}
-                    </div>
+                      {tab.label}
+                    </button>
                   ))}
                 </div>
+              </div>
+            </div>
 
-                <div className="border-t border-border-dark my-[35px]" />
-
-                <div>
-                  <h2 className="mb-5 text-lg font-semibold text-text-primary">
-                    About Villa Sol Paradise
-                  </h2>
-                  <div className="space-y-[15px] text-sm leading-[24px] text-gray">
-                    <p>
-                      Nestled along the sun-kissed shores of Costa Blanca, Villa
-                      Sol Paradise is a masterpiece of Mediterranean luxury.
-                      With its sweeping sea views, lush tropical gardens, and a
-                      private infinity pool overlooking the sparkling waters,
-                      this exceptional villa offers an unrivalled holiday
-                      experience for families and groups seeking the finest.
-                    </p>
-                    <p>
-                      The four spacious bedrooms are elegantly furnished with
-                      premium linens and feature private en-suite bathrooms, air
-                      conditioning, and direct garden access. The open-plan
-                      living space flows seamlessly to the outdoor entertaining
-                      terrace, where al fresco dining under the stars becomes an
-                      every-night occasion.
-                    </p>
-                    <p>
-                      Just a 4-minute stroll from Playa del Cura beach and
-                      minutes from charming local restaurants and boutiques,
-                      Villa Sol Paradise places you at the heart of the best
-                      Costa Blanca has to offer — while keeping you wrapped in
-                      the ultimate private luxury.
-                    </p>
+            <div ref={overviewRef} id="overview" className="scroll-mt-[170px]">
+              <div className="flex flex-col gap-[15px] lg:flex-row lg:items-start lg:justify-between mt-[30px]">
+                <h1 className="text-[28px] font-bold text-text-primary md:text-[36px]">
+                  Villa Sol Paradise
+                </h1>
+                <div className="text-right">
+                  <div className="flex items-center justify-end gap-1">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star
+                        key={i}
+                        size={14}
+                        className="fill-[#F5A623] text-[#F5A623]"
+                      />
+                    ))}
+                    <span className="mx-2 text-base font-bold">4.9</span>
+                    <span className="text-sm text-gray underline">
+                      120 Reviews
+                    </span>
                   </div>
                 </div>
-              
-            </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-4 text-sm text-gray">
+                <div className="flex items-center gap-2">
+                  <MapPin size={14} />
+                  Costa Blanca, Spain
+                </div>
+                <span className="flex items-center gap-[6px] rounded-full bg-[#2ECC71] px-[10px] py-[6px] text-sm text-white">
+                  <ShieldCheck size={16} />
+                  Verified Property
+                </span>
+                <span>Property ID: KTH-29471</span>
+              </div>
+
+              <div className="flex flex-wrap gap-[10px] mt-5">
+                {featurePills.map(({ Icon, text }, i) => (
+                  <div
+                    key={i}
+                    className="flex h-[35px] items-center gap-[10px] rounded-full bg-[#F5F5F5] px-3 text-sm font-normal text-text-primary"
+                  >
+                    <Icon size={14} className="text-[#E8A020]" />
+                    {text}
+                  </div>
+                ))}
+              </div>
+
               <div className="border-t border-border-dark my-[35px]" />
 
-           <div ref={featuresRef} id="features" className="scroll-mt-[170px]">
+              <div>
+                <h2 className="mb-5 text-lg font-semibold text-text-primary">
+                  About Villa Sol Paradise
+                </h2>
+                <div className="space-y-[15px] text-sm leading-[24px] text-gray">
+                  <p>
+                    Nestled along the sun-kissed shores of Costa Blanca, Villa
+                    Sol Paradise is a masterpiece of Mediterranean luxury. With
+                    its sweeping sea views, lush tropical gardens, and a private
+                    infinity pool overlooking the sparkling waters, this
+                    exceptional villa offers an unrivalled holiday experience
+                    for families and groups seeking the finest.
+                  </p>
+                  <p>
+                    The four spacious bedrooms are elegantly furnished with
+                    premium linens and feature private en-suite bathrooms, air
+                    conditioning, and direct garden access. The open-plan living
+                    space flows seamlessly to the outdoor entertaining terrace,
+                    where al fresco dining under the stars becomes an
+                    every-night occasion.
+                  </p>
+                  <p>
+                    Just a 4-minute stroll from Playa del Cura beach and minutes
+                    from charming local restaurants and boutiques, Villa Sol
+                    Paradise places you at the heart of the best Costa Blanca
+                    has to offer — while keeping you wrapped in the ultimate
+                    private luxury.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="border-t border-border-dark my-[35px]" />
+
+            <div ref={featuresRef} id="features" className="scroll-mt-[170px]">
               <div className="text-sm text-gray">
                 {/* ---start---- */}
                 <h2 className="mb-5 text-lg font-semibold text-text-primary">
@@ -783,8 +783,8 @@ export default function PropertyDetails() {
                 </div>
                 {/* ---end---- */}
               </div>
-           </div>
-           <div ref={locationRef} id="location" className="scroll-mt-[170px]">
+            </div>
+            <div ref={locationRef} id="location" className="scroll-mt-[170px]">
               <div className="text-sm text-gray">
                 {/* ------start---- */}
                 <h2 className="mb-5 text-lg font-semibold text-text-primary">
@@ -794,7 +794,7 @@ export default function PropertyDetails() {
                   Costa Blanca, Orihuela Costa, Spain
                 </p>
 
-               <div className="relative my-5 overflow-hidden rounded-[24px]">
+                <div className="relative my-5 overflow-hidden rounded-[24px]">
                   <iframe
                     title="Property Location"
                     src="https://www.google.com/maps?q=Costa+Blanca,+Orihuela+Costa,+Spain&z=15&output=embed"
@@ -877,9 +877,9 @@ export default function PropertyDetails() {
                 </div>
                 {/* -----end--- */}
               </div>
-          </div>
-          <div className="border-t border-border-dark my-[35px]" />
-           <div ref={reviewsRef} id="reviews" className="scroll-mt-[170px]">
+            </div>
+            <div className="border-t border-border-dark my-[35px]" />
+            <div ref={reviewsRef} id="reviews" className="scroll-mt-[170px]">
               <div className="text-sm text-gray">
                 {/* ---start-- */}
                 <div className="mb-10 flex flex-col justify-between gap-8 lg:flex-row lg:items-start">
@@ -903,9 +903,7 @@ export default function PropertyDetails() {
                         4.9
                       </span>
 
-                      <span className="text-gray text-xs">
-                        · 120 reviews
-                      </span>
+                      <span className="text-gray text-xs">· 120 reviews</span>
                     </div>
                   </div>
 
@@ -1000,9 +998,7 @@ export default function PropertyDetails() {
                 <span className="text-[28px] font-bold leading-none text-text-primary">
                   £{property.pricePerNight}
                 </span>
-                <span className="mb-[2px] text-sm text-gray">
-                  per night
-                </span>
+                <span className="mb-[2px] text-sm text-gray">per night</span>
               </div>
 
               {/* Date fields — pill with divider */}
@@ -1061,17 +1057,16 @@ export default function PropertyDetails() {
             </div>
           </div>
         </div>
-
       </div>
-         {/* ---FAQ start--- */}
-         <section className="section-space">
-             <FaqSection />
-         </section>
-             {/* ---FAQ end--- */}
+      {/* ---FAQ start--- */}
+      <section className="section-space">
+        <FaqSection />
+      </section>
+      {/* ---FAQ end--- */}
 
-             {/* ----SimilarProperti--start */}
-             <SimilarProperti/>
-             {/* ----SimilarProperti--end */}
+      {/* ----SimilarProperti--start */}
+      <SimilarProperti />
+      {/* ----SimilarProperti--end */}
     </main>
   );
 }

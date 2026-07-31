@@ -1,15 +1,6 @@
 "use client";
 
-import {
-  ShieldCheck,
-  BadgeDollarSign,
-  WalletCards,
-  Lock,
-  Headphones,
-  EyeOff,
-  Handshake,
-  TrendingDown,
-} from "lucide-react";
+import { ShieldCheck, Lock, Headphones, EyeOff, Handshake, TrendingDown } from "lucide-react";
 
 const features = [
   {
@@ -54,7 +45,6 @@ export default function WhyChooseUs() {
   return (
     <section className="section-bottom">
       <div className="container-custom">
-        {/* Heading */}
         <div className="mb-[30px] text-center">
           <p className="section-tag">
             WHY CHOOSE US

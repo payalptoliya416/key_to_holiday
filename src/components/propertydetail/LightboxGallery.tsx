@@ -3,7 +3,6 @@
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs, Keyboard } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";

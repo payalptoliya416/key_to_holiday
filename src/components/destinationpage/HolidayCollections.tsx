@@ -1,17 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import {
-  Umbrella,
-  Crown,
-  Baby,
-  Heart,
-  PawPrint,
-  Waves,
-  Mountain,
-  Trees,
-  Dog,
-} from "lucide-react";
+import { Umbrella, Crown, Baby, Heart, Waves, Mountain, Trees, Dog } from "lucide-react";
 
 const collections = [
   {

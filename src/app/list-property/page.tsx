@@ -1,35 +1,8 @@
 import ListBanner from "@/components/list-property/ListBanner";
 import ListForm from "@/components/list-property/ListForm";
-import PhoneNumberField from "@/components/list-property/PhoneNumberField";
 import FaqSection from "@/components/propertydetail/FaqSection";
-import {
-  BadgeCheck,
-  BadgeDollarSign,
-  Globe,
-  Headphones,
-  LucideIcon,
-  Pencil,
-  Rocket,
-  ShieldCheck,
-  Star,
-  Tags,
-  Zap,
-} from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import PhoneInput from "react-phone-input-2";
+import { BadgeCheck,BadgeDollarSign, Globe, Headphones, LucideIcon, Pencil, Rocket, ShieldCheck, Tags, Zap} from "lucide-react";
 import "react-phone-input-2/lib/style.css";
-
-const categories = [
-  "Last Minute Deals",
-  "Early Bird Offers",
-  "Summer Deals",
-  "Family Offers",
-  "Luxury Villas",
-  "Beachfront Villas",
-  "Pet Friendly",
-  "Long Stay Discounts",
-];
 
 export const steps = [
   {

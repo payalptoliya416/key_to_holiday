@@ -31,8 +31,8 @@ export default function Header() {
   }, [open]);
 
   const handleClose = () => {
-  setOpen(false);
-};
+    setOpen(false);
+  };
   return (
     <header className="sticky top-0 z-50 bg-white px-5 py-4 md:px-6 lg:px-[30px] lg:py-[25px]">
       <div className="">
@@ -48,25 +48,23 @@ export default function Header() {
             />
           </Link>
 
-     <nav className="hidden items-center gap-5 lg:flex">
-  {navItems.map((item) => {
-    const isActive =
-      pathname === item.href || pathname.startsWith(`${item.href}/`);
+          <nav className="hidden items-center gap-5 lg:flex">
+            {navItems.map((item) => {
+              const isActive =
+                pathname === item.href || pathname.startsWith(`${item.href}/`);
 
-    return (
-      <Link
-        key={item.name}
-        href={item.href}
-        onClick={handleClose}
-        className={`nav-link ${
-          isActive ? "nav-link-active" : ""
-        }`}
-      >
-        {item.name}
-      </Link>
-    );
-  })}
-</nav>
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={handleClose}
+                  className={`nav-link ${isActive ? "nav-link-active" : ""}`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
+          </nav>
 
           <div className="hidden items-center gap-[15px] lg:flex">
             {!isSignInPage && (

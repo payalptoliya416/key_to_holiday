@@ -5,7 +5,6 @@ export default function NewsletterSection() {
     <section className="bg-[#F1F5F9] py-12 lg:py-[90px]">
       <div className="container-custom">
         <div className="mx-auto max-w-4xl text-center">
-          {/* Small Heading */}
           <p className="section-tag">
             Stay Inspired
           </p>

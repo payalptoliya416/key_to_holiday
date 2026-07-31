@@ -125,10 +125,6 @@ function CoomingSoon() {
                 </Link>
               </div>
             </div>
-            {/*
-            Left-indent = container-custom na same breakpoints
-            Right side viewport end sudhi bleed thay (overflow visible)
-          */}
              <div className="overflow-hidden">
                    <div
                      className="pl-4 sm:pl-[max(1rem,calc((100vw-540px)/2))] md:pl-[max(1rem,calc((100vw-720px)/2))] lg:pl-[max(1rem,calc((100vw-960px)/2))] xl:pl-[max(0px,calc((100vw-1170px)/2))]"
