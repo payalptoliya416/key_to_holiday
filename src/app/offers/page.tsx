@@ -1,151 +1,11 @@
 "use client";
 
-import {
-  ArrowRight,
-  BadgeCheck,
-  BadgeDollarSign,
-  BedDouble,
-  Headphones,
-  MapPin,
-  MessageCircle,
-  ShieldCheck,
-  Star,
-  Users,
-  Lock,
-} from "lucide-react";
-import Image from "next/image";
+import {BadgeCheck, BadgeDollarSign, Headphones, MessageCircle, ShieldCheck, Lock } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import type { LucideIcon } from "lucide-react";
-import { useState } from "react";
-
-const categories = [
-  "Last Minute Deals",
-  "Early Bird Offers",
-  "Summer Deals",
-  "Family Offers",
-  "Luxury Villas",
-  "Beachfront Villas",
-  "Pet Friendly",
-  "Long Stay Discounts",
-];
-
-export const homes = [
-  {
-    id: 1,
-    slug: "villa-sol-dorrado",
-    title: "Villa Sol Dorrado",
-    location: "Marbella, Spain",
-    image: "/images/feature1.png",
-    rating: 4.97,
-    guests: 8,
-    bedrooms: 4,
-    reviews: 124,
-    price: 420,
-  },
-  {
-    id: 2,
-    slug: "aegean-dream-villa",
-    title: "Aegean Dream Villa",
-    location: "Santorini, Greece",
-    image: "/images/feature2.png",
-    rating: 4.95,
-    guests: 6,
-    bedrooms: 3,
-    reviews: 89,
-    price: 580,
-  },
-  {
-    id: 3,
-    slug: "quinta-da-serra",
-    title: "Quinta da Serra",
-    location: "Algarve, Portugal",
-    image: "/images/feature3.png",
-    rating: 4.92,
-    guests: 10,
-    bedrooms: 5,
-    reviews: 68,
-    price: 390,
-  },
-  {
-    id: 4,
-    slug: "the-coastal-retreat",
-    title: "The Coastal Retreat",
-    location: "Paphos, Cyprus",
-    image: "/images/feature4.png",
-    rating: 4.88,
-    guests: 6,
-    bedrooms: 3,
-    reviews: 102,
-    price: 310,
-  },
-  {
-    id: 5,
-    slug: "tuscany-stone-farmhouse",
-    title: "Tuscany Stone Farmhouse",
-    location: "Tuscany, Italy",
-    image: "/images/feat-1.jpg",
-    rating: 4.93,
-    guests: 12,
-    bedrooms: 6,
-    reviews: 156,
-    price: 680,
-  },
-  {
-    id: 6,
-    slug: "cotswold-manor-house",
-    title: "Cotswold Manor House",
-    location: "Cotswolds, UK",
-    image: "/images/feat-2.jpg",
-    rating: 4.9,
-    guests: 14,
-    bedrooms: 7,
-    reviews: 78,
-    price: 750,
-  },
-];
-
-export const lastMinuteDeals = [
-  {
-    id: 1,
-    title: "The Coastal Retreat",
-    location: "Paphos, Cyprus",
-    image: "/images/minute-1.png",
-    discount: "Save up to 35%",
-    description:
-      "Stunning hilltop villa with panoramic sea views, private heated pool and outdoor kitchen. Perfect for groups seeking luxury in paradise.",
-    guests: 6,
-    bedrooms: 3,
-    reviews: 4.9,
-    price: 780,
-  },
-  {
-    id: 2,
-    title: "Dubrovnik Pearl",
-    location: "Dubrovnik, Croatia",
-    image: "/images/minute-2.png",
-    discount: "Save up to 30%",
-    description:
-      "Exclusive villa perched above the historic old town with breathtaking Adriatic views, infinity pool and private terrace.",
-    guests: 8,
-    bedrooms: 4,
-    reviews: 4.8,
-    price: 693,
-  },
-  {
-    id: 3,
-    title: "Cretan Sanctuary",
-    location: "Paphos, Cyprus",
-    image: "/images/minute-3.png",
-    discount: "Save up to 25%",
-    description:
-      "Serene hilltop retreat surrounded by olive groves with private pool, modern interiors and sweeping sea views.",
-    guests: 6,
-    bedrooms: 3,
-    reviews: 4.7,
-    price: 562,
-  },
-];
+import OffersBanner from "@/components/offers/OffersBanner";
+import HolidayHome from "@/components/offers/HolidayHome";
+import Availability from "@/components/offers/Availability";
 
 type Feature = {
   icon: LucideIcon;
@@ -190,293 +50,19 @@ export const features: Feature[] = [
 ];
 
 export default function OffersPage() {
-  const router = useRouter();
- const [activeCategory, setActiveCategory] = useState(1);
   return (
     <>
-      <section className="bg-white">
-        <div className="container-custom">
-          <div className="mb-[25px] flex items-center gap-2 text-sm text-[#64748B]">
-            <Link href="/" className="hover:text-[#D69A17]">
-              Home
-            </Link>
-            <span>/</span>
-            <span className="font-semibold text-gold">Offers</span>
-          </div>
+      {/* --OffersBanner--start */}
+      <OffersBanner />
+      {/* --OffersBanner--end */}
 
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-6">
-              <span className="inline-flex items-center rounded-full border !leading-none border-gold bg-[#FFF8E7] px-[15px] py-2 text-sm font-semibold text-gold">
-                ● EXCLUSIVE SAVINGS
-              </span>
+      {/* ---HolidayHome--start */}
+      <HolidayHome />
+      {/* ---HolidayHome--end */}
 
-              <h1 className="mt-[15px] text-4xl font-bold leading-tight text-[#17213C] md:text-5xl xl:text-[56px]">
-                Best Holiday Deals &{" "}
-                <span className="gold-gradient-text">Exclusive Offers</span>
-              </h1>
-
-              <p className="mt-[15px] text-base text-[#64748B]">
-                Save more on your next holiday with handpicked villas,
-                beachfront homes and luxury escapes. Discover limited-time
-                deals, last-minute offers and seasonal discounts when you book
-                directly with property owners.
-              </p>
-
-              <div className="mt-[15px] flex items-center gap-3">
-                <div className="text-[#FFC107] flex gap-2">
-                  <Star fill="#FFC107" size={14} />
-                  <Star fill="#FFC107" size={14} />
-                  <Star fill="#FFC107" size={14} />
-                  <Star fill="#FFC107" size={14} />
-                  <Star fill="#FFC107" size={14} />
-                </div>
-                <span className="font-semibold text-gray-dark text-sm">
-                  Rated Excellent
-                </span>
-              </div>
-
-              <div className="mt-[25px] flex flex-wrap gap-6">
-                {[
-                  "Verified Properties",
-                  "Best Price Guarantee",
-                  "Book Direct",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-[10px]">
-                    <div className="flex h-5 w-5 items-center justify-center rounded-full gold-gradient text-xs text-white">
-                      <Image
-                        src="/images/checkmark-right.svg"
-                        alt="check"
-                        width={10}
-                        height={10}
-                        className="object-contain"
-                      />
-                    </div>
-                    <span className="text-xs text-gray-dark">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right Image */}
-            <div className="flex justify-center lg:col-span-6 lg:justify-end">
-              <Image
-                src="/images/offer-right.png"
-                alt="Offer"
-                width={585}
-                height={443}
-                priority
-                className="h-auto w-full max-w-[585px]"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="mt-[60px] pb-[21px] border-t border-[#E8E8E8]"></div>
-        <div className="container-custom">
-          <div className="overflow-x-auto scrollbar-thin">
-            <div className="flex w-max gap-4 pb-2">
-            {categories.map((item, index) => (
-              <button
-                key={item}
-                onClick={() => setActiveCategory(index)}
-                className={`h-[42px] rounded-full border px-[18px] py-[15px] text-xs !leading-none font-medium transition-all cursor-pointer ${
-                  activeCategory === index
-                    ? "border-[#D69A17] bg-[#D69A17] text-white"
-                    : "border-[#E8E8E8] bg-white hover:border-[#D69A17] hover:text-[#D69A17]"
-                }`}
-              >
-                {item}
-              </button>
-            ))}
-          </div>
-          </div>
-        </div>
-        <div className="mt-5 border-t border-[#E8E8E8]"></div>
-      </section>
-
-      <section className="section-space">
-        <div className="container-custom">
-          <div className="mb-8 flex items-center justify-between">
-            <div>
-              <p className="section-tag">Handpicked For You</p>
-
-              <h2 className="section-title">Featured Holiday Homes</h2>
-            </div>
-
-            <Link href="/" className="section-link">
-              <span>View all properties</span>
-              <ArrowRight size={18} />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 gap-[30px] sm:grid-cols-2 lg:grid-cols-3">
-            {homes.map((home) => (
-              <div
-                key={home.id}
-                onClick={() => router.push(`/`)}
-                className="group cursor-pointer overflow-hidden rounded-[22px] border border-border-color bg-white transition-all duration-300 hover:-translate-y-2"
-              >
-                {/* Image */}
-                <div className="relative h-[230px] overflow-hidden rounded-t-[22px]">
-                  <Image
-                    src={home.image}
-                    alt={home.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-
-                  <div className="absolute right-4 top-4 flex items-center gap-1 rounded-full bg-white px-3 py-1.5 shadow-md">
-                    <Star size={13} className="text-gray-dark" />
-                    <span className="text-xs font-semibold">{home.rating}</span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-[23px]">
-                  <h3 className="text-lg] font-semibold text-gray-dark">
-                    {home.title}
-                  </h3>
-
-                  <div className="mt-3 flex items-center gap-1 text-base text-light-dark">
-                    <MapPin size={14} />
-                    <span>{home.location}</span>
-                  </div>
-
-                  <div className="mt-[23px] flex flex-wrap items-center gap-3 text-sm text-light-dark">
-                    <div className="flex items-center gap-1">
-                      <Users size={13} />
-                      {home.guests} guests
-                    </div>
-
-                    <div className="flex items-center gap-1">
-                      <BedDouble size={13} />
-                      {home.bedrooms} bedrooms
-                    </div>
-
-                    <div className="flex items-center gap-1">
-                      <Star size={13} />
-                      {home.reviews} reviews
-                    </div>
-                  </div>
-
-                  <div className="mt-6 flex items-center justify-between">
-                    <div className="flex items-end gap-1">
-                      <span className="text-[24px] font-bold text-gray-dark">
-                        £{home.price}
-                      </span>
-
-                      <span className="mb-1 text-sm text-light-dark">
-                        / night
-                      </span>
-                    </div>
-
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        router.push(`/`);
-                      }}
-                      className="rounded-full bg-gray-dark px-[24px] py-[9px] text-xs font-semibold text-white transition-all hover:bg-[#C99700]"
-                    >
-                      View Details
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-gray-dark py-[90px]">
-        <div className="container-custom">
-          <div className="mb-[30px] text-center">
-            <p className="section-tag">
-              LIMITED AVAILABILITY
-            </p>
-
-            <h2 className="section-title !text-white">
-              Last Minute Deals
-            </h2>
-
-            <p className="mt-[10px] text-[#FFFFFFB2] text-base !leading-[16px]">
-              Book your perfect escape before it's gone.
-            </p>
-          </div>
-
-          {/* Cards */}
-
-          <div className="grid gap-[30px] md:grid-cols-2 xl:grid-cols-3">
-            {lastMinuteDeals.map((item) => (
-              <div
-                key={item.id}
-                className="group rounded-[16px] border border-white/20 bg-[#1B2438] p-5 transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-2xl"
-              >
-
-                <div className="relative h-[230px] overflow-hidden rounded-[16px]">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                  />
-
-                  <div className="absolute right-[10px] top-[10px] rounded-full bg-white px-[15px] py-2 text-sm font-medium text-[#111827] !leading-none h-[31px]">
-                    {item.discount}
-                  </div>
-                </div>
-
-                {/* Content */}
-
-                <div className="mt-5">
-                  <h3 className="text-xl font-semibold text-white">
-                    {item.title}
-                  </h3>
-
-                  <div className="mt-3 flex items-center gap-1 text-base text-[#ADB3BD]">
-                    <MapPin size={14} />
-                    {item.location}
-                  </div>
-
-                  <p className="mt-[15px] text-sm text-[#808794]">
-                    {item.description}
-                  </p>
-
-                  <div className="mt-5 flex flex-wrap gap-4 text-sm text-[#ADB3BD]">
-                    <div className="flex items-center gap-1">
-                      <Users size={14} />
-                      {item.guests} guests
-                    </div>
-
-                    <div className="flex items-center gap-1">
-                      <BedDouble size={14} />
-                      {item.bedrooms} bedrooms
-                    </div>
-
-                    <div className="flex items-center gap-1">
-                      <Star size={14} />
-                      {item.reviews} reviews
-                    </div>
-                  </div>
-
-                  <div className="mt-6 flex items-center justify-between">
-                    <div className="flex items-end gap-1">
-                      <span className="text-2xl font-semibold text-white">
-                        £{item.price}
-                      </span>
-
-                      <span className="mb-1 text-sm text-[#808794]">
-                        / night
-                      </span>
-                    </div>
-
-                    <button className="rounded-full gold-gradient px-[24px] py-[9px] text-sm font-semibold text-white transition hover:bg-[#bf8f12]">
-                      Book Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* --Availability--start */}
+      <Availability />
+      {/* --Availability--end */}
 
       <section className="section-space">
         <div className="container-custom">
@@ -523,6 +109,7 @@ export default function OffersPage() {
           </div>
         </div>
       </section>
+
       <section className="section-bottom">
         <div className="container-custom">
           <div
@@ -542,9 +129,7 @@ export default function OffersPage() {
 
             <div className="relative z-10 flex min-h-[441px] items-center px-6 py-12 sm:px-10 lg:px-16">
               <div className="max-w-[500px]">
-                <p className="section-tag">
-                  THE SMART WAY TO BOOK
-                </p>
+                <p className="section-tag">THE SMART WAY TO BOOK</p>
 
                 <h2 className="mt-5 text-3xl font-bold leading-tight text-white md:text-[44px]">
                   Save More When
@@ -552,24 +137,24 @@ export default function OffersPage() {
                   You Book Direct
                 </h2>
 
-              <div className="mt-5 space-y-3 md:space-y-4">
-                    {[
-                      "No hidden booking fees.",
-                      "Best prices guaranteed.",
-                      "Direct communication with property owners.",
-                    ].map((item) => (
-                      <div
-                        key={item}
-                        className="flex items-start gap-3 text-base text-white"
-                      >
-                        <div className="mt-1 flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full bg-gold text-xs">
-                          ✓
-                        </div>
-
-                        <span className="leading-7">{item}</span>
+                <div className="mt-5 space-y-3 md:space-y-4">
+                  {[
+                    "No hidden booking fees.",
+                    "Best prices guaranteed.",
+                    "Direct communication with property owners.",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-start gap-3 text-base text-white"
+                    >
+                      <div className="mt-1 flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full bg-gold text-xs">
+                        ✓
                       </div>
-                    ))}
-                  </div>
+
+                      <span className="leading-7">{item}</span>
+                    </div>
+                  ))}
+                </div>
 
                 <Link href="/" className="mt-[25px] common-btn w-max">
                   Explore Offers
