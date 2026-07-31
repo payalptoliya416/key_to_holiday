@@ -34,7 +34,7 @@ export default function Features() {
             return (
               <div
                 key={index}
-                className="rounded-[18px] border border-[#E8E4DC] py-[25px] px-5 transition-all duration-300 hover:shadow-lg"
+                className="rounded-[18px] border border-border-color py-[25px] px-5 transition-all duration-300 hover:shadow-lg"
               >
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F8F6F2]">
                   <Image
@@ -46,11 +46,11 @@ export default function Features() {
                   />
                 </div>
 
-                <h3 className="mb-[10px] text-base !leading-none font-semibold text-[#0F172A]">
+                <h3 className="mb-[10px] text-base !leading-none font-semibold text-gray-dark">
                   {item.title}
                 </h3>
 
-                <p className="text-sm !leading-[24px] text-[#6B7280]">
+                <p className="text-sm !leading-[24px] text-light-dark">
                   {item.desc}
                 </p>
               </div>

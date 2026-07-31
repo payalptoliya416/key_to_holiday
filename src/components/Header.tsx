@@ -54,7 +54,7 @@ export default function Header() {
                 key={item.name}
                   href={item.href}
                 onClick={handleClose}
-                className="text-base font-normal text-[#0F172A] transition hover:text-[#E39A16]"
+                className="text-base font-normal text-gray-dark/80 transition hover:text-[#E39A16]"
               >
                 {item.name}
               </Link>
@@ -65,7 +65,7 @@ export default function Header() {
             {!isSignInPage && (
               <Link
                 href="/"
-                className="flex h-12 items-center justify-center rounded-full border border-[#E8E4DC] px-8 text-base font-medium text-[#0F172A] transition hover:border-[#E39A16] hover:text-[#E39A16]"
+                className="flex h-12 items-center justify-center rounded-full border border-border-color px-8 text-base font-medium text-gray-dark transition hover:border-[#E39A16] hover:text-[#E39A16]"
               >
                 Sign In
               </Link>
@@ -80,7 +80,7 @@ export default function Header() {
             onClick={() => setOpen(true)}
             className="rounded-lg p-2 transition hover:bg-gray-100 lg:hidden"
           >
-            <Menu className="h-7 w-7 text-[#0F172A]" />
+            <Menu className="h-7 w-7 text-gray-dark" />
           </button>
         </div>
       </div>
@@ -125,7 +125,7 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 text-[17px] font-medium text-[#0F172A] transition hover:bg-[#FFF8EC] hover:text-[#E39A16]"
+                  className="rounded-xl px-4 py-3 text-[17px] font-medium text-gray-dark transition hover:bg-[#FFF8EC] hover:text-[#E39A16]"
                 >
                   {item.name}
                 </Link>
@@ -137,7 +137,7 @@ export default function Header() {
                 <Link
                   href="/"
                   onClick={() => setOpen(false)}
-                  className="flex h-12 items-center justify-center rounded-full border border-[#E8E4DC] font-medium transition hover:border-[#E39A16] hover:text-[#E39A16]"
+                  className="flex h-12 items-center justify-center rounded-full border border-border-color font-medium transition hover:border-[#E39A16] hover:text-[#E39A16]"
                 >
                   Sign In
                 </Link>

@@ -50,7 +50,7 @@ export default function TrendingDestinations() {
           {destinations.map((item) => (
             <div
               key={item.title}
-              className="group flex flex-col overflow-hidden rounded-[20px] border border-[#EBEBEB] bg-white transition duration-300 hover:shadow-xl sm:flex-row"
+              className="group flex flex-col overflow-hidden rounded-[20px] border border-border-dark bg-white transition duration-300 hover:shadow-xl sm:flex-row"
             >
               {/* Image */}
               <div className="relative h-[160px] w-full overflow-hidden sm:w-[160px]">
@@ -69,17 +69,17 @@ export default function TrendingDestinations() {
               {/* Content */}
               <div className="flex flex-1 flex-col justify-between px-[32px] py-[19px]">
                 <div>
-                  <h3 className="text-lg !leading-none font-semibold text-[#1A1A1A]">
+                  <h3 className="text-lg !leading-none font-semibold text-text-primary">
                     {item.title}
                   </h3>
 
-                  <p className="mt-[10px] text-sm text-[#888888]">
+                  <p className="mt-[10px] text-sm text-gray">
                     {item.properties}
                   </p>
                 </div>
 
                 <div className="mt-8 flex items-center justify-between">
-                  <h4 className="text-lg !leading-none font-medium text-[#1A1A1A]">
+                  <h4 className="text-lg !leading-none font-medium text-text-primary">
                     {item.price}
                   </h4>
 

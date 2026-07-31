@@ -255,7 +255,7 @@ function Events() {
           <div className="absolute inset-0 -z-10 bg-[url('/images/destination-banner.png')] bg-cover bg-center" />
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0F172ABF] via-[#0F172A8C] to-[#0F172ABF]" />
           <div className="flex flex-col items-center mx-auto my-auto">
-            <div className="inline-flex items-center gap-2 backdrop-blur-md text-sm text-[#FFFFFFE5] border border-[#FFFFFF33] bg-[#FFFFFF1A] rounded-[999px] py-[10px] px-[15px] mb-6">
+            <div className="hero-tag">
               <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
               Event Travel
             </div>
@@ -313,7 +313,7 @@ function Events() {
                  <SwiperSlide key={home.id} className="!w-[305px]">
                    <div
                      onClick={() => router.push(`/`)}
-                     className="group overflow-hidden rounded-[22px] border border-[#E8E4DC] bg-white cursor-pointer transition-all duration-300"
+                     className="group overflow-hidden rounded-[22px] border border-border-color bg-white cursor-pointer transition-all duration-300"
                    >
                      {/* Image */}
                      <div className="relative overflow-hidden">
@@ -327,7 +327,7 @@ function Events() {
                        </div>
        
                        <div className="absolute right-5 top-5 flex items-center gap-2 rounded-full bg-white px-3 py-[6px] shadow-lg">
-                         <Star size={14} className="ext-[#0F172A]" />
+                         <Star size={14} className="text-gray-dark" />
        
                          <span className="text-xs font-semibold">{home.rating}</span>
                        </div>
@@ -335,16 +335,16 @@ function Events() {
        
                      {/* Content */}
                      <div className="px-[17px] py-5">
-                       <h3 className="text-base font-semibold text-[#0F172A]">
+                       <h3 className="text-base font-semibold text-gray-dark">
                          {home.title}
                        </h3>
        
-                       <div className="mt-[10px] flex items-center gap-1 text-sm text-[#6B7280]">
+                       <div className="mt-[10px] flex items-center gap-1 text-sm text-light-dark">
                          <MapPin size={13} />
                          {home.location}
                        </div>
        
-                       <div className="mt-5 flex items-center gap-[10px] text-xs text-[#6B7280]">
+                       <div className="mt-5 flex items-center gap-[10px] text-xs text-light-dark">
                          <div className="flex items-center gap-1">
                            <Users size={12} />
                            {home.guests} guests
@@ -363,11 +363,11 @@ function Events() {
        
                        <div className="mt-5 flex items-center justify-between">
                          <div className="flex items-end">
-                           <span className="text-xl font-semibold text-[#0F172A]">
+                           <span className="text-xl font-semibold text-gray-dark">
                              £{home.price}
                            </span>
        
-                           <span className="mb-[2px] ml-1 text-xs text-[#6B7280]">
+                           <span className="mb-[2px] ml-1 text-xs text-light-dark">
                              / night
                            </span>
                          </div>
@@ -376,7 +376,7 @@ function Events() {
                             href="/"
                             onClick={(e) => e.stopPropagation()}
 
-                           className="rounded-full bg-[#0F172A] px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#C99700]"
+                           className="rounded-full bg-gray-dark px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#C99700]"
                          >
                            View Details
                          </Link>
@@ -416,21 +416,21 @@ function Events() {
 
               <div className="mt-[30px] grid grid-cols-3 gap-8">
                 <div>
-                  <p className="text-xs text-[#888888]">Location</p>
-                  <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-[#1A1A1A]">
+                  <p className="text-xs text-gray">Location</p>
+                  <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-text-primary">
                     Boom, Belgium
                   </h5>
                 </div>
 
                 <div>
-                  <p className="text-xs text-[#888888]">Dates</p>
-                  <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-[#1A1A1A]">
+                  <p className="text-xs text-gray">Dates</p>
+                  <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-text-primary">
                     Aug 14-16, 2025
                   </h5>
                 </div>
               </div>
 
-              <p className="text-[#888888] mt-5 text-base">
+              <p className="text-gray mt-5 text-base">
                 Experience the world's most iconic electronic dance music
                 festival. Tomorrowland brings together 400,000+ attendees from
                 across the globe for an unforgettable weekend of music, art, and
@@ -442,22 +442,22 @@ function Events() {
 
               <div className="mt-[30px] grid grid-cols-3 gap-2 md:gap-8">
                 <div>
-                  <p className="text-xs text-[#888888]">Property Price</p>
-                  <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-[#1A1A1A]">
+                  <p className="text-xs text-gray">Property Price</p>
+                  <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-text-primary">
                     £240
                   </h5>
                 </div>
 
                 <div>
-                  <p className="text-xs text-[#888888]">Nearby Holiday Homes</p>
-                  <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-[#1A1A1A]">
+                  <p className="text-xs text-gray">Nearby Holiday Homes</p>
+                  <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-text-primary">
                     124 properties
                   </h5>
                 </div>
 
                 <div>
-                  <p className="text-xs text-[#888888]">Distance from Venue</p>
-                  <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-[#1A1A1A]">
+                  <p className="text-xs text-gray">Distance from Venue</p>
+                  <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-text-primary">
                     3-8 km average
                   </h5>
                 </div>
@@ -492,7 +492,7 @@ function Events() {
               <div
                 key={home.id}
                 onClick={() => router.push(`/`)}
-                className="group cursor-pointer overflow-hidden rounded-[22px] border border-[#E8E4DC] bg-white transition-all duration-300 hover:-translate-y-2"
+                className="group cursor-pointer overflow-hidden rounded-[22px] border border-border-color bg-white transition-all duration-300 hover:-translate-y-2"
               >
                 {/* Image */}
                 <div className="relative h-[230px] overflow-hidden rounded-t-[22px]">
@@ -504,23 +504,23 @@ function Events() {
                   />
 
                   <div className="absolute right-4 top-4 flex items-center gap-1 rounded-full bg-white px-3 py-1.5 shadow-md">
-                    <Star size={13} className="text-[#0F172A]" />
+                    <Star size={13} className="text-gray-dark" />
                     <span className="text-xs font-semibold">{home.rating}</span>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-[23px]">
-                  <h3 className="text-lg] font-semibold text-[#0F172A]">
+                  <h3 className="text-lg] font-semibold text-gray-dark">
                     {home.title}
                   </h3>
 
-                  <div className="mt-3 flex items-center gap-1 text-base text-[#6B7280]">
+                  <div className="mt-3 flex items-center gap-1 text-base text-light-dark">
                     <MapPin size={14} />
                     <span>{home.location}</span>
                   </div>
 
-                  <div className="mt-[23px] flex flex-wrap items-center gap-3 text-sm text-[#6B7280]">
+                  <div className="mt-[23px] flex flex-wrap items-center gap-3 text-sm text-light-dark">
                     <div className="flex items-center gap-1">
                       <Users size={13} />
                       {home.guests} guests
@@ -539,11 +539,11 @@ function Events() {
 
                   <div className="mt-6 flex items-center justify-between">
                     <div className="flex items-end gap-1">
-                      <span className="text-[24px] font-bold text-[#0F172A]">
+                      <span className="text-[24px] font-bold text-gray-dark">
                         £{home.price}
                       </span>
 
-                      <span className="mb-1 text-sm text-[#6B7280]">
+                      <span className="mb-1 text-sm text-light-dark">
                         / night
                       </span>
                     </div>
@@ -553,7 +553,7 @@ function Events() {
                         e.stopPropagation();
                         router.push(`/`);
                       }}
-                      className="rounded-full bg-[#0F172A] px-[24px] py-[9px] text-xs font-semibold text-white transition-all hover:bg-[#C99700]"
+                      className="rounded-full bg-gray-dark px-[24px] py-[9px] text-xs font-semibold text-white transition-all hover:bg-[#C99700]"
                     >
                       View Details
                     </button>
@@ -583,7 +583,7 @@ function Events() {
               return (
                 <div
                   key={item.title}
-                  className="group flex items-start gap-[15px] rounded-[18px] border border-[#EBEBEB] bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#D69A17] hover:shadow-lg"
+                  className="group flex items-start gap-[15px] rounded-[18px] border border-border-dark bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#D69A17] hover:shadow-lg"
                 >
                   {/* Icon */}
 
@@ -598,11 +598,11 @@ function Events() {
                   {/* Content */}
 
                   <div>
-                    <h3 className="text-base font-semibold leading-none text-[#1A1A1A]">
+                    <h3 className="text-base font-semibold leading-none text-text-primary">
                       {item.title}
                     </h3>
 
-                    <p className="mt-[10px] text-sm text-[#888888]">
+                    <p className="mt-[10px] text-sm text-gray">
                       {item.description}
                     </p>
                   </div>

@@ -52,7 +52,7 @@ export default function Testimonials() {
           {testimonials.map((item, index) => (
             <div
               key={index}
-              className="flex h-full flex-col rounded-[18px] border border-[#E8E4DC] bg-white p-[25px] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+              className="flex h-full flex-col rounded-[18px] border border-border-color bg-white p-[25px] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
             >
               {/* Stars */}
               <div className="mb-[11px] flex gap-1">
@@ -71,7 +71,7 @@ export default function Testimonials() {
                 "{item.review}"
               </p>
 
-              <div className="mt-5 mb-[9px] border-t border-[#E8E4DC]" />
+              <div className="mt-5 mb-[9px] border-t border-border-color" />
 
               {/* User */}
               <div className="flex items-center gap-[10px]">
@@ -85,11 +85,11 @@ export default function Testimonials() {
                 </div>
 
                 <div>
-                  <h4 className="text-sm font-medium text-[#0F172A] mb-1">
+                  <h4 className="text-sm font-medium text-gray-dark mb-1">
                     {item.name}
                   </h4>
 
-                  <p className="text-xs text-[#6B7280]">{item.role}</p>
+                  <p className="text-xs text-light-dark">{item.role}</p>
                 </div>
               </div>
             </div>

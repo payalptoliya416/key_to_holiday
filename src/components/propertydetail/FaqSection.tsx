@@ -50,15 +50,15 @@ function FaqSection() {
               return (
                 <div
                   key={i}
-                  className="overflow-hidden rounded-[10px] border border-[#EBEBEB] bg-white"
+                  className="overflow-hidden rounded-[10px] border border-border-dark bg-white"
                 >
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : i)}
                     className={`flex w-full items-center justify-between px-5 py-5.5 text-left transition cursor-pointer ${
-                      isOpen ? "border-b border-[#EBEBEB]" : ""
+                      isOpen ? "border-b border-border-dark" : ""
                     }`}
                   >
-                    <span className="text-sm leading-3.5 font-medium text-[#1A1A1A]">
+                    <span className="text-sm leading-3.5 font-medium text-text-primary">
                       {faq.q}
                     </span>
                     <span
@@ -82,7 +82,7 @@ function FaqSection() {
                       isOpen ? "max-h-60" : "max-h-0"
                     }`}
                   >
-                    <p className="p-5 text-sm leading-5 text-[#888888]">
+                    <p className="p-5 text-sm leading-5 text-gray">
                       {faq.a}
                     </p>
                   </div>

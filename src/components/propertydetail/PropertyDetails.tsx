@@ -116,13 +116,13 @@ function DateField({
       onClick={() => inputRef.current?.showPicker?.()}
       className="flex flex-col gap-2.25 px-3 md:px-5 py-3.25 text-left w-full relative"
     >
-      <span className="text-xs font-semibold text-[#1A1A1A]">{label}</span>
+      <span className="text-xs font-semibold text-text-primary">{label}</span>
       <span
         className={`flex items-center gap-2 text-xs sm:text-sm ${
-          formatted ? "text-[#1A1A1A] font-medium" : "text-[#888888]"
+          formatted ? "text-text-primary font-medium" : "text-gray"
         }`}
       >
-        <CalendarDays size={13} className="shrink-0 text-[#888888]" />
+        <CalendarDays size={13} className="shrink-0 text-gray" />
         {formatted ?? "Add date"}
       </span>
       {/* Hidden native date input — invisible but functional */}
@@ -362,9 +362,9 @@ function GuestDropdown({
         }`}
       >
         <div className="flex flex-col gap-[8px]">
-          <span className="text-xs font-semibold text-[#1A1A1A]">Guests</span>
-          <span className="flex items-center gap-2 text-sm leading-0 text-[#888888]">
-            <Users size={13} className="text-[#888888] shrink-0" />
+          <span className="text-xs font-semibold text-text-primary">Guests</span>
+          <span className="flex items-center gap-2 text-sm leading-0 text-gray">
+            <Users size={13} className="text-gray shrink-0" />
             {label}
           </span>
         </div>
@@ -375,7 +375,7 @@ function GuestDropdown({
         >
           <ChevronDown
             size={16}
-            className={`text-[#888888] transition-transform ${open ? "rotate-180" : ""}`}
+            className={`text-gray transition-transform ${open ? "rotate-180" : ""}`}
           />
         </div>
       </button>
@@ -396,10 +396,10 @@ function GuestDropdown({
                   {cfg.icon}
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-[#1A1A1A]">
+                  <p className="text-sm font-medium text-text-primary">
                     {cfg.label}
                   </p>
-                  <p className="text-xs text-[#888888]">{cfg.sub}</p>
+                  <p className="text-xs text-gray">{cfg.sub}</p>
                 </div>
               </div>
 
@@ -408,16 +408,16 @@ function GuestDropdown({
                 <button
                   onClick={() => adjust(cfg.key, -1)}
                   disabled={counts[cfg.key] <= cfg.min}
-                  className="flex h-[32px] w-[32px] items-center justify-center rounded-full border border-[#E3E3E3] text-base text-[#1A1A1A] transition hover:border-[#E8A020] disabled:opacity-30"
+                  className="flex h-[32px] w-[32px] items-center justify-center rounded-full border border-[#E3E3E3] text-base text-text-primary transition hover:border-[#E8A020] disabled:opacity-30"
                 >
                   −
                 </button>
-                <span className=" text-center text-base font-semibold text-[#1A1A1A]">
+                <span className=" text-center text-base font-semibold text-text-primary">
                   {counts[cfg.key]}
                 </span>
                 <button
                   onClick={() => adjust(cfg.key, 1)}
-                  className="flex h-[32px] w-[32px] items-center justify-center rounded-full border border-[#E3E3E3] text-base text-[#1A1A1A] transition hover:border-[#E8A020]"
+                  className="flex h-[32px] w-[32px] items-center justify-center rounded-full border border-[#E3E3E3] text-base text-text-primary transition hover:border-[#E8A020]"
                 >
                   +
                 </button>
@@ -432,7 +432,7 @@ function GuestDropdown({
                 <Users size={18} className="text-[#E8A020]" />
               </div>
               <div>
-                <p className="text-sm font-medium text-[#1A1A1A]">
+                <p className="text-sm font-medium text-text-primary">
                   Total Guest
                 </p>
                 <p className="text-xs text-[#AAAAAA]">{totalGuests} Guests</p>
@@ -545,7 +545,7 @@ export default function PropertyDetails() {
     <main className="">
       {/* ── Breadcrumb ──────────────────────────────────── */}
       <div className="mx-[30px] pt-5">
-        <nav className="flex items-center gap-1 text-sm text-[#6B7280]">
+        <nav className="flex items-center gap-1 text-sm text-light-dark">
           <Link href="/" className="hover:text-[#E39A16] transition">
             Home
           </Link>
@@ -561,7 +561,7 @@ export default function PropertyDetails() {
             Spain
           </span>
           <ChevronRight size={14} />
-          <span className="font-medium text-[#0F172A]">{property.title}</span>
+          <span className="font-medium text-gray-dark">{property.title}</span>
         </nav>
       </div>
 
@@ -621,7 +621,7 @@ export default function PropertyDetails() {
                   setInitialSlide(0);
                   setGalleryOpen(true);
                 }}
-                className="absolute bottom-4 right-4 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#1A1A1A] shadow-md transition hover:bg-[#FFF7EA] cursor-pointer"
+                className="absolute bottom-4 right-4 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-text-primary shadow-md transition hover:bg-[#FFF7EA] cursor-pointer"
               >
                 <Grid2x2 size={14} />
                 View All Photos ({property.images.length})
@@ -645,7 +645,7 @@ export default function PropertyDetails() {
           {/* ── LEFT ──────────────────────────────────── */}
           <div className="space-y-8">
             {/* Tabs */}
-          <div className="sticky top-[80px] z-40 bg-white border-b border-[#E8E4DC]">
+          <div className="sticky top-[80px] z-40 bg-white border-b border-border-color">
             <div className="overflow-x-auto scrollbar-hide">
               <div className="flex w-max min-w-full gap-2 sm:gap-4 lg:gap-8">
                 {tabs.map((tab) => (
@@ -655,7 +655,7 @@ export default function PropertyDetails() {
                     className={`shrink-0 whitespace-nowrap border-b-2 px-1 py-3 text-sm font-medium transition sm:text-base lg:py-5 lg:text-lg cursor-pointer ${
                       activeTab === tab.id
                         ? "border-[#E39A16] gold-gradient-text"
-                        : "border-transparent text-[#7C7C7C] hover:text-[#0F172A]"
+                        : "border-transparent text-[#7C7C7C] hover:text-gray-dark"
                     }`}
                   >
                     {tab.label}
@@ -667,7 +667,7 @@ export default function PropertyDetails() {
 
             <div ref={overviewRef} id="overview" className="scroll-mt-[170px]">
                 <div className="flex flex-col gap-[15px] lg:flex-row lg:items-start lg:justify-between mt-[30px]">
-                  <h1 className="text-[28px] font-bold text-[#1A1A1A] md:text-[36px]">
+                  <h1 className="text-[28px] font-bold text-text-primary md:text-[36px]">
                     Villa Sol Paradise
                   </h1>
                   <div className="text-right">
@@ -680,14 +680,14 @@ export default function PropertyDetails() {
                         />
                       ))}
                       <span className="mx-2 text-base font-bold">4.9</span>
-                      <span className="text-sm text-[#888888] underline">
+                      <span className="text-sm text-gray underline">
                         120 Reviews
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-4 text-sm text-[#888888]">
+                <div className="flex flex-wrap items-center gap-4 text-sm text-gray">
                   <div className="flex items-center gap-2">
                     <MapPin size={14} />
                     Costa Blanca, Spain
@@ -703,7 +703,7 @@ export default function PropertyDetails() {
                   {featurePills.map(({ Icon, text }, i) => (
                     <div
                       key={i}
-                      className="flex h-[35px] items-center gap-[10px] rounded-full bg-[#F5F5F5] px-3 text-sm font-normal text-[#1A1A1A]"
+                      className="flex h-[35px] items-center gap-[10px] rounded-full bg-[#F5F5F5] px-3 text-sm font-normal text-text-primary"
                     >
                       <Icon size={14} className="text-[#E8A020]" />
                       {text}
@@ -711,13 +711,13 @@ export default function PropertyDetails() {
                   ))}
                 </div>
 
-                <div className="border-t border-[#EBEBEB] my-[35px]" />
+                <div className="border-t border-border-dark my-[35px]" />
 
                 <div>
-                  <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">
+                  <h2 className="mb-5 text-lg font-semibold text-text-primary">
                     About Villa Sol Paradise
                   </h2>
-                  <div className="space-y-[15px] text-sm leading-[24px] text-[#888888]">
+                  <div className="space-y-[15px] text-sm leading-[24px] text-gray">
                     <p>
                       Nestled along the sun-kissed shores of Costa Blanca, Villa
                       Sol Paradise is a masterpiece of Mediterranean luxury.
@@ -745,12 +745,12 @@ export default function PropertyDetails() {
                 </div>
               
             </div>
-              <div className="border-t border-[#EBEBEB] my-[35px]" />
+              <div className="border-t border-border-dark my-[35px]" />
 
            <div ref={featuresRef} id="features" className="scroll-mt-[170px]">
-              <div className="text-sm text-[#888888]">
+              <div className="text-sm text-gray">
                 {/* ---start---- */}
-                <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">
+                <h2 className="mb-5 text-lg font-semibold text-text-primary">
                   Property Highlights
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-[15px]">
@@ -760,7 +760,7 @@ export default function PropertyDetails() {
                     return (
                       <div
                         key={index}
-                        className="flex items-center gap-[10px] rounded-[14px] border border-[#EBEBEB] p-5 transition-all duration-300 hover:shadow-lg hover:border-[#D69A17] hover:-translate-y-1"
+                        className="flex items-center gap-[10px] rounded-[14px] border border-border-dark p-5 transition-all duration-300 hover:shadow-lg hover:border-[#D69A17] hover:-translate-y-1"
                       >
                         {/* Icon */}
                         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FDF3E0]">
@@ -769,11 +769,11 @@ export default function PropertyDetails() {
 
                         {/* Content */}
                         <div>
-                          <h3 className="text-sm font-semibold text-[#1A1A1A]">
+                          <h3 className="text-sm font-semibold text-text-primary">
                             {item.title}
                           </h3>
 
-                          <p className="mt-[10px] text-xs text-[#888888]">
+                          <p className="mt-[10px] text-xs text-gray">
                             {item.subtitle}
                           </p>
                         </div>
@@ -785,12 +785,12 @@ export default function PropertyDetails() {
               </div>
            </div>
            <div ref={locationRef} id="location" className="scroll-mt-[170px]">
-              <div className="text-sm text-[#888888]">
+              <div className="text-sm text-gray">
                 {/* ------start---- */}
-                <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A]">
+                <h2 className="mb-5 text-lg font-semibold text-text-primary">
                   Property Location
                 </h2>
-                <p className="text-[#888888] text-sm leading-0">
+                <p className="text-gray text-sm leading-0">
                   Costa Blanca, Orihuela Costa, Spain
                 </p>
 
@@ -824,7 +824,7 @@ export default function PropertyDetails() {
                     return (
                       <div
                         key={index}
-                        className="flex items-center gap-[10px] rounded-[14px] border border-[#EBEBEB] p-5 transition-all duration-300 hover:shadow-lg"
+                        className="flex items-center gap-[10px] rounded-[14px] border border-border-dark p-5 transition-all duration-300 hover:shadow-lg"
                       >
                         {/* Icon */}
                         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FDF3E0]">
@@ -833,11 +833,11 @@ export default function PropertyDetails() {
 
                         {/* Content */}
                         <div>
-                          <h3 className="text-sm font-semibold text-[#1A1A1A]">
+                          <h3 className="text-sm font-semibold text-text-primary">
                             {item.title}
                           </h3>
 
-                          <p className="mt-[10px] text-xs text-[#888888]">
+                          <p className="mt-[10px] text-xs text-gray">
                             {item.subtitle}
                           </p>
                         </div>
@@ -848,7 +848,7 @@ export default function PropertyDetails() {
                 {/* ---------end--- */}
 
                 {/* ----start---- */}
-                <h2 className="mb-5 text-lg font-semibold text-[#1A1A1A] mt-5">
+                <h2 className="mb-5 text-lg font-semibold text-text-primary mt-5">
                   {" "}
                   House Rules{" "}
                 </h2>
@@ -860,15 +860,15 @@ export default function PropertyDetails() {
                     return (
                       <div
                         key={index}
-                        className="flex items-center gap-[10px] rounded-[16px] border border-[#EBEBEB] p-[15px] transition duration-300 hover:shadow-md"
+                        className="flex items-center gap-[10px] rounded-[16px] border border-border-dark p-[15px] transition duration-300 hover:shadow-md"
                       >
                         {/* Icon */}
                         <div className="flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full bg-[#F0F0F0]">
-                          <Icon size={16} className="text-[#1A1A1A]" />
+                          <Icon size={16} className="text-text-primary" />
                         </div>
 
                         {/* Title */}
-                        <h3 className="text-xs font-medium text-[#1A1A1A]">
+                        <h3 className="text-xs font-medium text-text-primary">
                           {item.title}
                         </h3>
                       </div>
@@ -878,13 +878,13 @@ export default function PropertyDetails() {
                 {/* -----end--- */}
               </div>
           </div>
-          <div className="border-t border-[#EBEBEB] my-[35px]" />
+          <div className="border-t border-border-dark my-[35px]" />
            <div ref={reviewsRef} id="reviews" className="scroll-mt-[170px]">
-              <div className="text-sm text-[#888888]">
+              <div className="text-sm text-gray">
                 {/* ---start-- */}
                 <div className="mb-10 flex flex-col justify-between gap-8 lg:flex-row lg:items-start">
                   <div>
-                    <h2 className="text-lg leading-[18px] font-semibold text-[#1A1A1A]">
+                    <h2 className="text-lg leading-[18px] font-semibold text-text-primary">
                       Guest Reviews
                     </h2>
 
@@ -899,11 +899,11 @@ export default function PropertyDetails() {
                         ))}
                       </div>
 
-                      <span className="text-sm font-semibold text-[#1A1A1A]">
+                      <span className="text-sm font-semibold text-text-primary">
                         4.9
                       </span>
 
-                      <span className="text-[#888888] text-xs">
+                      <span className="text-gray text-xs">
                         · 120 reviews
                       </span>
                     </div>
@@ -913,7 +913,7 @@ export default function PropertyDetails() {
                   <div className="w-full max-w-[380px] space-y-4">
                     {ratingBreakdown.map((item) => (
                       <div key={item.label} className="flex items-center gap-4">
-                        <span className="w-[120px] text-[#888888] text-sm leading-[14px]">
+                        <span className="w-[120px] text-gray text-sm leading-[14px]">
                           {item.label}
                         </span>
 
@@ -926,7 +926,7 @@ export default function PropertyDetails() {
                           />
                         </div>
 
-                        <span className="w-8 text-right font-medium text-xs text-[#888888]">
+                        <span className="w-8 text-right font-medium text-xs text-gray">
                           {item.value}
                         </span>
                       </div>
@@ -938,7 +938,7 @@ export default function PropertyDetails() {
                   {reviews.map((item, index) => (
                     <div
                       key={index}
-                      className="flex h-full flex-col rounded-[18px] border border-[#E8E4DC] bg-white p-[25px] transition-all duration-300 hover:shadow-xl"
+                      className="flex h-full flex-col rounded-[18px] border border-border-color bg-white p-[25px] transition-all duration-300 hover:shadow-xl"
                     >
                       {/* Stars */}
                       <div className="mb-[16px] flex gap-1">
@@ -953,11 +953,11 @@ export default function PropertyDetails() {
                       </div>
 
                       {/* Review */}
-                      <p className="flex-1 text-xs !leading-[20px] text-[#1A1A1A]">
+                      <p className="flex-1 text-xs !leading-[20px] text-text-primary">
                         "{item.review}"
                       </p>
 
-                      <div className="mt-5 mb-[9px] border-t border-[#E8E4DC]" />
+                      <div className="mt-5 mb-[9px] border-t border-border-color" />
 
                       {/* User */}
                       <div className="flex items-center gap-4">
@@ -971,11 +971,11 @@ export default function PropertyDetails() {
                         </div>
 
                         <div>
-                          <h4 className="text-sm font-medium text-[#1A1A1A]">
+                          <h4 className="text-sm font-medium text-text-primary">
                             {item.name}
                           </h4>
 
-                          <p className="text-xs text-[#888888]">
+                          <p className="text-xs text-gray">
                             {item.country} · {item.date}
                           </p>
                         </div>
@@ -984,7 +984,7 @@ export default function PropertyDetails() {
                   ))}
                 </div>
                 {/* Show all button */}
-                <button className="rounded-[24px] border border-[#EBEBEB] px-[18px] py-[15px] text-sm leading-[14px] font-semibold transition hover:bg-[#F8F8F8] cursor-pointer mt-[25px]">
+                <button className="rounded-[24px] border border-border-dark px-[18px] py-[15px] text-sm leading-[14px] font-semibold transition hover:bg-[#F8F8F8] cursor-pointer mt-[25px]">
                   Show all 120 reviews
                 </button>
                 {/* Review Cards */}
@@ -994,13 +994,13 @@ export default function PropertyDetails() {
 
           {/* ── RIGHT – Booking card ───────────────────── */}
           <div className="lg:sticky lg:top-[110px] h-fit">
-            <div className="space-y-4 rounded-[16px] border border-[#EBEBEB] bg-[#F8F6F2] px-5 py-[30px]">
+            <div className="space-y-4 rounded-[16px] border border-border-dark bg-[#F8F6F2] px-5 py-[30px]">
               {/* Price */}
               <div className="mb-[10px] flex items-end gap-1">
-                <span className="text-[28px] font-bold leading-none text-[#1A1A1A]">
+                <span className="text-[28px] font-bold leading-none text-text-primary">
                   £{property.pricePerNight}
                 </span>
-                <span className="mb-[2px] text-sm text-[#888888]">
+                <span className="mb-[2px] text-sm text-gray">
                   per night
                 </span>
               </div>
@@ -1023,7 +1023,7 @@ export default function PropertyDetails() {
               <GuestDropdown counts={guestCounts} onChange={setGuestCounts} />
 
               {/* Price breakdown */}
-              <div className="space-y-[12px] text-sm text-[#1A1A1A]">
+              <div className="space-y-[12px] text-sm text-text-primary">
                 <div className="flex justify-between">
                   <span>
                     £{property.pricePerNight} × {nights} nights
@@ -1038,7 +1038,7 @@ export default function PropertyDetails() {
                   <span>Service fee</span>
                   <span>£{property.serviceFee}</span>
                 </div>
-                <div className="flex justify-between text-base  pt-3 font-medium text-[#1A1A1A]">
+                <div className="flex justify-between text-base  pt-3 font-medium text-text-primary">
                   <span>Total</span>
                   <span>£{total.toLocaleString()}</span>
                 </div>
@@ -1049,12 +1049,12 @@ export default function PropertyDetails() {
                 Book Now
               </button>
 
-              <button className="w-full rounded-full border border-[#DBDBDB] py-[14px] text-sm font-semibold text-[#1A1A1A] transition hover:border-[#E8A020] hover:text-[#E8A020] cursor-pointer">
+              <button className="w-full rounded-full border border-[#DBDBDB] py-[14px] text-sm font-semibold text-text-primary transition hover:border-[#E8A020] hover:text-[#E8A020] cursor-pointer">
                 Contact Host
               </button>
 
               {/* Trust */}
-              <div className="flex items-center justify-center gap-2 text-xs text-[#888888]">
+              <div className="flex items-center justify-center gap-2 text-xs text-gray">
                 <ShieldCheck size={13} className="text-[#2ECC71]" />
                 No hidden fees · Secure payment
               </div>

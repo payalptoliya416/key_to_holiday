@@ -33,7 +33,7 @@ export default function FeaturedDestination() {
               Santorini, Greece
             </h2>
 
-            <p className="text-[#888888] mt-5 text-base">
+            <p className="text-gray mt-5 text-base">
               Perched on volcanic cliffs overlooking the Mediterranean,
               Santorini is the epitome of luxury. Experience stunning sunsets,
               pristine beaches and world-class hospitality in this iconic Greek
@@ -43,7 +43,7 @@ export default function FeaturedDestination() {
             {/* Highlights */}
 
             <div className="mt-[30px]">
-              <h4 className="mb-[15px] font-semibold text-[#1A1A1A] text-sm leading-none">
+              <h4 className="mb-[15px] font-semibold text-text-primary text-sm leading-none">
                 Highlights
               </h4>
 
@@ -74,18 +74,18 @@ export default function FeaturedDestination() {
 
             <div className="mt-[30px] grid grid-cols-3 gap-2 md:gap-8">
               <div>
-                <p className="text-xs text-[#888888]">Best Time</p>
-                <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-[#1A1A1A]">Apr – Oct</h5>
+                <p className="text-xs text-gray">Best Time</p>
+                <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-text-primary">Apr – Oct</h5>
               </div>
 
               <div>
-                <p className="text-xs text-[#888888]">Avg. Nightly</p>
-                <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-[#1A1A1A]">£420+</h5>
+                <p className="text-xs text-gray">Avg. Nightly</p>
+                <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-text-primary">£420+</h5>
               </div>
 
               <div>
-                <p className="text-xs text-[#888888]">Properties</p>
-                <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-[#1A1A1A]">680+</h5>
+                <p className="text-xs text-gray">Properties</p>
+                <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-text-primary">680+</h5>
               </div>
             </div>
 

@@ -201,12 +201,12 @@ export default function OffersPage() {
               Home
             </Link>
             <span>/</span>
-            <span className="font-semibold text-[#D4A017]">Offers</span>
+            <span className="font-semibold text-gold">Offers</span>
           </div>
 
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
             <div className="lg:col-span-6">
-              <span className="inline-flex items-center rounded-full border !leading-none border-[#D4A017] bg-[#FFF8E7] px-[15px] py-2 text-sm font-semibold text-[#D4A017]">
+              <span className="inline-flex items-center rounded-full border !leading-none border-gold bg-[#FFF8E7] px-[15px] py-2 text-sm font-semibold text-gold">
                 ● EXCLUSIVE SAVINGS
               </span>
 
@@ -230,7 +230,7 @@ export default function OffersPage() {
                   <Star fill="#FFC107" size={14} />
                   <Star fill="#FFC107" size={14} />
                 </div>
-                <span className="font-semibold text-[#0F172A] text-sm">
+                <span className="font-semibold text-gray-dark text-sm">
                   Rated Excellent
                 </span>
               </div>
@@ -251,7 +251,7 @@ export default function OffersPage() {
                         className="object-contain"
                       />
                     </div>
-                    <span className="text-xs text-[#0F172A]">{item}</span>
+                    <span className="text-xs text-gray-dark">{item}</span>
                   </div>
                 ))}
               </div>
@@ -312,7 +312,7 @@ export default function OffersPage() {
               <div
                 key={home.id}
                 onClick={() => router.push(`/`)}
-                className="group cursor-pointer overflow-hidden rounded-[22px] border border-[#E8E4DC] bg-white transition-all duration-300 hover:-translate-y-2"
+                className="group cursor-pointer overflow-hidden rounded-[22px] border border-border-color bg-white transition-all duration-300 hover:-translate-y-2"
               >
                 {/* Image */}
                 <div className="relative h-[230px] overflow-hidden rounded-t-[22px]">
@@ -324,23 +324,23 @@ export default function OffersPage() {
                   />
 
                   <div className="absolute right-4 top-4 flex items-center gap-1 rounded-full bg-white px-3 py-1.5 shadow-md">
-                    <Star size={13} className="text-[#0F172A]" />
+                    <Star size={13} className="text-gray-dark" />
                     <span className="text-xs font-semibold">{home.rating}</span>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-[23px]">
-                  <h3 className="text-lg] font-semibold text-[#0F172A]">
+                  <h3 className="text-lg] font-semibold text-gray-dark">
                     {home.title}
                   </h3>
 
-                  <div className="mt-3 flex items-center gap-1 text-base text-[#6B7280]">
+                  <div className="mt-3 flex items-center gap-1 text-base text-light-dark">
                     <MapPin size={14} />
                     <span>{home.location}</span>
                   </div>
 
-                  <div className="mt-[23px] flex flex-wrap items-center gap-3 text-sm text-[#6B7280]">
+                  <div className="mt-[23px] flex flex-wrap items-center gap-3 text-sm text-light-dark">
                     <div className="flex items-center gap-1">
                       <Users size={13} />
                       {home.guests} guests
@@ -359,11 +359,11 @@ export default function OffersPage() {
 
                   <div className="mt-6 flex items-center justify-between">
                     <div className="flex items-end gap-1">
-                      <span className="text-[24px] font-bold text-[#0F172A]">
+                      <span className="text-[24px] font-bold text-gray-dark">
                         £{home.price}
                       </span>
 
-                      <span className="mb-1 text-sm text-[#6B7280]">
+                      <span className="mb-1 text-sm text-light-dark">
                         / night
                       </span>
                     </div>
@@ -373,7 +373,7 @@ export default function OffersPage() {
                         e.stopPropagation();
                         router.push(`/`);
                       }}
-                      className="rounded-full bg-[#0F172A] px-[24px] py-[9px] text-xs font-semibold text-white transition-all hover:bg-[#C99700]"
+                      className="rounded-full bg-gray-dark px-[24px] py-[9px] text-xs font-semibold text-white transition-all hover:bg-[#C99700]"
                     >
                       View Details
                     </button>
@@ -385,7 +385,7 @@ export default function OffersPage() {
         </div>
       </section>
 
-      <section className="bg-[#0F172A] py-[90px]">
+      <section className="bg-gray-dark py-[90px]">
         <div className="container-custom">
           <div className="mb-[30px] text-center">
             <p className="section-tag">
@@ -407,7 +407,7 @@ export default function OffersPage() {
             {lastMinuteDeals.map((item) => (
               <div
                 key={item.id}
-                className="group rounded-[16px] border border-white/20 bg-[#1B2438] p-5 transition-all duration-300 hover:-translate-y-2 hover:border-[#D4A017] hover:shadow-2xl"
+                className="group rounded-[16px] border border-white/20 bg-[#1B2438] p-5 transition-all duration-300 hover:-translate-y-2 hover:border-gold hover:shadow-2xl"
               >
 
                 <div className="relative h-[230px] overflow-hidden rounded-[16px]">
@@ -494,7 +494,7 @@ export default function OffersPage() {
               return (
                 <div
                   key={item.title}
-                  className="group flex items-start gap-[15px] rounded-[18px] border border-[#EBEBEB] bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#D69A17] hover:shadow-lg"
+                  className="group flex items-start gap-[15px] rounded-[18px] border border-border-dark bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#D69A17] hover:shadow-lg"
                 >
                   {/* Icon */}
 
@@ -509,11 +509,11 @@ export default function OffersPage() {
                   {/* Content */}
 
                   <div>
-                    <h3 className="text-base font-semibold leading-none text-[#1A1A1A]">
+                    <h3 className="text-base font-semibold leading-none text-text-primary">
                       {item.title}
                     </h3>
 
-                    <p className="mt-[10px] text-sm text-[#888888]">
+                    <p className="mt-[10px] text-sm text-gray">
                       {item.description}
                     </p>
                   </div>
@@ -562,7 +562,7 @@ export default function OffersPage() {
                         key={item}
                         className="flex items-start gap-3 text-base text-white"
                       >
-                        <div className="mt-1 flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full bg-[#D4A017] text-xs">
+                        <div className="mt-1 flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full bg-gold text-xs">
                           ✓
                         </div>
 

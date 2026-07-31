@@ -19,13 +19,13 @@ export default function SignInPage() {
     <main className="section-space">
       {/* Card */}
       <div className="container-custom flex-1 flex items-center justify-center ">
-      <div className="w-full max-w-[560px] bg-white rounded-[32px] border border-[#E8E4DC] px-4 md:px-8 py-6 md:py-10 sm:px-10 sm:py-[45px]">
+      <div className="w-full max-w-[560px] bg-white rounded-[32px] border border-border-color px-4 md:px-8 py-6 md:py-10 sm:px-10 sm:py-[45px]">
         {/* Title */}
         <div className="text-center mb-[35px]">
-          <h1 className="text-[28px] font-semibold text-[#1A1A1A] mb-[15px]">
+          <h1 className="text-[28px] font-semibold text-text-primary mb-[15px]">
             Sign In
           </h1>
-          <p className="text-sm text-[#888888] !leading-[14px]">
+          <p className="text-sm text-gray !leading-[14px]">
             Welcome back to KeyToHolidays
           </p>
         </div>
@@ -34,11 +34,11 @@ export default function SignInPage() {
           <div className="space-y-1.5 mb-5">
             <label
               htmlFor="email"
-              className="block text-sm !leading-[14px] font-semibold text-[#1A1A1A] mb-[10px]"
+              className="block text-sm !leading-[14px] font-semibold text-text-primary mb-[10px]"
             >
               Email Address
             </label>
-            <div className="h-[44px] flex items-center gap-3 rounded-full border border-[#EBEBEB] px-5 py-4">
+            <div className="h-[44px] flex items-center gap-3 rounded-full border border-border-dark px-5 py-4">
               <svg
                 width="13"
                 height="11"
@@ -70,7 +70,7 @@ export default function SignInPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="flex-1 text-sm text-[#0F172A] placeholder-[#888888] outline-none bg-transparent"
+                className="flex-1 text-sm text-gray-dark placeholder-gray outline-none bg-transparent"
               />
             </div>
           </div>
@@ -78,11 +78,11 @@ export default function SignInPage() {
           <div className="mb-3">
             <label
               htmlFor="password"
-              className="block text-sm !leading-[14px] font-semibold text-[#1A1A1A] mb-[10px]"
+              className="block text-sm !leading-[14px] font-semibold text-text-primary mb-[10px]"
             >
               Password
             </label>
-            <div className="flex items-center gap-3 border border-[#EBEBEB] rounded-[80px] px-4 py-3 transition">
+            <div className="flex items-center gap-3 border border-border-dark rounded-[80px] px-4 py-3 transition">
               {/* Lock icon */}
 
               <svg
@@ -116,7 +116,7 @@ export default function SignInPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="flex-1 text-sm text-[#0F172A] placeholder-[#888888] outline-none bg-transparent"
+                className="flex-1 text-sm text-gray-dark placeholder-gray outline-none bg-transparent"
               />
               {/* Show / hide toggle */}
               <button
@@ -187,7 +187,7 @@ export default function SignInPage() {
                 )}
               </div>
 
-              <span className="text-sm !leading-[14px] text-[#888888]">
+              <span className="text-sm !leading-[14px] text-gray">
                 Remember me
               </span>
             </label>
@@ -210,17 +210,17 @@ export default function SignInPage() {
 
         {/* Divider */}
         <div className="flex items-center gap-3 my-[25px]">
-          <div className="flex-1 h-px bg-[#EBEBEB]" />
-          <span className="text-xs text-[#888888] whitespace-nowrap">
+          <div className="flex-1 h-px bg-border-dark" />
+          <span className="text-xs text-gray whitespace-nowrap">
             or continue with
           </span>
-          <div className="flex-1 h-px bg-[#EBEBEB]" />
+          <div className="flex-1 h-px bg-border-dark" />
         </div>
 
         {/* Google button */}
         <button
           type="button"
-          className="flex items-center justify-center gap-3 border border-[#EBEBEB] rounded-full py-3 text-sm font-normal hover:bg-gray-50 active:scale-[0.98] transition-all duration-200 w-full max-w-[315px] mx-auto cursor-pointer"
+          className="flex items-center justify-center gap-3 border border-border-dark rounded-full py-3 text-sm font-normal hover:bg-gray-50 active:scale-[0.98] transition-all duration-200 w-full max-w-[315px] mx-auto cursor-pointer"
         >
           {/* Google G logo */}
           <svg className="w-5 h-5" viewBox="0 0 24 24" aria-hidden="true">

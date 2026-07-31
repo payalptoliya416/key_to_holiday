@@ -126,7 +126,7 @@ function renderCalendar(year: number, month: number) {
           <ChevronLeft size={18} />
         </button>
 
-        <p className="text-sm font-semibold text-[#0F172A]">
+        <p className="text-sm font-semibold text-gray-dark">
           {MONTH_NAMES[month]} {year}
         </p>
 
@@ -167,8 +167,8 @@ function renderCalendar(year: number, month: number) {
                 past
                   ? "text-[#D8D8D8] line-through cursor-not-allowed"
                   : selected
-                  ? "bg-[#0F172A] text-white font-semibold"
-                  : "text-[#0F172A] hover:bg-[#F5F3EE]",
+                  ? "bg-gray-dark text-white font-semibold"
+                  : "text-gray-dark hover:bg-[#F5F3EE]",
               ].join(" ")}
             >
               {day}
@@ -196,7 +196,7 @@ function renderCalendar(year: number, month: number) {
     return (
       <div className="flex items-center justify-between py-3">
         <div>
-          <p className="text-sm font-semibold text-[#0F172A]">{label}</p>
+          <p className="text-sm font-semibold text-gray-dark">{label}</p>
           {sublabel && <p className="text-xs text-[#9DA4B1]">{sublabel}</p>}
         </div>
         <div className="flex items-center gap-4">
@@ -204,17 +204,17 @@ function renderCalendar(year: number, month: number) {
             type="button"
             disabled={value <= min}
             onClick={() => setValue(Math.max(min, value - 1))}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-[#E8E4DC] text-[#0F172A] disabled:cursor-not-allowed disabled:opacity-40 hover:border-[#0F172A]"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-border-color text-gray-dark disabled:cursor-not-allowed disabled:opacity-40 hover:border-gray-dark"
           >
             <Minus size={14} />
           </button>
-          <span className="w-4 text-center text-sm font-medium text-[#0F172A]">
+          <span className="w-4 text-center text-sm font-medium text-gray-dark">
             {value}
           </span>
           <button
             type="button"
             onClick={() => setValue(value + 1)}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-[#E8E4DC] text-[#0F172A] hover:border-[#0F172A]"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-border-color text-gray-dark hover:border-gray-dark"
           >
             <Plus size={14} />
           </button>
@@ -233,13 +233,13 @@ function renderCalendar(year: number, month: number) {
             ref={destRef}
             className="relative xl:after:absolute xl:after:right-[-23px] xl:after:top-1/2 xl:after:h-[55px] xl:after:w-px xl:after:-translate-y-1/2 xl:after:bg-[#DFDFDF]"
           >
-            <p className="mb-[10px] text-sm font-semibold text-[#0F172A]">
+            <p className="mb-[10px] text-sm font-semibold text-gray-dark">
               Destination
             </p>
 
             <div
               onClick={() => setDestOpen(true)}
-              className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-[#E8E4DC] px-4 sm:px-5 cursor-text"
+              className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-text"
             >
               <Image
                 src="/images/location01.svg"
@@ -254,7 +254,7 @@ function renderCalendar(year: number, month: number) {
                 onFocus={() => setDestOpen(true)}
                 onChange={(e) => setDestination(e.target.value)}
                 placeholder="Where are you going?"
-                className="w-full bg-transparent text-sm outline-none text-[#0F172A] placeholder:text-[#9DA4B1] placeholder:text-sm"
+                className="w-full bg-transparent text-sm outline-none text-gray-dark placeholder:text-[#9DA4B1] placeholder:text-sm"
               />
 
               {destination && (
@@ -264,7 +264,7 @@ function renderCalendar(year: number, month: number) {
                     e.stopPropagation();
                     setDestination("");
                   }}
-                  className="text-[#9DA4B1] hover:text-[#0F172A]"
+                  className="text-[#9DA4B1] hover:text-gray-dark"
                 >
                   <X size={16} />
                 </button>
@@ -291,9 +291,9 @@ function renderCalendar(year: number, month: number) {
                       }}
                       className="flex items-center gap-3 rounded-lg px-2 py-2 text-left hover:bg-[#F5F3EE]"
                     >
-                      <MapPin size={16} className="text-[#0F172A] shrink-0" />
+                      <MapPin size={16} className="text-gray-dark shrink-0" />
                       <span>
-                        <span className="block text-sm font-medium text-[#0F172A]">
+                        <span className="block text-sm font-medium text-gray-dark">
                           {d.name}
                         </span>
                         {d.sub && (
@@ -312,13 +312,13 @@ function renderCalendar(year: number, month: number) {
             ref={dateRef}
             className="relative xl:after:absolute xl:after:right-[-23px] xl:after:top-1/2 xl:after:h-[55px] xl:after:w-px xl:after:-translate-y-1/2 xl:after:bg-[#DFDFDF]"
           >
-            <p className="mb-[10px] text-sm font-semibold text-[#0F172A]">
+            <p className="mb-[10px] text-sm font-semibold text-gray-dark">
               Check-in
             </p>
 
             <div
               onClick={() => setDateOpen((v) => !v)}
-              className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-[#E8E4DC] px-4 sm:px-5 cursor-pointer"
+              className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-pointer"
             >
               <Image
                 src="/images/date01.svg"
@@ -329,7 +329,7 @@ function renderCalendar(year: number, month: number) {
 
               <span
                 className={`w-full truncate text-sm ${
-                  checkIn ? "text-[#0F172A]" : "text-[#9DA4B1]"
+                  checkIn ? "text-gray-dark" : "text-[#9DA4B1]"
                 }`}
               >
                 {dateLabel || "Add date"}
@@ -356,13 +356,13 @@ function renderCalendar(year: number, month: number) {
 
           {/* Check Out */}
           <div className="relative xl:after:absolute xl:after:right-[-23px] xl:after:top-1/2 xl:after:h-[55px] xl:after:w-px xl:after:-translate-y-1/2 xl:after:bg-[#DFDFDF]">
-            <p className="mb-[10px] text-sm font-semibold text-[#0F172A]">
+            <p className="mb-[10px] text-sm font-semibold text-gray-dark">
               Check-out
             </p>
 
             <div
               onClick={() => setDateOpen(true)}
-              className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-[#E8E4DC] px-4 sm:px-5 cursor-pointer"
+              className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-pointer"
             >
               <Image
                 src="/images/date01.svg"
@@ -379,13 +379,13 @@ function renderCalendar(year: number, month: number) {
 
           {/* Guests */}
           <div ref={guestsRef} className="relative">
-            <p className="mb-[10px] text-sm font-semibold text-[#0F172A]">
+            <p className="mb-[10px] text-sm font-semibold text-gray-dark">
               Guests
             </p>
 
             <div
               onClick={() => setGuestsOpen((v) => !v)}
-              className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-[#E8E4DC] px-4 sm:px-5 cursor-pointer"
+              className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-pointer"
             >
               <Image
                 src="/images/user.svg"
@@ -394,7 +394,7 @@ function renderCalendar(year: number, month: number) {
                 height={18}
               />
 
-              <span className="w-full truncate text-sm text-[#0F172A]">
+              <span className="w-full truncate text-sm text-gray-dark">
                 {adults + children + infants > 0 || pets > 0 ? guestsLabel : "Add guests"}
               </span>
             </div>

@@ -47,16 +47,16 @@ function SignUp() {
   return (
     <main className="section-space">
       <div className="container-custom flex justify-center">
-        <div className="w-full max-w-[560px] rounded-[32px] border border-[#E8E4DC] bg-white px-5 sm:px-10 py-[45px]">
+        <div className="w-full max-w-[560px] rounded-[32px] border border-border-color bg-white px-5 sm:px-10 py-[45px]">
 
           {/* Heading */}
 
           <div className="text-center mb-10">
-            <h1 className="text-[28px] font-semibold text-[#1A1A1A]">
+            <h1 className="text-[28px] font-semibold text-text-primary">
               Create Your Account
             </h1>
 
-            <p className="mt-[15px] text-sm text-[#888888] md:!leading-[14px]">
+            <p className="mt-[15px] text-sm text-gray md:!leading-[14px]">
               Join KeyToHolidays and book directly with trusted property owners.
             </p>
           </div>
@@ -66,11 +66,11 @@ function SignUp() {
             {/* Full Name */}
 
             <div className="mb-5">
-              <label className="block text-sm !leading-[14px] font-semibold text-[#1A1A1A] mb-[10px]">
+              <label className="block text-sm !leading-[14px] font-semibold text-text-primary mb-[10px]">
                 Full Name
               </label>
 
-              <div className="h-[44px] flex items-center gap-3 rounded-full border border-[#EBEBEB] px-5 py-4">
+              <div className="h-[44px] flex items-center gap-3 rounded-full border border-border-dark px-5 py-4">
                 <User size={18} color="#888" />
     
                 <input
@@ -78,7 +78,7 @@ function SignUp() {
                   placeholder="Enter your full name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="flex-1 text-sm text-[#0F172A] placeholder-[#888888] outline-none bg-transparent"
+                  className="flex-1 text-sm text-gray-dark placeholder-gray outline-none bg-transparent"
                 />
               </div>
             </div>
@@ -86,11 +86,11 @@ function SignUp() {
             {/* Email */}
 
             <div className="mb-5">
-              <label className="block text-sm !leading-[14px] font-semibold text-[#1A1A1A] mb-[10px]">
+              <label className="block text-sm !leading-[14px] font-semibold text-text-primary mb-[10px]">
                 Email Address
               </label>
 
-              <div className="h-[44px] flex items-center gap-3 rounded-full border border-[#EBEBEB] px-5 py-4">
+              <div className="h-[44px] flex items-center gap-3 rounded-full border border-border-dark px-5 py-4">
                 <Mail size={18} color="#888" />
 
                 <input
@@ -98,7 +98,7 @@ function SignUp() {
                   placeholder="you@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 text-sm text-[#0F172A] placeholder-[#888888] outline-none bg-transparent"
+                  className="flex-1 text-sm text-gray-dark placeholder-gray outline-none bg-transparent"
                 />
               </div>
             </div>
@@ -106,7 +106,7 @@ function SignUp() {
             {/* Phone */}
 
             <div className="mb-5">
-              <label className="block text-sm !leading-[14px] font-semibold text-[#1A1A1A] mb-[10px]">
+              <label className="block text-sm !leading-[14px] font-semibold text-text-primary mb-[10px]">
                 Phone Number
               </label>
 
@@ -141,11 +141,11 @@ function SignUp() {
                         {/* Password */}
 
             <div className="mb-3">
-              <label className="block text-sm !leading-[14px] font-semibold text-[#1A1A1A] mb-[10px]">
+              <label className="block text-sm !leading-[14px] font-semibold text-text-primary mb-[10px]">
                 Password
               </label>
 
-              <div className="h-[44px] flex items-center gap-3 rounded-full border border-[#EBEBEB] px-5 py-4">
+              <div className="h-[44px] flex items-center gap-3 rounded-full border border-border-dark px-5 py-4">
                 <Lock size={18} color="#888" />
 
                 <input
@@ -153,7 +153,7 @@ function SignUp() {
                   placeholder="Create a password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="flex-1 text-sm text-[#0F172A] placeholder-[#888888] outline-none bg-transparent"
+                  className="flex-1 text-sm text-gray-dark placeholder-gray outline-none bg-transparent"
                 />
 
                 <button
@@ -175,7 +175,7 @@ function SignUp() {
                   <div
                     className={`h-1 flex-1 rounded-full ${
                       password.length >= 1
-                        ? "bg-[#D4A017]"
+                        ? "bg-gold"
                         : "bg-[#E2E8F0]"
                     }`}
                   />
@@ -211,11 +211,11 @@ function SignUp() {
             {/* Confirm Password */}
 
             <div className="mb-6">
-              <label className="block text-sm !leading-[14px] font-semibold text-[#1A1A1A] mb-[10px]">
+              <label className="block text-sm !leading-[14px] font-semibold text-text-primary mb-[10px]">
                 Confirm Password
               </label>
 
-              <div className="h-[44px] flex items-center gap-3 rounded-full border border-[#EBEBEB] px-5 py-4">
+              <div className="h-[44px] flex items-center gap-3 rounded-full border border-border-dark px-5 py-4">
                 <Lock size={18} color="#888" />
 
                 <input
@@ -225,7 +225,7 @@ function SignUp() {
                   onChange={(e) =>
                     setConfirmPassword(e.target.value)
                   }
-                  className="flex-1 text-sm text-[#0F172A] placeholder-[#888888] outline-none bg-transparent"
+                  className="flex-1 text-sm text-gray-dark placeholder-gray outline-none bg-transparent"
                 />
 
                 <button
@@ -298,20 +298,20 @@ function SignUp() {
                         {/* Divider */}
 
             <div className="flex items-center gap-3 my-[25px]">
-              <div className="h-px flex-1 bg-[#EBEBEB]" />
+              <div className="h-px flex-1 bg-border-dark" />
 
-              <span className="text-xs text-[#888888] whitespace-nowrap">
+              <span className="text-xs text-gray whitespace-nowrap">
                 or continue with
               </span>
 
-              <div className="h-px flex-1 bg-[#EBEBEB]" />
+              <div className="h-px flex-1 bg-border-dark" />
             </div>
 
             {/* Google Button */}
 
               <button
           type="button"
-          className="flex items-center justify-center gap-3 border border-[#EBEBEB] rounded-full py-3 text-sm font-normal hover:bg-gray-50 active:scale-[0.98] transition-all duration-200 w-full max-w-[315px] mx-auto cursor-pointer"
+          className="flex items-center justify-center gap-3 border border-border-dark rounded-full py-3 text-sm font-normal hover:bg-gray-50 active:scale-[0.98] transition-all duration-200 w-full max-w-[315px] mx-auto cursor-pointer"
         >
           {/* Google G logo */}
           <svg className="w-5 h-5" viewBox="0 0 24 24" aria-hidden="true">

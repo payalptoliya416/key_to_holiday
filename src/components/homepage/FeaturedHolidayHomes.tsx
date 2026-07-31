@@ -150,7 +150,7 @@ export default function FeaturedHolidayHomes() {
           <SwiperSlide key={home.id} className="!w-[305px]">
             <div
               onClick={() => router.push(`/`)}
-              className="group overflow-hidden rounded-[22px] border border-[#E8E4DC] bg-white cursor-pointer transition-all duration-300"
+              className="group overflow-hidden rounded-[22px] border border-border-color bg-white cursor-pointer transition-all duration-300"
             >
               {/* Image */}
               <div className="relative overflow-hidden">
@@ -164,7 +164,7 @@ export default function FeaturedHolidayHomes() {
                 </div>
 
                 <div className="absolute right-5 top-5 flex items-center gap-2 rounded-full bg-white px-3 py-[6px] shadow-lg">
-                  <Star size={14} className="ext-[#0F172A]" />
+                  <Star size={14} className="ext-gray-dark" />
 
                   <span className="text-xs font-semibold">{home.rating}</span>
                 </div>
@@ -172,16 +172,16 @@ export default function FeaturedHolidayHomes() {
 
               {/* Content */}
               <div className="px-[17px] py-5">
-                <h3 className="text-base font-semibold text-[#0F172A]">
+                <h3 className="text-base font-semibold text-gray-dark">
                   {home.title}
                 </h3>
 
-                <div className="mt-[10px] flex items-center gap-1 text-sm text-[#6B7280]">
+                <div className="mt-[10px] flex items-center gap-1 text-sm text-light-dark">
                   <MapPin size={13} />
                   {home.location}
                 </div>
 
-                <div className="mt-5 flex items-center gap-[10px] text-xs text-[#6B7280]">
+                <div className="mt-5 flex items-center gap-[10px] text-xs text-light-dark">
                   <div className="flex items-center gap-1">
                     <Users size={12} />
                     {home.guests} guests
@@ -200,11 +200,11 @@ export default function FeaturedHolidayHomes() {
 
                 <div className="mt-5 flex items-center justify-between">
                   <div className="flex items-end">
-                    <span className="text-xl font-semibold text-[#0F172A]">
+                    <span className="text-xl font-semibold text-gray-dark">
                       £{home.price}
                     </span>
 
-                    <span className="mb-[2px] ml-1 text-xs text-[#6B7280]">
+                    <span className="mb-[2px] ml-1 text-xs text-light-dark">
                       / night
                     </span>
                   </div>
@@ -213,7 +213,7 @@ export default function FeaturedHolidayHomes() {
                 href="/"
                 onClick={(e) => e.stopPropagation()}
 
-                    className="rounded-full bg-[#0F172A] px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#C99700]"
+                    className="rounded-full bg-gray-dark px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#C99700]"
                   >
                     View Details
                   </Link>

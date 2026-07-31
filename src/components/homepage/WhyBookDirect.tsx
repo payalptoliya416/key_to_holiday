@@ -46,7 +46,7 @@ export default function WhyBookDirect() {
             </div>
 
             {/* Floating Card */}
-            <div className="absolute -bottom-5 right-2 md:-right-6 rounded-2xl bg-[#D4A017] px-5 py-6 text-white shadow-[20px]">
+            <div className="absolute -bottom-5 right-2 md:-right-6 rounded-2xl bg-gold px-5 py-6 text-white shadow-[20px]">
               <h3 className="text-[28px] font-bold leading-none">20%</h3>
               <p className="mt-[7px] text-xs !leading-none font-medium text-[#FFFFFFCC]">
                 average savings
@@ -58,11 +58,11 @@ export default function WhyBookDirect() {
           <div>
             <span className="section-tag">THE SMART WAY TO BOOK</span>
 
-            <h2 className="mt-[10px] text-4xl font-bold leading-tight text-[#0F172A] lg:text-[40px]">
+            <h2 className="mt-[10px] text-4xl font-bold leading-tight text-gray-dark lg:text-[40px]">
               Why Book Direct With Us?
             </h2>
 
-            <p className="mt-[15px] text-base !leading-[26px] text-[#6B7280]">
+            <p className="mt-[15px] text-base !leading-[26px] text-light-dark">
               Bypass the big booking platforms and connect directly with
               verified property owners. Better experience, lower prices, every
               time.
@@ -83,11 +83,11 @@ export default function WhyBookDirect() {
                     </div>
 
                     <div>
-                      <h3 className="text-sm !leading-none font-semibold text-[#0F172A]">
+                      <h3 className="text-sm !leading-none font-semibold text-gray-dark">
                         {item.title}
                       </h3>
 
-                      <p className="mt-[10px] text-sm text-[#6B7280]">
+                      <p className="mt-[10px] text-sm text-light-dark">
                         {item.desc}
                       </p>
                     </div>

@@ -10,7 +10,7 @@ function DestinationBanner() {
           <div className="absolute inset-0 -z-10 bg-[url('/images/destination-banner.png')] bg-cover bg-center" />
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0F172ABF] via-[#0F172A8C] to-[#0F172ABF]" />
           <div className="flex flex-col items-center mx-auto my-auto">
-            <div className="inline-flex items-center gap-2 backdrop-blur-md text-sm text-[#FFFFFFE5] border border-[#FFFFFF33] bg-[#FFFFFF1A] rounded-[999px] py-[10px] px-[15px] mb-6">
+            <div className="hero-tag">
               <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
              Explore the World
             </div>

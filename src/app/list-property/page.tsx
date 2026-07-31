@@ -104,14 +104,14 @@ function ListProperty() {
               Home
             </Link>
             <span>/</span>
-            <span className="font-semibold text-[#D4A017]">
+            <span className="font-semibold text-gold">
               List Your Property
             </span>
           </div>
 
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
             <div className="lg:col-span-6">
-              <span className="inline-flex items-center rounded-full border !leading-none border-[#D4A017] bg-[#FFF8E7] px-[15px] py-2 text-sm font-semibold text-[#D4A017]">
+              <span className="inline-flex items-center rounded-full border !leading-none border-gold bg-[#FFF8E7] px-[15px] py-2 text-sm font-semibold text-gold">
                 ● Property Owners
               </span>
 
@@ -139,7 +139,7 @@ function ListProperty() {
                       />
                     </div>
 
-                    <span className="text-xs font-normal text-[#0F172A]">
+                    <span className="text-xs font-normal text-gray-dark">
                       {item}
                     </span>
                   </div>
@@ -176,7 +176,7 @@ function ListProperty() {
           <div className="text-center">
             <h2 className="section-title !mt-0">Submit Your Property</h2>
 
-            <p className="mt-[10px] text-[#6B7280]">
+            <p className="mt-[10px] text-light-dark">
               Complete the form below and our team will review your property.
             </p>
           </div>
@@ -185,7 +185,7 @@ function ListProperty() {
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
               {/* Full Name */}
               <div>
-                <label className="mb-[10px] block text-lg text-[#1A1A1A]">
+                <label className="mb-[10px] block text-lg text-text-primary">
                   Full Name<span className="text-[#DB0505]">*</span>
                 </label>
 
@@ -198,7 +198,7 @@ function ListProperty() {
 
               {/* Email */}
               <div>
-                <label className="mb-[10px] block text-lg text-[#1A1A1A]">
+                <label className="mb-[10px] block text-lg text-text-primary">
                   Email Address<span className="text-[#DB0505]">*</span>
                 </label>
 
@@ -211,7 +211,7 @@ function ListProperty() {
 
               {/* Phone */}
               <div>
-                <label className="mb-[10px] block text-lg text-[#1A1A1A]">
+                <label className="mb-[10px] block text-lg text-text-primary">
                   Phone Number<span className="text-[#DB0505]">*</span>
                 </label>
 
@@ -220,7 +220,7 @@ function ListProperty() {
 
               {/* Property Name */}
               <div>
-                <label className="mb-[10px] block text-lg text-[#1A1A1A]">
+                <label className="mb-[10px] block text-lg text-text-primary">
                   Property Name
                 </label>
 
@@ -235,7 +235,7 @@ function ListProperty() {
             {/* Row 2 */}
             <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-12">
               <div className="lg:col-span-3">
-                <label className="mb-[10px] block text-lg text-[#1A1A1A]">
+                <label className="mb-[10px] block text-lg text-text-primary">
                   City<span className="text-[#DB0505]">*</span>
                 </label>
 
@@ -247,7 +247,7 @@ function ListProperty() {
               </div>
 
               <div className="lg:col-span-3">
-                <label className="mb-[10px] block text-lg text-[#1A1A1A]">
+                <label className="mb-[10px] block text-lg text-text-primary">
                   Country<span className="text-[#DB0505]">*</span>
                 </label>
 
@@ -261,7 +261,7 @@ function ListProperty() {
               </div>
 
               <div className="lg:col-span-6">
-                <label className="mb-[10px] block text-lg text-[#1A1A1A]">
+                <label className="mb-[10px] block text-lg text-text-primary">
                   Website or Airbnb/Booking.com Listing URL
                 </label>
 
@@ -275,7 +275,7 @@ function ListProperty() {
 
             {/* Description */}
             <div className="mt-6">
-              <label className="mb-[10px] block text-lg text-[#1A1A1A]">
+              <label className="mb-[10px] block text-lg text-text-primary">
                 Property Description<span className="text-[#DB0505]">*</span>
               </label>
 
@@ -315,7 +315,7 @@ function ListProperty() {
         </div>
       </section>
 
-      <section className="bg-[#0F172A] py-20 lg:py-[90px]">
+      <section className="bg-gray-dark py-20 lg:py-[90px]">
         <div className="container-custom">
           {/* Heading */}
 
@@ -391,7 +391,7 @@ function ListProperty() {
                     return (
                       <div
                         key={item.title}
-                        className="group flex items-start gap-[15px] rounded-[18px] border border-[#EBEBEB] bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#D69A17] hover:shadow-lg"
+                        className="group flex items-start gap-[15px] rounded-[18px] border border-border-dark bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#D69A17] hover:shadow-lg"
                       >
                         {/* Icon */}
       
@@ -406,11 +406,11 @@ function ListProperty() {
                         {/* Content */}
       
                         <div>
-                          <h3 className="text-base font-semibold leading-none text-[#1A1A1A]">
+                          <h3 className="text-base font-semibold leading-none text-text-primary">
                             {item.title}
                           </h3>
       
-                          <p className="mt-[10px] text-sm text-[#888888]">
+                          <p className="mt-[10px] text-sm text-gray">
                             {item.description}
                           </p>
                         </div>

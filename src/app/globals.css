@@ -133,6 +133,13 @@ body {
 @theme {
   --font-poppins: "Poppins", sans-serif;
   --font-tiktok: "TikTok Sans", sans-serif;
+  --color-gray-dark: #0F172A;
+  --color-light-dark: #6B7280;
+  --color-gray: #888888;
+  --color-border-color: #E8E4DC;
+  --color-text-primary: #1A1A1A;
+  --color-border-dark: #EBEBEB;
+  --color-gold: #D4A017;
 }
 
 .font-tiktok {
@@ -200,16 +207,16 @@ body {
 
 @layer components {
   .section-tag {
-    @apply text-sm font-semibold uppercase tracking-[1.2px] text-[#D4A017];
+    @apply text-sm font-semibold uppercase tracking-[1.2px] text-gold;
   }
   .section-title {
-    @apply mt-[10px] text-[28px] sm:text-[36px] font-bold lg:leading-none text-[#0F172A];
+    @apply mt-[10px] text-[28px] sm:text-[36px] font-bold lg:leading-none text-gray-dark;
   }
   .section-link {
-    @apply hidden lg:flex items-center gap-2 font-semibold text-[#D4A017] transition-all duration-300 hover:gap-3;
+    @apply hidden lg:flex items-center gap-2 font-semibold text-gold transition-all duration-300 hover:gap-3;
   }
   .input-style {
-    @apply h-[60px] w-full rounded-full border border-[#EBEBEB] bg-white px-[25px] text-[#17213C] outline-none transition placeholder:text-[#888888] focus:border-[#D69A17];
+    @apply h-[60px] w-full rounded-full border border-border-dark bg-white px-[25px] text-[#17213C] outline-none transition placeholder:text-gray focus:border-[#D69A17];
   }
 
   .common-btn {
@@ -225,6 +232,14 @@ body {
 
   .hero-basic-btn {
      @apply basis-[calc(50%-6px)] sm:basis-auto px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-2 md:gap-[15px];
+  }
+
+  .hero-tag {
+    @apply inline-flex items-center gap-2 backdrop-blur-md text-sm text-[#FFFFFFE5] border border-[#FFFFFF33] bg-[#FFFFFF1A] rounded-[999px] py-[10px] px-[15px] mb-6;
+  }
+
+  .home-hero-label{
+    @apply flex items-center justify-start gap-2 md:gap-[15px] rounded-full border border-[#FFFFFF33] bg-[#FFFFFF1A] px-3 py-2 text-xs font-light backdrop-blur-md transition hover:bg-[#FFFFFF33] md:text-sm;
   }
 }
 

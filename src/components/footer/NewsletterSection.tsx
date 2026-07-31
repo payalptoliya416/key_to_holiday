@@ -16,20 +16,20 @@ export default function NewsletterSection() {
           </h2>
 
           {/* Description */}
-          <p className="mx-auto mt-[15px] max-w-[568px] text-base leading-8 text-[#6B7280]">
+          <p className="mx-auto mt-[15px] max-w-[568px] text-base leading-8 text-light-dark">
             Join our newsletter to receive exclusive travel deals, hidden gems,
             and a 10% discount coupon for your next trip.
           </p>
 
           {/* Subscribe Form */}
-          <div className="mx-auto mt-10 flex w-full sm:max-w-2xl flex-col overflow-hidden rounded-3xl sm:rounded-full sm:border border-[#E8E4DC] sm:bg-white sm:flex-row">
+          <div className="mx-auto mt-10 flex w-full sm:max-w-2xl flex-col overflow-hidden rounded-3xl sm:rounded-full sm:border border-border-color sm:bg-white sm:flex-row">
             <div className="flex flex-1 items-center px-6 py-4 bg-white sm:bg-transparent rounded-full sm:rounded mb-3 sm:mb-0">
               <Mail size={20} className="mr-3 text-black" />
 
               <input
                 type="email"
                 placeholder="Enter your email address"
-                className="w-full bg-transparent text-[#182033] placeholder:text-[#6B7280] focus:outline-none text-xs sm:text-sm sm:placeholder:text-sm placeholder:text-xs"
+                className="w-full bg-transparent text-[#182033] placeholder:text-light-dark focus:outline-none text-xs sm:text-sm sm:placeholder:text-sm placeholder:text-xs"
               />
             </div>
 
@@ -40,7 +40,7 @@ export default function NewsletterSection() {
           </div>
 
           {/* Bottom Text */}
-          <p className="mt-4 text-xs text-[#6B7280]">
+          <p className="mt-4 text-xs text-light-dark">
             No spam. Unsubscribe any time.
           </p>
         </div>
