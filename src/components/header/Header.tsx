@@ -8,8 +8,8 @@ import { usePathname } from "next/navigation";
 
 const navItems = [
   { name: "Destinations", href: "/destinations" },
-  { name: "Offers", href: "offers" },
-  { name: "Event", href: "events" },
+  { name: "Offers", href: "/offers" },
+  { name: "Event", href: "/events" },
 ];
 
 export default function Header() {
@@ -48,18 +48,25 @@ export default function Header() {
             />
           </Link>
 
-          <nav className="hidden items-center gap-5 lg:flex">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                  href={item.href}
-                onClick={handleClose}
-                className="nav-link"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
+     <nav className="hidden items-center gap-5 lg:flex">
+  {navItems.map((item) => {
+    const isActive =
+      pathname === item.href || pathname.startsWith(`${item.href}/`);
+
+    return (
+      <Link
+        key={item.name}
+        href={item.href}
+        onClick={handleClose}
+        className={`nav-link ${
+          isActive ? "nav-link-active" : ""
+        }`}
+      >
+        {item.name}
+      </Link>
+    );
+  })}
+</nav>
 
           <div className="hidden items-center gap-[15px] lg:flex">
             {!isSignInPage && (
