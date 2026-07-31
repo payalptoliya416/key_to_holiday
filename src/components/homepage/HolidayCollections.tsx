@@ -79,7 +79,7 @@ export default function HolidayCollections() {
           {/* Left — tall card */}
           <Link
             href={`/collections/${collections[0].slug}`}
-            className="group relative h-[300px] sm:h-[380px] lg:h-[460px] overflow-hidden rounded-2xl"
+            className="group relative h-[300px] sm:h-[380px] lg:h-[468px] overflow-hidden rounded-2xl"
           >
             <Image
               src={collections[0].image}
