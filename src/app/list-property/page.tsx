@@ -1,7 +1,10 @@
+import PhoneNumberField from "@/components/list-property/PhoneNumberField";
 import FaqSection from "@/components/propertydetail/FaqSection";
 import { BadgeCheck, BadgeDollarSign, Globe, Headphones, LucideIcon, Pencil, Rocket, ShieldCheck, Star, Tags, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const categories = [
   "Last Minute Deals",
@@ -212,17 +215,7 @@ function ListProperty() {
                   Phone Number<span className="text-[#DB0505]">*</span>
                 </label>
 
-                <div className="flex h-[56px] items-center rounded-full border border-[#E6E8EC] px-5">
-                  <span className="text-[#98A2B3]">+00</span>
-
-                  <span className="mx-3 text-[#D0D5DD]">|</span>
-
-                  <input
-                    type="text"
-                    placeholder="123 456 7890"
-                    className="w-full bg-transparent outline-none"
-                  />
-                </div>
+                 <PhoneNumberField />
               </div>
 
               {/* Property Name */}

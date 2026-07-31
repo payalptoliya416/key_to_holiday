@@ -38,7 +38,7 @@ export default function SignInPage() {
             >
               Email Address
             </label>
-            <div className="flex items-center gap-3 border border-[#EBEBEB] rounded-[80px] px-4 py-3 transition">
+            <div className="h-[44px] flex items-center gap-3 rounded-full border border-[#EBEBEB] px-5 py-4">
               <svg
                 width="13"
                 height="11"

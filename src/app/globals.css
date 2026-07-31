@@ -213,3 +213,7 @@ body {
   @apply h-[60px] w-full rounded-full border border-[#EBEBEB] bg-white px-[25px] text-[#17213C] outline-none transition placeholder:text-[#888888] focus:border-[#D69A17];
 }
 }
+.react-tel-input .selected-flag{
+  border-radius: 999px !important;
+  border-color: #EBEBEB !important;
+}

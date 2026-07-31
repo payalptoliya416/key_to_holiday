@@ -22,19 +22,19 @@ export default function NewsletterSection() {
           </p>
 
           {/* Subscribe Form */}
-          <div className="mx-auto mt-10 flex w-full sm:max-w-2xl flex-col overflow-hidden rounded-3xl sm:rounded-full border border-[#E8E4DC] bg-white sm:flex-row">
-            <div className="flex flex-1 items-center px-6 py-4">
+          <div className="mx-auto mt-10 flex w-full sm:max-w-2xl flex-col overflow-hidden rounded-3xl sm:rounded-full sm:border border-[#E8E4DC] sm:bg-white sm:flex-row">
+            <div className="flex flex-1 items-center px-6 py-4 bg-white sm:bg-transparent rounded-full sm:rounded mb-3 sm:mb-0">
               <Mail size={20} className="mr-3 text-black" />
 
               <input
                 type="email"
                 placeholder="Enter your email address"
-                className="w-full bg-transparent text-[#182033] placeholder:text-[#6B7280] focus:outline-none"
+                className="w-full bg-transparent text-[#182033] placeholder:text-[#6B7280] focus:outline-none text-xs sm:text-sm sm:placeholder:text-sm placeholder:text-xs"
               />
             </div>
 
             {/* Button */}
-            <button className="gold-gradient m-1 rounded-3xl sm:rounded-full px-8 py-4 font-semibold text-white transition hover:opacity-90 sm:px-10 text-sm">
+            <button className="gold-gradient sm:m-1 rounded-3xl sm:rounded-full px-8 py-4 font-semibold text-white transition hover:opacity-90 sm:px-10 text-sm">
               Subscribe
             </button>
           </div>

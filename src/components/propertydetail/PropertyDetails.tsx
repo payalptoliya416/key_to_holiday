@@ -652,7 +652,7 @@ export default function PropertyDetails() {
                   <button
                     key={tab.id}
                     onClick={() => scrollToSection(tab.id as keyof typeof sectionRefs)}
-                    className={`shrink-0 whitespace-nowrap border-b-2 px-1 py-3 text-sm font-medium transition sm:text-base lg:py-5 lg:text-lg ${
+                    className={`shrink-0 whitespace-nowrap border-b-2 px-1 py-3 text-sm font-medium transition sm:text-base lg:py-5 lg:text-lg cursor-pointer ${
                       activeTab === tab.id
                         ? "border-[#E39A16] gold-gradient-text"
                         : "border-transparent text-[#7C7C7C] hover:text-[#0F172A]"
