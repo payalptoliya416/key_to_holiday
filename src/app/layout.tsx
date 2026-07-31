@@ -13,10 +13,11 @@ export const metadata: Metadata = {
   title: "KeyToHolidays – Book direct. Pay less.",
   description:
     "Discover handpicked holiday homes, villas, cottages and unique stays. Book direct with trusted hosts and pay less.",
-      icons: {
-    icon: "/favicon.png",
+  icons: {
+    icon: "/favicon.jpg", 
+    shortcut: "/favicon.jpg",
+    apple: "/favicon.jpg",
   },
-
 };
 
 export default function RootLayout({
