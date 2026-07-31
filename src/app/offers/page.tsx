@@ -17,6 +17,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { LucideIcon } from "lucide-react";
+import { useState } from "react";
 
 const categories = [
   "Last Minute Deals",
@@ -190,6 +191,7 @@ export const features: Feature[] = [
 
 export default function OffersPage() {
   const router = useRouter();
+ const [activeCategory, setActiveCategory] = useState(1);
   return (
     <>
       <section className="bg-white">
@@ -272,19 +274,20 @@ export default function OffersPage() {
         <div className="container-custom">
           <div className="overflow-x-auto scrollbar-thin">
             <div className="flex w-max gap-4 pb-2">
-              {categories.map((item, index) => (
-                <button
-                  key={item}
-                  className={`h-[42px] rounded-full border px-[18px] py-[15px] text-xs !leading-none font-medium transition-all cursor-pointer ${
-                    index === 1
-                      ? "border-[#D69A17] bg-[#D69A17] text-white"
-                      : "border-[#E8E8E8] bg-white hover:border-[#D69A17] hover:text-[#D69A17]"
-                  }`}
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
+            {categories.map((item, index) => (
+              <button
+                key={item}
+                onClick={() => setActiveCategory(index)}
+                className={`h-[42px] rounded-full border px-[18px] py-[15px] text-xs !leading-none font-medium transition-all cursor-pointer ${
+                  activeCategory === index
+                    ? "border-[#D69A17] bg-[#D69A17] text-white"
+                    : "border-[#E8E8E8] bg-white hover:border-[#D69A17] hover:text-[#D69A17]"
+                }`}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
           </div>
         </div>
         <div className="mt-5 border-t border-[#E8E8E8]"></div>
@@ -568,7 +571,7 @@ export default function OffersPage() {
                     ))}
                   </div>
 
-                <Link href="/" className="mt-[25px] rounded-full gold-gradient px-[25px] py-4 text-base  font-semibold text-white transition hover:bg-[#C48708] inline-block">
+                <Link href="/" className="mt-[25px] common-btn w-max">
                   Explore Offers
                 </Link>
               </div>

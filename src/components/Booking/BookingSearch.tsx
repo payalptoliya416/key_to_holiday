@@ -421,7 +421,7 @@ function renderCalendar(year: number, month: number) {
 
           {/* Search Button */}
           <div className="md:col-span-2 xl:col-span-1 flex items-center">
-            <button className="gold-gradient flex h-10 sm:h-12 w-full items-center justify-center gap-2 rounded-full px-8 text-base font-semibold text-white xl:w-auto">
+            <button className="w-full gap-2 xl:w-auto common-btn">
               <Search size={20} />
               Search
             </button>

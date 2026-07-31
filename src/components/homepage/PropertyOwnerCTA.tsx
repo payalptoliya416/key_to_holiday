@@ -39,7 +39,7 @@ export default function PropertyOwnerCTA() {
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Link
                   href="/list-property"
-                  className="h-[48px] inline-flex items-center justify-center rounded-full bg-[#D89A12] px-[25px] py-4 font-semibold text-white transition hover:bg-[#c98e12]"
+                  className="inline-flex px-[25px] common-btn"
                 >
                   List Your Property
                 </Link>

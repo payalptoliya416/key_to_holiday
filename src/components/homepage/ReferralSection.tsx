@@ -99,7 +99,7 @@ bookings. Build a passive income stream with KeyToHolidays.
         <div className="mt-14 flex justify-center">
          <Link
             href="/become-a-partner"
-            className="inline-flex h-12 items-center justify-center rounded-full gold-gradient px-[25px] text-base font-semibold text-white transition hover:bg-[#c48b15]"
+            className="inline-flex px-[25px] common-btn"
             >
             Become A Partner
             </Link>

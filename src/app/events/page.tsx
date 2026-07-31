@@ -465,7 +465,7 @@ function Events() {
 
               {/* Button */}
 
-              <Link href="/" className="mt-[30px] rounded-full gold-gradient px-[25px] py-4 font-semibold text-white transition hover:opacity-90 text-base !leading-none inline-block">
+              <Link href="/" className="mt-[30px] common-btn">
                 Explore Nearby Stays
               </Link>
             </div>

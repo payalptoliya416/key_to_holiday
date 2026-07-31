@@ -91,7 +91,7 @@ export default function FeaturedDestination() {
 
             {/* Button */}
 
-            <button className="mt-[30px] rounded-full gold-gradient px-[25px] py-4 font-semibold text-white transition hover:opacity-90 text-base !leading-none">
+            <button className="mt-[30px] common-btn">
               View Properties In Santorini
             </button>
           </div>

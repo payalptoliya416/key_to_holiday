@@ -53,7 +53,7 @@ export default function Header() {
               <Link
                 key={item.name}
                   href={item.href}
-  onClick={handleClose}
+                onClick={handleClose}
                 className="text-base font-normal text-[#0F172A] transition hover:text-[#E39A16]"
               >
                 {item.name}
@@ -65,17 +65,13 @@ export default function Header() {
             {!isSignInPage && (
               <Link
                 href="/"
-                // href="/sign-in"
                 className="flex h-12 items-center justify-center rounded-full border border-[#E8E4DC] px-8 text-base font-medium text-[#0F172A] transition hover:border-[#E39A16] hover:text-[#E39A16]"
               >
                 Sign In
               </Link>
             )}
 
-            <Link
-              href="/list-property"
-              className="gold-gradient flex h-12 items-center justify-center rounded-full px-8 text-base !leading-[16px]  font-semibold text-white transition hover:opacity-90"
-            >
+            <Link href="/list-property" className="common-btn">
               List Your Property
             </Link>
           </div>

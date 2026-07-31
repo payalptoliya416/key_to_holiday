@@ -139,7 +139,6 @@ body {
   font-family: "TikTok Sans", sans-serif;
 }
 
-
 .container-custom {
   width: 100%;
   margin-inline: auto;
@@ -188,11 +187,11 @@ body {
   }
 }
 .gold-gradient {
-  background: linear-gradient(120deg, #F2B62D 0%, #B56E05 100%);
+  background: linear-gradient(120deg, #f2b62d 0%, #b56e05 100%);
 }
 
 .gold-gradient-text {
-  background: linear-gradient(180deg, #F2B62D 0%, #B56E05 100%);
+  background: linear-gradient(180deg, #f2b62d 0%, #b56e05 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -203,17 +202,33 @@ body {
   .section-tag {
     @apply text-sm font-semibold uppercase tracking-[1.2px] text-[#D4A017];
   }
-   .section-title {
+  .section-title {
     @apply mt-[10px] text-[28px] sm:text-[36px] font-bold lg:leading-none text-[#0F172A];
   }
-   .section-link {
+  .section-link {
     @apply hidden lg:flex items-center gap-2 font-semibold text-[#D4A017] transition-all duration-300 hover:gap-3;
   }
   .input-style {
-  @apply h-[60px] w-full rounded-full border border-[#EBEBEB] bg-white px-[25px] text-[#17213C] outline-none transition placeholder:text-[#888888] focus:border-[#D69A17];
+    @apply h-[60px] w-full rounded-full border border-[#EBEBEB] bg-white px-[25px] text-[#17213C] outline-none transition placeholder:text-[#888888] focus:border-[#D69A17];
+  }
+
+  .common-btn {
+    @apply flex h-10 sm:h-12 items-center justify-center rounded-full px-[25px] text-base font-semibold text-white transition hover:opacity-90 cursor-pointer w-max;
+
+    background: linear-gradient(120deg, #f2b62d 0%, #b56e05 100%);
+  }
+
+  .common-subscrib-btn {
+    @apply sm:m-1 rounded-3xl sm:rounded-full px-[25px] py-4 font-semibold text-white transition hover:opacity-90 text-sm cursor-pointer h-10 sm:h-12 flex items-center;
+    background: linear-gradient(120deg, #f2b62d 0%, #b56e05 100%);
+  }
+
+  .hero-basic-btn {
+     @apply basis-[calc(50%-6px)] sm:basis-auto px-3 sm:px-5 py-2 rounded-full bg-[#FFFFFF1A] hover:bg-white/20 backdrop-blur-md border border-[#FFFFFF33] text-xs md:text-sm font-light transition flex items-center gap-2 md:gap-[15px];
+  }
 }
-}
-.react-tel-input .selected-flag{
+
+.react-tel-input .selected-flag {
   border-radius: 999px !important;
-  border-color: #EBEBEB !important;
+  border-color: #ebebeb !important;
 }

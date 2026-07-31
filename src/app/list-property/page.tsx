@@ -148,7 +148,7 @@ function ListProperty() {
 
               <Link
                 href="/"
-                className="mt-[30px] rounded-full gold-gradient px-[25px] py-[14px] font-semibold text-white transition hover:opacity-90 text-base !leading-none inline-block"
+                className="mt-[30px] common-btn"
               >
                 Start Listing
               </Link>
@@ -306,7 +306,7 @@ function ListProperty() {
             <div className="mt-10 flex justify-center">
               <button
                 type="submit"
-                className="h-[48px] sm:min-w-[400px] rounded-full gold-gradient px-10 text-base font-medium text-white transition hover:opacity-90"
+                className="sm:min-w-[400px] common-btn"
               >
                 Submit Property
               </button>
