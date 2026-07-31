@@ -34,7 +34,7 @@ export default function NewsletterSection() {
             </div>
 
             {/* Button */}
-            <button className="gold-gradient sm:m-1 rounded-3xl sm:rounded-full px-8 py-4 font-semibold text-white transition hover:opacity-90 sm:px-10 text-sm">
+            <button className="gold-gradient sm:m-1 rounded-3xl sm:rounded-full px-8 py-4 font-semibold text-white transition hover:opacity-90 sm:px-10 text-sm cursor-pointer">
               Subscribe
             </button>
           </div>
