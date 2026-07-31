@@ -322,33 +322,33 @@ body {
     @apply flex items-center justify-start gap-2 md:gap-[15px] rounded-full border border-[#FFFFFF33] bg-[#FFFFFF1A] px-3 py-2 text-xs font-light backdrop-blur-md transition hover:bg-[#FFFFFF33] md:text-sm;
   }
 
- .nav-link {
-  @apply relative text-base font-normal text-gray-dark/80 transition-colors duration-300;
-}
+  .nav-link {
+    @apply relative text-base font-normal text-gray-dark/80 transition-colors duration-300;
+  }
 
-/* Gold underline */
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -7px;
-  width: 0;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #f2b62d, #b56e05);
-  transform: translateX(-50%);
-  transition: width 0.3s ease;
-}
+  /* Gold underline */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    width: 0;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #f2b62d, #b56e05);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+  }
 
-.nav-link:hover,
-.nav-link-active {
-  color: #d4a017;
-}
+  .nav-link:hover,
+  .nav-link-active {
+    color: #d4a017;
+  }
 
-.nav-link:hover::after,
-.nav-link-active::after {
-  width: 100%;
-}
+  .nav-link:hover::after,
+  .nav-link-active::after {
+    width: 100%;
+  }
 }
 
 .react-tel-input .selected-flag {
