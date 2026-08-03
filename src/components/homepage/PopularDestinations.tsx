@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -59,7 +58,13 @@ export default function PopularDestinations() {
 
           <Link href="/destinations" className="section-link">
             <span>Explore all destinations</span>
-            <ArrowRight size={18} />
+            <Image
+              src="/images/right-errow.svg"
+              alt="Right Arrow"
+              width={18}
+              height={18}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
           </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px]">

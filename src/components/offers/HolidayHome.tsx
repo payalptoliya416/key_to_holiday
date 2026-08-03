@@ -1,4 +1,4 @@
-import { ArrowRight, BedDouble, MapPin, Star, Users } from "lucide-react";
+import { BedDouble, MapPin, Star, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -79,100 +79,106 @@ export const homes = [
 ];
 
 function HolidayHome() {
-    const router = useRouter();
+  const router = useRouter();
   return (
     <section className="section-space">
-            <div className="container-custom">
-              <div className="mb-8 flex items-center justify-between">
-                <div>
-                  <p className="section-tag">Handpicked For You</p>
-    
-                  <h2 className="section-title">Featured Holiday Homes</h2>
+      <div className="container-custom">
+        <div className="mb-8 flex items-center justify-between">
+          <div>
+            <p className="section-tag">Handpicked For You</p>
+
+            <h2 className="section-title">Featured Holiday Homes</h2>
+          </div>
+
+          <Link href="/" className="section-link">
+            <span>View all properties</span>
+            <Image
+              src="/images/right-errow.svg"
+              alt="Right Arrow"
+              width={18}
+              height={18}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 gap-[30px] sm:grid-cols-2 lg:grid-cols-3">
+          {homes.map((home) => (
+            <div
+              key={home.id}
+              onClick={() => router.push(`/`)}
+              className="group cursor-pointer overflow-hidden rounded-[22px] border border-border-color bg-white transition-all duration-300 hover:-translate-y-2"
+            >
+              {/* Image */}
+              <div className="relative h-[230px] overflow-hidden rounded-t-[22px]">
+                <Image
+                  src={home.image}
+                  alt={home.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+
+                <div className="absolute right-4 top-4 flex items-center gap-1 rounded-full bg-white px-3 py-1.5 shadow-md">
+                  <Star size={13} className="text-gray-dark" />
+                  <span className="text-xs font-semibold">{home.rating}</span>
                 </div>
-    
-                <Link href="/" className="section-link">
-                  <span>View all properties</span>
-                  <ArrowRight size={18} />
-                </Link>
               </div>
-              <div className="grid grid-cols-1 gap-[30px] sm:grid-cols-2 lg:grid-cols-3">
-                {homes.map((home) => (
-                  <div
-                    key={home.id}
-                    onClick={() => router.push(`/`)}
-                    className="group cursor-pointer overflow-hidden rounded-[22px] border border-border-color bg-white transition-all duration-300 hover:-translate-y-2"
-                  >
-                    {/* Image */}
-                    <div className="relative h-[230px] overflow-hidden rounded-t-[22px]">
-                      <Image
-                        src={home.image}
-                        alt={home.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-    
-                      <div className="absolute right-4 top-4 flex items-center gap-1 rounded-full bg-white px-3 py-1.5 shadow-md">
-                        <Star size={13} className="text-gray-dark" />
-                        <span className="text-xs font-semibold">{home.rating}</span>
-                      </div>
-                    </div>
-    
-                    {/* Content */}
-                    <div className="p-[23px]">
-                      <h3 className="text-lg] font-semibold text-gray-dark">
-                        {home.title}
-                      </h3>
-    
-                      <div className="mt-3 flex items-center gap-1 text-base text-light-dark">
-                        <MapPin size={14} />
-                        <span>{home.location}</span>
-                      </div>
-    
-                      <div className="mt-[23px] flex flex-wrap items-center gap-3 text-sm text-light-dark">
-                        <div className="flex items-center gap-1">
-                          <Users size={13} />
-                          {home.guests} guests
-                        </div>
-    
-                        <div className="flex items-center gap-1">
-                          <BedDouble size={13} />
-                          {home.bedrooms} bedrooms
-                        </div>
-    
-                        <div className="flex items-center gap-1">
-                          <Star size={13} />
-                          {home.reviews} reviews
-                        </div>
-                      </div>
-    
-                      <div className="mt-6 flex items-center justify-between">
-                        <div className="flex items-end gap-1">
-                          <span className="text-[24px] font-bold text-gray-dark">
-                            £{home.price}
-                          </span>
-    
-                          <span className="mb-1 text-sm text-light-dark">
-                            / night
-                          </span>
-                        </div>
-    
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            router.push(`/`);
-                          }}
-                          className="rounded-full bg-gray-dark px-[24px] py-[9px] text-xs font-semibold text-white transition-all hover:bg-[#C99700]"
-                        >
-                          View Details
-                        </button>
-                      </div>
-                    </div>
+
+              {/* Content */}
+              <div className="p-[23px]">
+                <h3 className="text-lg] font-semibold text-gray-dark">
+                  {home.title}
+                </h3>
+
+                <div className="mt-3 flex items-center gap-1 text-base text-light-dark">
+                  <MapPin size={14} />
+                  <span>{home.location}</span>
+                </div>
+
+                <div className="mt-[23px] flex flex-wrap items-center gap-3 text-sm text-light-dark">
+                  <div className="flex items-center gap-1">
+                    <Users size={13} />
+                    {home.guests} guests
                   </div>
-                ))}
+
+                  <div className="flex items-center gap-1">
+                    <BedDouble size={13} />
+                    {home.bedrooms} bedrooms
+                  </div>
+
+                  <div className="flex items-center gap-1">
+                    <Star size={13} />
+                    {home.reviews} reviews
+                  </div>
+                </div>
+
+                <div className="mt-6 flex items-center justify-between">
+                  <div className="flex items-end gap-1">
+                    <span className="text-[24px] font-bold text-gray-dark">
+                      £{home.price}
+                    </span>
+
+                    <span className="mb-1 text-sm text-light-dark">
+                      / night
+                    </span>
+                  </div>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      router.push(`/`);
+                    }}
+                    className="rounded-full bg-gray-dark px-[24px] py-[9px] text-xs font-semibold text-white transition-all hover:bg-[#C99700]"
+                  >
+                    View Details
+                  </button>
+                </div>
               </div>
             </div>
-          </section>
-  )
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default HolidayHome
+export default HolidayHome;

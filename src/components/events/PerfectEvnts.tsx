@@ -1,4 +1,4 @@
-import { ArrowRight, BedDouble, MapPin, Star, Users } from "lucide-react";
+import { BedDouble, MapPin, Star, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -93,7 +93,13 @@ function PerfectEvents() {
 
             <Link href="/" className="section-link">
               <span>View all properties</span>
-              <ArrowRight size={18} />
+               <Image
+                          src="/images/right-errow.svg"
+                          alt="Right Arrow"
+                          width={18}
+                          height={18}
+                         className="transition-transform duration-300 group-hover:translate-x-1"
+                        />
             </Link>
           </div>
           <div className="grid grid-cols-1 gap-[30px] sm:grid-cols-2 lg:grid-cols-3">

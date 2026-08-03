@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 const collections = [
   {
@@ -47,35 +46,30 @@ export default function HolidayCollections() {
   return (
     <section className="section-space">
       <div className="container-custom">
-
         {/* Heading */}
 
         <div className="mb-10 flex items-end justify-between">
-
           <div>
-            <p className="section-tag">
-              Curated For Every Traveller
-            </p>
+            <p className="section-tag">Curated For Every Traveller</p>
 
-            <h2 className="section-title">
-              Holiday Collections
-            </h2>
+            <h2 className="section-title">Holiday Collections</h2>
           </div>
 
-          <Link
-            href="/collections"
-            className="section-link"
-          >
+          <Link href="/collections" className="section-link">
             Browse all collections
-            <ArrowRight size={18} />
+            <Image
+              src="/images/right-errow.svg"
+              alt="Right Arrow"
+              width={18}
+              height={18}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
           </Link>
-
         </div>
 
         {/* Layout */}
 
         <div className="grid gap-6 lg:grid-cols-[370px_1fr]">
-
           {/* Left — tall card */}
           <Link
             href={`/collections/${collections[0].slug}`}
@@ -88,20 +82,20 @@ export default function HolidayCollections() {
               className="object-cover transition duration-500 group-hover:scale-110"
             />
 
-           <div
-                  className="absolute inset-0 z-[1]"
-                  style={{
-                    background:
-                      "linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.75) 100%)",
-                  }}
-                />
+            <div
+              className="absolute inset-0 z-[1]"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.75) 100%)",
+              }}
+            />
 
             <div className="absolute bottom-6 left-6 z-10">
-             <h3 className="text-xl leading-none font-semibold text-white">
+              <h3 className="text-xl leading-none font-semibold text-white">
                 {collections[0].title}
               </h3>
 
-               <p className="text-sm text-[#FFFFFFB2] mt-[10px]">
+              <p className="text-sm text-[#FFFFFFB2] mt-[10px]">
                 {collections[0].properties}
               </p>
             </div>
@@ -110,9 +104,7 @@ export default function HolidayCollections() {
           {/* Right */}
 
           <div className="grid gap-6 sm:grid-cols-2">
-
             {collections.slice(1).map((item) => (
-
               <Link
                 key={item.id}
                 href={`/collections/${item.slug}`}
@@ -140,15 +132,10 @@ export default function HolidayCollections() {
                     {item.properties}
                   </p>
                 </div>
-
               </Link>
-
             ))}
-
           </div>
-
         </div>
-
       </div>
     </section>
   );

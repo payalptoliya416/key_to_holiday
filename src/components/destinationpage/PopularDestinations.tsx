@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Star } from "lucide-react";
+import { Star } from "lucide-react";
 
 const destinations = [
   {
@@ -50,7 +50,6 @@ const destinations = [
 ];
 
 export default function PopularDestinations() {
-    
   return (
     <section className="section-space">
       <div className="container-custom">
@@ -63,7 +62,13 @@ export default function PopularDestinations() {
 
           <Link href="/" className="section-link">
             <span>Explore all destinations</span>
-            <ArrowRight size={18} />
+            <Image
+              src="/images/right-errow.svg"
+              alt="Right Arrow"
+              width={18}
+              height={18}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
           </Link>
         </div>
         <div className="grid gap-[30px] sm:grid-cols-2 xl:grid-cols-3">
@@ -94,16 +99,15 @@ export default function PopularDestinations() {
                   <div className="flex items-center gap-[5px] text-white text-sm">
                     <span className="pr-[5px]">{item.price}</span>
 
-                    <Star
-                      size={12}
-                      fill="#F8B400"
-                      className="text-[#FBBF24]"
-                    />
+                    <Star size={12} fill="#F8B400" className="text-[#FBBF24]" />
 
                     <span>{item.rating}</span>
                   </div>
 
-                  <Link href="/" className="rounded-full gold-gradient px-[18px] py-[10px] text-xs font-semibold text-white transition hover:scale-105">
+                  <Link
+                    href="/"
+                    className="rounded-full gold-gradient px-[18px] py-[10px] text-xs font-semibold text-white transition hover:scale-105"
+                  >
                     Explore
                   </Link>
                 </div>

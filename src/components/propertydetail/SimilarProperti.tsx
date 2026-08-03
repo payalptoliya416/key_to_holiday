@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Star, MapPin, Users, BedDouble, ArrowRight } from "lucide-react";
+import { Star, MapPin, Users, BedDouble } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -124,7 +124,13 @@ export default function SimilarProperti() {
 
           <Link href="/" className="section-link">
             <span>View all properties</span>
-            <ArrowRight size={18} />
+            <Image
+              src="/images/right-errow.svg"
+              alt="Right Arrow"
+              width={18}
+              height={18}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
           </Link>
         </div>
       </div>
