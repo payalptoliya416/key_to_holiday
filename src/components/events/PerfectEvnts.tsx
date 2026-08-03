@@ -163,15 +163,13 @@ function PerfectEvents() {
                       </span>
                     </div>
 
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        router.push(`/`);
-                      }}
-                      className="rounded-full bg-gray-dark px-[24px] py-[9px] text-xs font-semibold text-white transition-all hover:bg-[#C99700]"
-                    >
-                      View Details
-                    </button>
+                    <Link
+                    href="/"
+                    onClick={(e) => e.stopPropagation()}
+                    className="rounded-full bg-gray-dark px-[24px] py-[9px] text-xs font-semibold text-white transition-all hover:bg-[#C99700] inline"
+                  >
+                    View Details
+                  </Link>
                   </div>
                 </div>
               </div>

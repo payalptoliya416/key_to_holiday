@@ -45,7 +45,7 @@ export default function PropertyOwnerCTA() {
                 </Link>
 
                 <Link
-                  href="/learn-more"
+                  href="/"
                   className="h-[48px] inline-flex items-center justify-center rounded-full border border-[#FFFFFF4D] px-[25px] py-4 font-semibold text-white transition hover:bg-white hover:text-[#131A2E]"
                 >
                   Learn More

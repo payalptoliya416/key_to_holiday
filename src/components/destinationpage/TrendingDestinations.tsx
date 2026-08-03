@@ -84,7 +84,7 @@ export default function TrendingDestinations() {
                   </h4>
 
                   <Link
-                    href="#"
+                    href="/"
                     className="rounded-full gold-gradient px-[14px] py-2 text-sm !leading-none font-medium text-white transition hover:bg-[#c98914]"
                   >
                     Explore

@@ -1,5 +1,6 @@
 import { BedDouble, MapPin, Star, Users } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export const lastMinuteDeals = [
   {
@@ -120,9 +121,9 @@ function Availability() {
                     <span className="mb-1 text-sm text-[#808794]">/ night</span>
                   </div>
 
-                  <button className="rounded-full gold-gradient px-[24px] py-[9px] text-sm font-semibold text-white transition hover:bg-[#bf8f12]">
+                  <Link href="/property-details" className="rounded-full gold-gradient px-[24px] py-[9px] text-sm font-semibold text-white transition hover:bg-[#bf8f12]">
                     Book Now
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

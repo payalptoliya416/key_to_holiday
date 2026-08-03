@@ -162,15 +162,13 @@ function HolidayHome() {
                     </span>
                   </div>
 
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      router.push(`/`);
-                    }}
-                    className="rounded-full bg-gray-dark px-[24px] py-[9px] text-xs font-semibold text-white transition-all hover:bg-[#C99700]"
+                  <Link
+                    href="/"
+                    onClick={(e) => e.stopPropagation()}
+                    className="rounded-full bg-gray-dark px-[24px] py-[9px] text-xs font-semibold text-white transition-all hover:bg-[#C99700] inline"
                   >
                     View Details
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

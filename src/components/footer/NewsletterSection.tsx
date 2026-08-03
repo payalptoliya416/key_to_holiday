@@ -15,14 +15,14 @@ export default function NewsletterSection() {
           </h2>
 
           {/* Description */}
-          <p className="mx-auto mt-[15px] max-w-[568px] text-base leading-8 text-light-dark">
+          <p className="mx-auto mt-[15px] max-w-[568px] text-base text-light-dark">
             Join our newsletter to receive exclusive travel deals, hidden gems,
             and a 10% discount coupon for your next trip.
           </p>
 
           {/* Subscribe Form */}
-          <div className="mx-auto mt-10 flex w-full sm:max-w-[512px] flex-col overflow-hidden rounded-3xl sm:rounded-full sm:border border-border-color sm:bg-white sm:flex-row">
-            <div className="flex flex-1 items-center px-6 py-4 bg-white sm:bg-transparent rounded-full sm:rounded mb-3 sm:mb-0">
+          <div className="mx-auto mt-[25px] flex w-full sm:max-w-[512px] flex-col overflow-hidden rounded-3xl sm:rounded-full sm:border border-border-color sm:bg-white sm:flex-row">
+            <div className="flex flex-1 items-center px-6 py-[21px] bg-white sm:bg-transparent rounded-full sm:rounded mb-3 sm:mb-0">
               <Mail size={20} className="mr-3 text-black" />
 
               <input
@@ -33,7 +33,7 @@ export default function NewsletterSection() {
             </div>
 
             {/* Button */}
-            <button className="common-subscrib-btn">
+            <button className="common-subscrib-btn !h-auto">
               Subscribe
             </button>
           </div>

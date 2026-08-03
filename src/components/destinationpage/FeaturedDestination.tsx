@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Sunset, Landmark, Waves, Utensils } from "lucide-react";
+import Link from "next/link";
 
 export default function FeaturedDestination() {
   return (
@@ -91,9 +92,9 @@ export default function FeaturedDestination() {
 
             {/* Button */}
 
-            <button className="mt-[30px] common-btn">
+            <Link href="/" className="mt-[30px] common-btn">
               View Properties In Santorini
-            </button>
+            </Link>
           </div>
         </div>
       </div>
