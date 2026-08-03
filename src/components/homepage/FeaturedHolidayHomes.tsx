@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Star, MapPin, Users, BedDouble, ArrowRight } from "lucide-react";
+import { Star, MapPin, Users, BedDouble, ArrowRight, MoveRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -125,7 +125,12 @@ export default function FeaturedHolidayHomes() {
 
           <Link href="/" className="section-link">
             <span>View all properties</span>
-            <ArrowRight size={18} />
+            <MoveRight size={18} />
+            
+<svg width="14" height="6" viewBox="0 0 14 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.2126 2.84668L13.157 2.87402C12.8242 3.03539 12.498 3.23088 12.1794 3.46094L11.863 3.70312C11.4455 4.03539 10.9433 4.52735 10.3572 5.18164L10.3279 5.21484H9.59937L9.66577 5.07324C10.0509 4.2498 10.4559 3.59209 10.8796 3.10254H0.100342V2.21289H10.9011C10.6202 1.84999 10.4168 1.57316 10.2947 1.38184C10.1549 1.1628 9.94933 0.782946 9.68042 0.245117L9.60815 0.100586H10.3337L10.363 0.132812C10.9672 0.791524 11.4876 1.29024 11.9236 1.63184L12.2458 1.86914C12.5634 2.08982 12.8655 2.26143 13.1521 2.38477L13.2126 2.41113V2.84668Z" fill="#D4A017" stroke="#D4A017" stroke-width="0.2"/>
+</svg>
+
           </Link>
         </div>
       </div>

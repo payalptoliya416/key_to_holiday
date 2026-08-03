@@ -59,11 +59,11 @@ const property = {
   description:
     "Nestled in the hills above Marbella, Villa Sol Paradise is a stunning Andalusian-style villa with breathtaking panoramic views of the Mediterranean Sea. This beautifully appointed villa combines traditional Spanish architecture with modern luxury, featuring a private infinity pool, lush tropical gardens, and spacious terraces perfect for al-fresco dining and entertaining.",
   images: [
-    "/images/feature1.png",
-    "/images/feature2.png",
-    "/images/feature3.png",
-    "/images/feature4.png",
-    "/images/destinations-im1.jpg",
+    "/images/detail01.png",
+    "/images/detail02.png",
+    "/images/detail03.png",
+    "/images/detail04.png",
+    "/images/detail05.jpg",
   ],
   amenities: [
     { icon: Wifi, label: "High-speed Wi-Fi" },

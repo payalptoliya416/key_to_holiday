@@ -103,9 +103,9 @@ export default function PopularDestinations() {
                     <span>{item.rating}</span>
                   </div>
 
-                  <button className="rounded-full gold-gradient px-[18px] py-[10px] text-xs font-semibold text-white transition hover:scale-105">
+                  <Link href="/" className="rounded-full gold-gradient px-[18px] py-[10px] text-xs font-semibold text-white transition hover:scale-105">
                     Explore
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,5 +1,10 @@
+
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Counter from "./Counter";
 
 const features = [
   {
@@ -74,21 +79,21 @@ bookings. Build a passive income stream with KeyToHolidays.
         {/* Stats */}
         <div className="mt-[50px] flex flex-col items-center justify-center gap-10 md:flex-row md:divide-x md:divide-white/10">
           <div className="px-10 text-center">
-            <h3 className="text-4xl !leading-none font-semibold text-white">£45</h3>
+            <Counter end={45} />
             <p className="mt-2 text-[#FFFFFF80] text-sm">
               avg. per traveller referral
             </p>
           </div>
 
           <div className="px-10 text-center">
-            <h3 className="text-4xl !leading-none font-semibold text-white">£120</h3>
+            <Counter end={120} />
             <p className="mt-2 text-[#FFFFFF80] text-sm">
               avg. per host referral
             </p>
           </div>
 
           <div className="px-10 text-center">
-            <h3 className="text-4xl !leading-none font-semibold text-white">2,400+</h3>
+            <Counter end={2400} suffix="+" />
             <p className="mt-2 text-[#FFFFFF80] text-sm">
               active partners
             </p>

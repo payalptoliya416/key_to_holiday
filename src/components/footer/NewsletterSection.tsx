@@ -4,7 +4,7 @@ export default function NewsletterSection() {
   return (
     <section className="bg-[#F1F5F9] py-12 lg:py-[90px]">
       <div className="container-custom">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto text-center">
           <p className="section-tag">
             Stay Inspired
           </p>
@@ -21,7 +21,7 @@ export default function NewsletterSection() {
           </p>
 
           {/* Subscribe Form */}
-          <div className="mx-auto mt-10 flex w-full sm:max-w-2xl flex-col overflow-hidden rounded-3xl sm:rounded-full sm:border border-border-color sm:bg-white sm:flex-row">
+          <div className="mx-auto mt-10 flex w-full sm:max-w-[512px] flex-col overflow-hidden rounded-3xl sm:rounded-full sm:border border-border-color sm:bg-white sm:flex-row">
             <div className="flex flex-1 items-center px-6 py-4 bg-white sm:bg-transparent rounded-full sm:rounded mb-3 sm:mb-0">
               <Mail size={20} className="mr-3 text-black" />
 
