@@ -143,7 +143,7 @@ function Footer() {
             </div>
 
             {/* Destinations */}
-            <div className="col-span-12 sm:col-span-6 lg:col-span-2 sm:pl-5">
+            <div className="col-span-12 sm:col-span-6 lg:col-span-2 lg:pl-5">
               <h3 className="mb-4 text-sm font-semibold">Destinations</h3>
 
               <ul className="space-y-[10px]">
@@ -161,7 +161,7 @@ function Footer() {
             </div>
 
             {/* Support */}
-            <div className="col-span-12 sm:col-span-6 lg:col-span-2 sm:pl-6">
+            <div className="col-span-12 sm:col-span-6 lg:col-span-2 lg:pl-6">
               <h3 className="mb-4 text-sm font-semibold">Support</h3>
 
               <ul className="space-y-[10px]">
