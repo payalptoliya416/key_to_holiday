@@ -112,7 +112,7 @@ function Availability() {
                   </div>
                 </div>
 
-                <div className="mt-6 flex items-center justify-between">
+                <div className="mt-6 flex items-center justify-between ">
                   <div className="flex items-end gap-1">
                     <span className="text-2xl font-semibold text-white">
                       £{item.price}
@@ -121,7 +121,7 @@ function Availability() {
                     <span className="mb-1 text-sm text-[#808794]">/ night</span>
                   </div>
 
-                  <Link href="/property-details" className="rounded-full gold-gradient px-[24px] py-[9px] text-sm font-semibold text-white transition hover:bg-[#bf8f12]">
+                  <Link href="/destinations" className="rounded-full gold-gradient px-[24px] py-[9px] text-sm font-semibold text-white transition hover:bg-[#bf8f12]">
                     Book Now
                   </Link>
                 </div>

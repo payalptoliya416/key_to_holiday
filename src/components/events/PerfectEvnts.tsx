@@ -152,7 +152,7 @@ function PerfectEvents() {
                     </div>
                   </div>
 
-                  <div className="mt-6 flex items-center justify-between">
+                  <div className="mt-6 flex items-center justify-between flex-wrap">
                     <div className="flex items-end gap-1">
                       <span className="text-[24px] font-bold text-gray-dark">
                         £{home.price}

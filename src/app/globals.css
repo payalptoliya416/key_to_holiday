@@ -323,31 +323,26 @@ body {
   }
 
   .nav-link {
-    @apply relative text-base font-normal text-gray-dark/80 transition-colors duration-300;
+    @apply relative inline-flex items-center text-[18px] font-medium text-[#3D4456] transition-all duration-300;
   }
 
-  /* Gold underline */
-  .nav-link::after {
+  .nav-link::before {
     content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -7px;
-    width: 0;
-    height: 2px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, #f2b62d, #b56e05);
-    transform: translateX(-50%);
-    transition: width 0.3s ease;
+    @apply absolute left-0 top-1/2 -translate-y-1/2 h-[8px] w-[8px] rounded-full bg-[#D4A017] opacity-0 transition-all duration-300;
   }
 
-  .nav-link:hover,
+  /* Hover - only text color */
+  .nav-link:hover {
+    @apply text-[#D4A017];
+  }
+
+  /* Active - dot + color */
   .nav-link-active {
-    color: #d4a017;
+    @apply pl-5 text-[#D4A017];
   }
 
-  .nav-link:hover::after,
-  .nav-link-active::after {
-    width: 100%;
+  .nav-link-active::before {
+    @apply opacity-100;
   }
 }
 
