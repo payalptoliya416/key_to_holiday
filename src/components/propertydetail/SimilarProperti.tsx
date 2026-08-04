@@ -149,7 +149,7 @@ export default function SimilarProperti() {
               <SwiperSlide key={home.id} className="!w-[305px]">
                 <div
                   onClick={() => router.push(`/property-details`)}
-                  className="group overflow-hidden rounded-[22px] border border-border-color bg-white cursor-pointer transition-all duration-300 hover:shadow-xl"
+                  className="group overflow-hidden rounded-[22px] border border-border-color bg-white cursor-pointer transition-all duration-300 "
                 >
                   {/* Image */}
                   <div className="relative overflow-hidden">
