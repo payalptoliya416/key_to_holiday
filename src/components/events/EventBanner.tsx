@@ -20,7 +20,7 @@ function EventBanner() {
             className="object-cover rounded-[22px]"
           />
         </div>
-          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0F172ABF] via-[#0F172A8C] to-[#0F172ABF] rounded-[22px]" />
+          {/* <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0F172ABF] via-[#0F172A8C] to-[#0F172ABF] rounded-[22px]" /> */}
           <div className="flex flex-col items-center mx-auto my-auto">
             <div className="hero-tag">
               <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
