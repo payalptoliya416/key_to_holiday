@@ -282,7 +282,7 @@ export default function DateRangePicker({ value, onChange, variant = "card" }: P
               setActiveField("checkIn");
               setOpen(true);
             }}
-            className={`flex h-10 sm:h-12 items-center gap-3 rounded-full border px-4 sm:px-5 cursor-pointer transition ${
+            className={`flex h-10 sm:h-12 items-center gap-3 rounded-full border px-4 sm:px-5 cursor-pointer transition xl:min-w-[156px]  ${
               open && activeField === "checkIn" ? "border-[#F2B62D]" : "border-border-color"
             }`}
           >
@@ -300,7 +300,7 @@ export default function DateRangePicker({ value, onChange, variant = "card" }: P
               setActiveField("checkOut");
               setOpen(true);
             }}
-            className={`flex h-10 sm:h-12 items-center gap-3 rounded-full border px-4 sm:px-5 cursor-pointer transition ${
+            className={`flex h-10 sm:h-12 items-center gap-3 rounded-full border px-4 sm:px-5 cursor-pointer transition xl:min-w-[156px] ${
               open && activeField === "checkOut" ? "border-[#F2B62D]" : "border-border-color"
             }`}
           >

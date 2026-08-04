@@ -87,7 +87,7 @@ function BookingSearch() {
           <p className="mb-[10px] text-sm font-semibold text-gray-dark">Destination</p>
           <div
             onClick={() => setDestOpen(true)}
-            className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-text"
+            className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-text xl:min-w-[320px]"
           >
             <Image src="/images/location01.svg" alt="" width={18} height={18} />
             <input
@@ -139,7 +139,7 @@ function BookingSearch() {
           <p className="mb-[10px] text-sm font-semibold text-gray-dark">Guests</p>
           <div
             onClick={() => setGuestsOpen(v => !v)}
-            className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-pointer"
+            className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-pointer xl:min-w-[183px]"
           >
             <Image src="/images/user.svg" alt="" width={18} height={18} />
             <span className="w-full truncate text-sm text-gray-dark">
