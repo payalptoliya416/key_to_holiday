@@ -49,7 +49,7 @@ function Footer() {
     <>
      {!hideNewsletter && <NewsletterSection />}
       <footer className="bg-[#11182C] text-white">
-        <div className="px-4 md:px-[30px] 2xl:px-0 2xl:container 2xl:mx-auto pt-[70px]">
+          <div className="container-custom 2xl:!container 2xl:mx-auto 2xl:px-0 pt-[70px]">
           <div className="grid grid-cols-12 gap-5 lg:gap-0">
             <div className="col-span-12 lg:col-span-4">
               <Link href="/">
