@@ -1,4 +1,14 @@
+"use client";
+
 import PhoneNumberField from "./PhoneNumberField";
+import Select from "react-select";
+
+const countries = [
+  { value: "uk", label: "United Kingdom" },
+  { value: "spain", label: "Spain" },
+  { value: "italy", label: "Italy" },
+  { value: "france", label: "France" },
+];
 
 function ListForm() {
   return (
@@ -83,13 +93,47 @@ function ListForm() {
                 Country<span className="text-[#DB0505]">*</span>
               </label>
 
-              <select className="input-style appearance-none">
-                <option>Select country</option>
-                <option>United Kingdom</option>
-                <option>Spain</option>
-                <option>Italy</option>
-                <option>France</option>
-              </select>
+              <Select
+                options={countries}
+                placeholder="Select country"
+                classNamePrefix="react-select"
+                components={{
+                  DropdownIndicator: null,
+                  IndicatorSeparator: null,
+                }}
+                styles={{
+                  control: (base, state) => ({
+                    ...base,
+                    minHeight: "60px",
+                    height: "60px",
+                    borderRadius: "9999px",
+                    border: state.isFocused
+                      ? "1px solid #D69A17"
+                      : "1px solid #E6E8EC",
+                    boxShadow: "none",
+                    paddingLeft: "12px",
+                    paddingRight: "12px",
+                    "&:hover": {
+                      borderColor: "#D69A17",
+                    },
+                  }),
+                  placeholder: (base) => ({
+                    ...base,
+                    color: "#9CA3AF",
+                  }),
+                  valueContainer: (base) => ({
+                    ...base,
+                    padding: "0 12px",
+                  }),
+                  indicatorSeparator: () => ({
+                    display: "none",
+                  }),
+                  dropdownIndicator: (base) => ({
+                    ...base,
+                    color: "#17213C",
+                  }),
+                }}
+              />
             </div>
 
             <div className="lg:col-span-6">
