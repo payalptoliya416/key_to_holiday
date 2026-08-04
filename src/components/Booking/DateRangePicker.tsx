@@ -319,7 +319,7 @@ export default function DateRangePicker({ value, onChange, variant = "card" }: P
   /* ── Card Variant (Default Widget) ─────────────────────── */
   return (
     <div ref={containerRef} className="relative inline-block w-full">
-      <div className="grid grid-cols-2 overflow-hidden rounded-[160px] border border-[#E3E3E3] bg-white divide-x divide-[#E3E3E3]">
+      <div className="grid grid-cols-2 overflow-hidden rounded-[160px] border border-[#E3E3E3] divide-x divide-[#E3E3E3]">
         <button
           type="button"
           onClick={() => {
