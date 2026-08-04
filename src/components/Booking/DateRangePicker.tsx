@@ -63,9 +63,9 @@ function CalMonth({ year, month, value, hovered, today, onSelect, onHover }: Cal
 
   return (
     <div className="w-full">
-      <p className="mb-2 text-center text-xs font-bold text-[#1A1A1A]">
+      {/* <p className="mb-2 text-center text-xs font-bold text-[#1A1A1A]">
         {MONTH_NAMES[month]} {year}
-      </p>
+      </p> */}
 
       <div className="grid grid-cols-7 gap-y-0.5">
         {WEEK_DAYS.map((w) => (
