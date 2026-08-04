@@ -105,7 +105,7 @@ function HolidayHome() {
           {homes.map((home) => (
             <div
               key={home.id}
-              onClick={() => router.push(`/`)}
+              onClick={() => router.push(`/property-details`)}
               className="group cursor-pointer overflow-hidden rounded-[22px] border border-border-color bg-white transition-all duration-300 hover:-translate-y-2"
             >
               {/* Image */}
@@ -163,7 +163,7 @@ function HolidayHome() {
                   </div>
 
                   <Link
-                    href="/"
+                    href="/property-details"
                     onClick={(e) => e.stopPropagation()}
                     className="rounded-full bg-gray-dark px-[24px] py-[9px] text-xs font-semibold text-white transition-all hover:bg-[#C99700] inline"
                   >

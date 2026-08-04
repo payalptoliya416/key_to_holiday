@@ -148,7 +148,7 @@ export default function SimilarProperti() {
             {homes.map((home) => (
               <SwiperSlide key={home.id} className="!w-[305px]">
                 <div
-                  onClick={() => router.push(`/`)}
+                  onClick={() => router.push(`/property-details`)}
                   className="group overflow-hidden rounded-[22px] border border-border-color bg-white cursor-pointer transition-all duration-300 hover:shadow-xl"
                 >
                   {/* Image */}
@@ -214,7 +214,7 @@ export default function SimilarProperti() {
                       </div>
 
                       <Link
-                        href="/"
+                        href="/property-details"
                         onClick={(e) => e.stopPropagation()}
                         className="rounded-full bg-gray-dark px-5 py-2 text-xs font-semibold text-white transition hover:bg-[#C99700]"
                       >
