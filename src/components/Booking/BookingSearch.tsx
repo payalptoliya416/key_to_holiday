@@ -87,7 +87,7 @@ function BookingSearch() {
           <p className="mb-[10px] text-sm font-semibold text-gray-dark">Destination</p>
           <div
             onClick={() => setDestOpen(true)}
-            className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-text xl:min-w-[320px]"
+            className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-text xl:min-w-[300px]"
           >
             <Image src="/images/location01.svg" alt="" width={18} height={18} />
             <input
