@@ -8,12 +8,12 @@ export default function PhoneNumberField() {
   const [phone, setPhone] = useState("");
 
   return (
-   <PhoneInput
-  country="gb"
-  value={phone}
-  onChange={setPhone}
-  enableSearch
-  countryCodeEditable={false}
-/>
+    <PhoneInput
+      country="gb"
+      value={phone}
+      onChange={setPhone}
+      enableSearch
+      countryCodeEditable={false}
+    />
   );
 }

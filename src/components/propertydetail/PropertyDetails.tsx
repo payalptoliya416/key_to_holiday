@@ -498,7 +498,7 @@ export default function PropertyDetails() {
   return (
     <main className="">
       {/* ── Breadcrumb ──────────────────────────────────── */}
-      <div className="mx-[30px] pt-5">
+   <div className="pt-5 mx-[30px] 2xl:container 2xl:mx-auto">
         <nav className="flex items-center gap-1 text-sm text-light-dark">
           <Link href="/" className="hover:text-[#E39A16] transition">
             Home
@@ -520,7 +520,7 @@ export default function PropertyDetails() {
       </div>
 
       {/* ── Photo Gallery ───────────────────────────────── */}
-      <div className="mx-[30px] mt-5">
+     <div className="mt-5 mx-[30px] 2xl:container 2xl:mx-auto">
         <div className="grid lg:gap-3 lg:grid-cols-[2fr_1fr_1fr]">
           <div className="relative h-[260px] overflow-hidden rounded-[24px] sm:h-[380px] lg:h-[530px] mb-3 lg:mb-0">
             <Image
@@ -598,7 +598,7 @@ export default function PropertyDetails() {
           {/* ── LEFT ──────────────────────────────────── */}
           <div className="space-y-8">
             {/* Tabs */}
-            <div className="sticky top-[80px] z-40 bg-white border-b border-border-color">
+            <div className="sticky top-[80px] z-20 bg-white border-b border-border-color">
               <div className="overflow-x-auto scrollbar-hide">
                 <div className="flex w-max min-w-full gap-2 sm:gap-4 lg:gap-8">
                   {tabs.map((tab) => (

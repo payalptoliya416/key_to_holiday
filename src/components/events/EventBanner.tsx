@@ -3,7 +3,8 @@ import BookingSearch from '../Booking/BookingSearch'
 
 function EventBanner() {
   return (
-    <div className="px-4 md:px-[30px]">
+    <div className=" 2xl:container 2xl:mx-auto">
+      <div className="px-4 md:px-[30px]">
         <div className="relative min-h-[623px] w-full flex flex-col justify-between p-4 md:p-8 text-white rounded-[22px]">
           {/* <div className="absolute inset-0 -z-10 bg-[url('/images/destination-banner.png')] bg-cover bg-center rounded-[22px]" /> */}
           <div className="absolute inset-0 -z-10 overflow-hidden rounded-[22px]">
@@ -41,6 +42,7 @@ function EventBanner() {
           </div>
         </div>
       </div>
+    </div>
   )
 }
 

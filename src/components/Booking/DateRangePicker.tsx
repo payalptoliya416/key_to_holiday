@@ -405,7 +405,7 @@ export default function DateRangePicker({ value, onChange, variant = "card" }: P
 
       {/* Dropdown panel — fixed width so two months fit side by side */}
       {open && (
-        <div className="absolute left-1/2 top-[calc(100%+8px)] z-50 -translate-x-1/2 w-[580px] max-w-[calc(100vw-32px)] rounded-[20px] border border-[#E3E3E3] bg-white p-5 shadow-[0_12px_40px_rgba(0,0,0,0.12)]">
+        <div className="fixed left-1/2 top-1/2 z-[9999] w-[720px] max-w-[calc(100vw-32px)] -translate-x-1/2 -translate-y-1/2 rounded-[24px] border border-[#E3E3E3] bg-white p-6 shadow-[0_20px_60px_rgba(0,0,0,0.18)]">
           <CalendarPanel {...panelProps} onClose={() => setOpen(false)} />
         </div>
       )}
