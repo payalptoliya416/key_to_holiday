@@ -336,7 +336,7 @@ function GuestDropdown({
 
       {/* Dropdown panel */}
       {open && (
-        <div className="absolute left-0 right-0 top-[calc(100%+8px)] z-50 rounded-[20px] border border-[#E3E3E3] bg-white shadow-[0_12px_40px_rgba(0,0,0,0.12)] overflow-hidden">
+        <div className="absolute left-0 right-0 top-[calc(100%+8px)] z-[999] rounded-[20px] border border-[#E3E3E3] bg-white shadow-[0_12px_40px_rgba(0,0,0,0.12)] overflow-hidden">
           {guestConfig.map((cfg, i) => (
             <div
               key={cfg.key}
@@ -610,7 +610,7 @@ export default function PropertyDetails() {
           {/* ── LEFT ──────────────────────────────────── */}
           <div className="space-y-8">
             {/* Tabs */}
-            <div className="sticky top-[80px] z-20 bg-white border-b border-border-color">
+            <div className="sticky top-[80px] z-9 bg-white border-b border-border-color">
               <div className="overflow-x-auto scrollbar-hide">
                 <div className="flex w-max min-w-full gap-2 sm:gap-4 lg:gap-8">
                   {tabs.map((tab) => (
