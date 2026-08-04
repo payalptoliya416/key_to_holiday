@@ -170,17 +170,13 @@ function CalendarPanel({
 
   return (
     <div className="w-full relative">
-  {/* Modern & Responsive Close Button */}
-  <button
-    type="button"
-    onClick={onClose}
-    aria-label="Close calendar"
-    className="absolute top-2 right-2 sm:top-3 sm:right-3 z-20 flex h-8 w-8 items-center justify-center rounded-full text-gray-400 transition-all hover:bg-gray-100 hover:text-gray-700 active:scale-95 focus:outline-none focus:ring-2 focus:ring-gray-200"
-  >
-    <X size={18} className="sm:w-5 sm:h-5" />
-  </button>
-
-</div>
+      <button
+        type="button"
+        onClick={onClose}
+        className="absolute -top-2 -right-2 p-1 text-gray-400 hover:text-gray-600 sm:hidden"
+      >
+        <X size={20} />
+      </button>
 
       {/* Field selector tabs */}
       <div className="mb-4 sm:mb-5 grid grid-cols-2 gap-2 sm:gap-3">
