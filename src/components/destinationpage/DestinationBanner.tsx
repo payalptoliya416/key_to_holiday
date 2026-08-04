@@ -1,3 +1,4 @@
+import Image from "next/image";
 import BookingSearch from "../Booking/BookingSearch";
 
 function DestinationBanner() {
@@ -5,7 +6,16 @@ function DestinationBanner() {
     <>
       <div className="px-4 md:px-[30px]">
         <div className="relative min-h-[623px] w-full flex flex-col justify-between p-4 md:p-8 text-white rounded-[22px]">
-          <div className="absolute inset-0 -z-10 bg-[url('/images/destination-banner.png')] bg-cover bg-center rounded-[22px]" />
+          {/* <div className="absolute inset-0 -z-10 bg-[url('/images/destination-banner.png')] bg-cover bg-center rounded-[22px]" /> */}
+          <div className="absolute inset-0 -z-10 overflow-hidden rounded-[22px]">
+          <Image
+            src="/images/destination-banner.png"
+            alt="Destination Banner"
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0F172ABF] via-[#0F172A8C] to-[#0F172ABF] rounded-[22px]" />
           <div className="flex flex-col items-center mx-auto my-auto">
             <div className="hero-tag">

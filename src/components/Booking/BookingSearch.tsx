@@ -1,436 +1,181 @@
 'use client'
 
-import { Search, ChevronLeft, ChevronRight, Minus, Plus, X, MapPin } from 'lucide-react'
+import { Search, Minus, Plus, X, MapPin } from 'lucide-react'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
+import DateRangePicker, { DateRange } from './DateRangePicker'
 
-/* ---------------- Static Data ---------------- */
-
+/* ─── Static data ──────────────────────────────────────────── */
 const POPULAR_DESTINATIONS = [
-  { name: "Cornwall", sub: "England, United Kingdom" },
-  { name: "England", sub: "United Kingdom" },
+  { name: "Cornwall",  sub: "England, United Kingdom" },
+  { name: "England",  sub: "United Kingdom" },
   { name: "Scotland", sub: "United Kingdom" },
-  { name: "Spain", sub: "" },
-  { name: "France", sub: "" },
-  { name: "Wales", sub: "United Kingdom" },
+  { name: "Spain",    sub: "" },
+  { name: "France",   sub: "" },
+  { name: "Wales",    sub: "United Kingdom" },
 ];
 
-const DURATIONS = ["Weekend", "3 nights", "5 nights", "7 nights", "10 nights", "14 nights"];
-const FLEXIBILITY = ["Exact dates", "+/- 1 day", "+/- 3 days", "+/- 7 days"];
-
-const MONTH_NAMES = [
-  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-];
-const WEEK_DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-
-/* ---------------- Helpers ---------------- */
-
-function getMonthMatrix(year: number, month: number) {
-  const firstDay = new Date(year, month, 1);
-  const startWeekday = (firstDay.getDay() + 6) % 7; // Mon = 0
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-  const cells: (number | null)[] = [];
-  for (let i = 0; i < startWeekday; i++) cells.push(null);
-  for (let d = 1; d <= daysInMonth; d++) cells.push(d);
-  while (cells.length % 7 !== 0) cells.push(null);
-  return cells;
-}
-
-function isPastDate(year: number, month: number, day: number) {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const d = new Date(year, month, day);
-  return d < today;
-}
-
-function sameDate(a: Date | null, b: { y: number; m: number; d: number }) {
-  if (!a) return false;
-  return a.getFullYear() === b.y && a.getMonth() === b.m && a.getDate() === b.d;
-}
-
-function BookingSearch() {
-  const [destOpen, setDestOpen] = useState(false);
-  const [destination, setDestination] = useState("");
-
-  const [dateOpen, setDateOpen] = useState(false);
-  const [checkIn, setCheckIn] = useState<Date | null>(null);
-  const [duration, setDuration] = useState(DURATIONS[3]);
-  const [flexibility, setFlexibility] = useState(FLEXIBILITY[2]);
-
-  const [guestsOpen, setGuestsOpen] = useState(false);
-
-  const [adults, setAdults] = useState(2);
-  const [children, setChildren] = useState(0);
-  const [infants, setInfants] = useState(0);
-  const [pets, setPets] = useState(0);
-
-  const destRef = useRef<HTMLDivElement>(null);
-  const dateRef = useRef<HTMLDivElement>(null);
-  const guestsRef = useRef<HTMLDivElement>(null);
-
-  const today = new Date();
-  const [leftMonth, setLeftMonth] = useState({
-    year: today.getFullYear(),
-    month: today.getMonth(),
-  });
-
-  useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      if (destRef.current && !destRef.current.contains(e.target as Node))
-        setDestOpen(false);
-
-      if (dateRef.current && !dateRef.current.contains(e.target as Node))
-        setDateOpen(false);
-
-      if (guestsRef.current && !guestsRef.current.contains(e.target as Node))
-        setGuestsOpen(false);
-    }
-
-    document.addEventListener("mousedown", handleClick);
-
-    return () =>
-      document.removeEventListener("mousedown", handleClick);
-  }, []);
-
-  const guestsLabel = `${adults + children + infants} guests - ${pets} pets`;
-  const dateLabel = checkIn
-    ? checkIn.toLocaleDateString("en-GB", { day: "numeric", month: "short" })
-    : "";
-
-  function goPrevMonth() {
-    setLeftMonth((prev) => {
-      const m = prev.month - 1;
-      return m < 0 ? { year: prev.year - 1, month: 11 } : { year: prev.year, month: m };
-    });
-  }
-  function goNextMonth() {
-    setLeftMonth((prev) => {
-      const m = prev.month + 1;
-      return m > 11 ? { year: prev.year + 1, month: 0 } : { year: prev.year, month: m };
-    });
-  }
-
-function renderCalendar(year: number, month: number) {
-  const cells = getMonthMatrix(year, month);
-
+/* ─── Counter helper ───────────────────────────────────────── */
+function Counter({
+  label, sublabel, value, setValue, min = 0,
+}: {
+  label: string; sublabel?: string;
+  value: number; setValue: (v: number) => void; min?: number;
+}) {
   return (
-    <div className="flex-1">
-      <div className="mb-3 flex items-center justify-between">
-        <button
-          type="button"
-          onClick={goPrevMonth}
-          className="rounded-full p-1 bg-slate-700"
-        >
-          <ChevronLeft size={18} />
-        </button>
-
-        <p className="text-sm font-semibold text-gray-dark">
-          {MONTH_NAMES[month]} {year}
-        </p>
-
-        <button
-          type="button"
-          onClick={goNextMonth}
-          className="rounded-full p-1 bg-slate-700"
-        >
-          <ChevronRight size={18} />
-        </button>
+    <div className="flex items-center justify-between py-3">
+      <div>
+        <p className="text-sm font-semibold text-gray-dark">{label}</p>
+        {sublabel && <p className="text-xs text-[#9DA4B1]">{sublabel}</p>}
       </div>
-
-      <div className="grid grid-cols-7 gap-1 text-center sm:gap-y-2">
-        {WEEK_DAYS.map((wd) => (
-          <span key={wd} className="text-[10px] sm:text-xs font-medium text-[#9DA4B1]">
-            {wd}
-          </span>
-        ))}
-
-        {cells.map((day, idx) => {
-          if (day === null) return <span key={idx} />;
-
-          const past = isPastDate(year, month, day);
-          const selected = sameDate(checkIn, {
-            y: year,
-            m: month,
-            d: day,
-          });
-
-          return (
-            <button
-              key={idx}
-              type="button"
-              disabled={past}
-              onClick={() => setCheckIn(new Date(year, month, day))}
-              className={[
-                "mx-auto flex h-8 w-8 items-center justify-center rounded-full text-xs sm:h-9 sm:w-9 sm:text-sm",
-                past
-                  ? "text-[#D8D8D8] line-through cursor-not-allowed"
-                  : selected
-                  ? "bg-gray-dark text-white font-semibold"
-                  : "text-gray-dark hover:bg-[#F5F3EE]",
-              ].join(" ")}
-            >
-              {day}
-            </button>
-          );
-        })}
+      <div className="flex items-center gap-4">
+        <button
+          type="button"
+          disabled={value <= min}
+          onClick={() => setValue(Math.max(min, value - 1))}
+          className="flex h-8 w-8 items-center justify-center rounded-full border border-border-color text-gray-dark disabled:cursor-not-allowed disabled:opacity-40 hover:border-[#F2B62D] hover:text-[#F2B62D]"
+        >
+          <Minus size={14} />
+        </button>
+        <span className="w-4 text-center text-sm font-medium text-gray-dark">{value}</span>
+        <button
+          type="button"
+          onClick={() => setValue(value + 1)}
+          className="flex h-8 w-8 items-center justify-center rounded-full border border-border-color text-gray-dark hover:border-[#F2B62D] hover:text-[#F2B62D]"
+        >
+          <Plus size={14} />
+        </button>
       </div>
     </div>
   );
 }
 
-  function Counter({
-    label,
-    sublabel,
-    value,
-    setValue,
-    min = 0,
-  }: {
-    label: string;
-    sublabel?: string;
-    value: number;
-    setValue: (v: number) => void;
-    min?: number;
-  }) {
-    return (
-      <div className="flex items-center justify-between py-3">
-        <div>
-          <p className="text-sm font-semibold text-gray-dark">{label}</p>
-          {sublabel && <p className="text-xs text-[#9DA4B1]">{sublabel}</p>}
-        </div>
-        <div className="flex items-center gap-4">
-          <button
-            type="button"
-            disabled={value <= min}
-            onClick={() => setValue(Math.max(min, value - 1))}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-border-color text-gray-dark disabled:cursor-not-allowed disabled:opacity-40 hover:border-gray-dark"
-          >
-            <Minus size={14} />
-          </button>
-          <span className="w-4 text-center text-sm font-medium text-gray-dark">
-            {value}
-          </span>
-          <button
-            type="button"
-            onClick={() => setValue(value + 1)}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-border-color text-gray-dark hover:border-gray-dark"
-          >
-            <Plus size={14} />
-          </button>
-        </div>
-      </div>
-    );
-  }
+/* ─── Main component ───────────────────────────────────────── */
+function BookingSearch() {
+  const [destOpen,  setDestOpen]  = useState(false);
+  const [destination, setDestination] = useState("");
+  const [dateRange, setDateRange] = useState<DateRange>({ checkIn: null, checkOut: null });
+  const [guestsOpen, setGuestsOpen] = useState(false);
+  const [adults,   setAdults]   = useState(2);
+  const [children, setChildren] = useState(0);
+  const [infants,  setInfants]  = useState(0);
+  const [pets,     setPets]     = useState(0);
+
+  const destRef   = useRef<HTMLDivElement>(null);
+  const guestsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (destRef.current   && !destRef.current.contains(e.target as Node))   setDestOpen(false);
+      if (guestsRef.current && !guestsRef.current.contains(e.target as Node)) setGuestsOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  const guestsLabel = `${adults + children + infants} guests${pets ? ` · ${pets} pet${pets > 1 ? "s" : ""}` : ""}`;
 
   return (
-    <>
-      <div className="w-full max-w-[1193px] mx-auto rounded-[20px] bg-white shadow-[0_15px_45px_rgba(0,0,0,0.12)] border border-[#ECE7DF] py-5 lg:py-[25px] px-5 lg:px-[35px]">
-        <div className="grid grid-cols-1 gap-5 xl:gap-[46px] md:grid-cols-2 xl:grid-cols-[2fr_1.1fr_1.1fr_1.2fr_auto]">
+    <div className="relative w-full max-w-[1193px] mx-auto rounded-[20px] bg-white shadow-[0_15px_45px_rgba(0,0,0,0.12)] border border-[#ECE7DF] py-5 lg:py-[25px] px-5 lg:px-[35px]">
+      <div className="grid grid-cols-1 gap-5 xl:gap-[46px] md:grid-cols-2 xl:grid-cols-[2fr_1.1fr_1.1fr_1.2fr_auto]">
 
-          {/* Destination */}
+        {/* ── Destination ───────────────────────────── */}
+        <div
+          ref={destRef}
+          className="relative xl:after:absolute xl:after:right-[-23px] xl:after:top-1/2 xl:after:h-[55px] xl:after:w-px xl:after:-translate-y-1/2 xl:after:bg-[#DFDFDF]"
+        >
+          <p className="mb-[10px] text-sm font-semibold text-gray-dark">Destination</p>
           <div
-            ref={destRef}
-            className="relative xl:after:absolute xl:after:right-[-23px] xl:after:top-1/2 xl:after:h-[55px] xl:after:w-px xl:after:-translate-y-1/2 xl:after:bg-[#DFDFDF]"
+            onClick={() => setDestOpen(true)}
+            className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-text"
           >
-            <p className="mb-[10px] text-sm font-semibold text-gray-dark">
-              Destination
-            </p>
-
-            <div
-              onClick={() => setDestOpen(true)}
-              className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-text"
-            >
-              <Image
-                src="/images/location01.svg"
-                alt=""
-                width={18}
-                height={18}
-              />
-
-              <input
-                type="text"
-                value={destination}
-                onFocus={() => setDestOpen(true)}
-                onChange={(e) => setDestination(e.target.value)}
-                placeholder="Where are you going?"
-                className="w-full bg-transparent text-sm outline-none text-gray-dark placeholder:text-[#9DA4B1] placeholder:text-sm"
-              />
-
-              {destination && (
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setDestination("");
-                  }}
-                  className="text-[#9DA4B1] hover:text-gray-dark"
-                >
-                  <X size={16} />
-                </button>
-              )}
-            </div>
-
-            {destOpen && (
-              <div className="absolute left-0 right-0 top-full z-30 mt-2 w-full min-w-0
-                rounded-2xl border border-[#ECE7DF] bg-white p-4 shadow-[0_15px_45px_rgba(0,0,0,0.12)]
-                xl:w-[350px]">
-                <p className="mb-2 text-xs font-semibold text-[#9DA4B1]">
-                  Popular destinations
-                </p>
-                <div className="flex flex-col">
-                  {POPULAR_DESTINATIONS.filter((d) =>
-                    d.name.toLowerCase().includes(destination.toLowerCase())
-                  ).map((d) => (
-                    <button
-                      key={d.name}
-                      type="button"
-                      onClick={() => {
-                        setDestination(d.name);
-                        setDestOpen(false);
-                      }}
-                      className="flex items-center gap-3 rounded-lg px-2 py-2 text-left hover:bg-[#F5F3EE]"
-                    >
-                      <MapPin size={16} className="text-gray-dark shrink-0" />
-                      <span>
-                        <span className="block text-sm font-medium text-gray-dark">
-                          {d.name}
-                        </span>
-                        {d.sub && (
-                          <span className="block text-xs text-[#9DA4B1]">{d.sub}</span>
-                        )}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </div>
+            <Image src="/images/location01.svg" alt="" width={18} height={18} />
+            <input
+              type="text"
+              value={destination}
+              onFocus={() => setDestOpen(true)}
+              onChange={(e) => setDestination(e.target.value)}
+              placeholder="Where are you going?"
+              className="w-full bg-transparent text-sm outline-none text-gray-dark placeholder:text-[#9DA4B1]"
+            />
+            {destination && (
+              <button type="button" onClick={(e) => { e.stopPropagation(); setDestination(""); }} className="text-[#9DA4B1] hover:text-gray-dark">
+                <X size={16} />
+              </button>
             )}
           </div>
 
-          {/* Check In */}
-          <div
-            ref={dateRef}
-            className="relative xl:after:absolute xl:after:right-[-23px] xl:after:top-1/2 xl:after:h-[55px] xl:after:w-px xl:after:-translate-y-1/2 xl:after:bg-[#DFDFDF]"
-          >
-            <p className="mb-[10px] text-sm font-semibold text-gray-dark">
-              Check-in
-            </p>
-
-            <div
-              onClick={() => setDateOpen((v) => !v)}
-              className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-pointer"
-            >
-              <Image
-                src="/images/date01.svg"
-                alt=""
-                width={18}
-                height={18}
-              />
-
-              <span
-                className={`w-full truncate text-sm ${
-                  checkIn ? "text-gray-dark" : "text-[#9DA4B1]"
-                }`}
-              >
-                {dateLabel || "Add date"}
-              </span>
-            </div>
-
-           {dateOpen && (
-            <div className="absolute left-0 top-full z-30 mt-2 w-full min-w-0 rounded-2xl border border-[#ECE7DF]
-            bg-white p-4 shadow-[0_15px_45px_rgba(0,0,0,0.12)] sm:w-[340px] lg:w-[380px]">
-                {renderCalendar(leftMonth.year, leftMonth.month)}
-
-                <div className="mt-2 sm:mt-4 flex justify-end">
-                <button
+          {destOpen && (
+            <div className="absolute left-0 right-0 top-full z-30 mt-2 w-full min-w-0 rounded-2xl border border-[#ECE7DF] bg-white p-4 shadow-[0_15px_45px_rgba(0,0,0,0.12)] xl:w-[350px]">
+              <p className="mb-2 text-xs font-semibold text-[#9DA4B1]">Popular destinations</p>
+              <div className="flex flex-col">
+                {POPULAR_DESTINATIONS.filter(d => d.name.toLowerCase().includes(destination.toLowerCase())).map(d => (
+                  <button
+                    key={d.name}
                     type="button"
-                    onClick={() => setDateOpen(false)}
-                    className="gold-gradient rounded-full px-6 py-2 text-xs sm:text-sm font-semibold text-white"
-                >
-                    Done
-                </button>
-                </div>
-            </div>
-            )}
-          </div>
-
-          {/* Check Out */}
-          <div className="relative xl:after:absolute xl:after:right-[-23px] xl:after:top-1/2 xl:after:h-[55px] xl:after:w-px xl:after:-translate-y-1/2 xl:after:bg-[#DFDFDF]">
-            <p className="mb-[10px] text-sm font-semibold text-gray-dark">
-              Check-out
-            </p>
-
-            <div
-              onClick={() => setDateOpen(true)}
-              className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-pointer"
-            >
-              <Image
-                src="/images/date01.svg"
-                alt=""
-                width={18}
-                height={18}
-              />
-
-              <span className="w-full truncate text-sm text-[#9DA4B1]">
-                {checkIn ? duration : "Add date"}
-              </span>
-            </div>
-          </div>
-
-          {/* Guests */}
-          <div ref={guestsRef} className="relative">
-            <p className="mb-[10px] text-sm font-semibold text-gray-dark">
-              Guests
-            </p>
-
-            <div
-              onClick={() => setGuestsOpen((v) => !v)}
-              className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-pointer"
-            >
-              <Image
-                src="/images/user.svg"
-                alt=""
-                width={18}
-                height={18}
-              />
-
-              <span className="w-full truncate text-sm text-gray-dark">
-                {adults + children + infants > 0 || pets > 0 ? guestsLabel : "Add guests"}
-              </span>
-            </div>
-
-            {guestsOpen && (
-              <div className="absolute left-0 top-full z-20 mt-2 w-full min-w-[180px] md:min-w-[280px] rounded-2xl border border-[#ECE7DF] bg-white p-5 shadow-[0_15px_45px_rgba(0,0,0,0.12)] divide-y divide-[#ECE7DF]">
-                <Counter label="Adults" value={adults} setValue={setAdults} min={0} />
-                <Counter
-                  label="Children"
-                  sublabel="Aged 3-17"
-                  value={children}
-                  setValue={setChildren}
-                />
-                <Counter
-                  label="Infants"
-                  sublabel="Aged up to 2"
-                  value={infants}
-                  setValue={setInfants}
-                />
-                <Counter label="Pets" value={pets} setValue={setPets} />
+                    onClick={() => { setDestination(d.name); setDestOpen(false); }}
+                    className="flex items-center gap-3 rounded-lg px-2 py-2 text-left hover:bg-[#F5F3EE]"
+                  >
+                    <MapPin size={16} className="text-gray-dark shrink-0" />
+                    <span>
+                      <span className="block text-sm font-medium text-gray-dark">{d.name}</span>
+                      {d.sub && <span className="block text-xs text-[#9DA4B1]">{d.sub}</span>}
+                    </span>
+                  </button>
+                ))}
               </div>
-            )}
-          </div>
-
-          {/* Search Button */}
-          <div className="md:col-span-2 xl:col-span-1 flex items-center">
-            <button className="w-full gap-2 xl:w-auto common-btn">
-              <Search size={20} />
-              Search
-            </button>
-          </div>
-
+            </div>
+          )}
         </div>
+
+        {/* ── Date Range Picker (Check-in + Check-out) ── */}
+        {/* Wrapping div is `relative` so the calendar panel positions correctly */}
+        <div className="relative contents">
+          <DateRangePicker variant="hero" value={dateRange} onChange={setDateRange} />
+        </div>
+
+        {/* ── Guests ────────────────────────────────── */}
+        <div ref={guestsRef} className="relative">
+          <p className="mb-[10px] text-sm font-semibold text-gray-dark">Guests</p>
+          <div
+            onClick={() => setGuestsOpen(v => !v)}
+            className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-pointer"
+          >
+            <Image src="/images/user.svg" alt="" width={18} height={18} />
+            <span className="w-full truncate text-sm text-gray-dark">
+              {adults + children + infants > 0 ? guestsLabel : "Add guests"}
+            </span>
+          </div>
+
+          {guestsOpen && (
+            <div className="absolute left-0 top-full z-20 mt-2 w-full min-w-[260px] rounded-2xl border border-[#ECE7DF] bg-white p-5 shadow-[0_15px_45px_rgba(0,0,0,0.12)] divide-y divide-[#ECE7DF]">
+              <Counter label="Adults"   value={adults}   setValue={setAdults}   min={1} />
+              <Counter label="Children" sublabel="Aged 3–17"     value={children} setValue={setChildren} />
+              <Counter label="Infants"  sublabel="Aged up to 2"  value={infants}  setValue={setInfants} />
+              <Counter label="Pets"     value={pets}     setValue={setPets} />
+              <div className="pt-3 flex justify-end">
+                <button
+                  onClick={() => setGuestsOpen(false)}
+                  className="gold-gradient rounded-full px-5 py-2 text-xs font-semibold text-white cursor-pointer"
+                >
+                  Done
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* ── Search ────────────────────────────────── */}
+        <div className="md:col-span-2 xl:col-span-1 flex items-center">
+          <button className="w-full gap-2 xl:w-auto common-btn">
+            <Search size={20} />
+            Search
+          </button>
+        </div>
+
       </div>
-    </>
-  )
+    </div>
+  );
 }
 
-export default BookingSearch
+export default BookingSearch;

@@ -21,7 +21,6 @@ import {
   ShieldCheck,
   Umbrella,
   PawPrint,
-  CalendarDays,
   ChevronDown,
   Grid2x2,
   Baby,
@@ -40,6 +39,7 @@ import {
   Clock3,
   ExternalLink,
 } from "lucide-react";
+import DateRangePicker, { DateRange } from "@/components/Booking/DateRangePicker";
 import SimilarProperti from "./SimilarProperti";
 import FaqSection from "./FaqSection";
 import LightboxGallery from "./LightboxGallery";
@@ -89,54 +89,6 @@ const property = {
     responseTime: "Within an hour",
   },
 };
-
-/* ─── Date picker helper ───────────────────────────────────── */
-function DateField({
-  label,
-  value,
-  onChange,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-}) {
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const formatted = value
-    ? new Date(value).toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-      })
-    : null;
-
-  return (
-    <button
-      type="button"
-      onClick={() => inputRef.current?.showPicker?.()}
-      className="flex flex-col gap-2.25 px-3 md:px-5 py-3.25 text-left w-full relative"
-    >
-      <span className="text-xs font-semibold text-text-primary">{label}</span>
-      <span
-        className={`flex items-center gap-2 text-xs sm:text-sm ${
-          formatted ? "text-text-primary font-medium" : "text-gray"
-        }`}
-      >
-        <CalendarDays size={13} className="shrink-0 text-gray" />
-        {formatted ?? "Add date"}
-      </span>
-      {/* Hidden native date input — invisible but functional */}
-      <input
-        ref={inputRef}
-        type="date"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
-        tabIndex={-1}
-      />
-    </button>
-  );
-}
 
 /* ─── Guest counter row ────────────────────────────────────── */
 type GuestType = "adults" | "children" | "infants" | "pets";
@@ -468,8 +420,7 @@ const featurePills: { Icon: React.ElementType; text: string }[] = [
 /* ─── Main component ───────────────────────────────────────── */
 export default function PropertyDetails() {
   const [activeTab, setActiveTab] = useState("overview");
-  const [checkIn, setCheckIn] = useState("");
-  const [checkOut, setCheckOut] = useState("");
+  const [dateRange, setDateRange] = useState<DateRange>({ checkIn: null, checkOut: null });
   const [guestCounts, setGuestCounts] = useState<GuestCounts>({
     adults: 2,
     children: 0,
@@ -479,7 +430,10 @@ export default function PropertyDetails() {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [initialSlide, setInitialSlide] = useState(0);
 
-  const nights = 7;
+  const nights =
+    dateRange.checkIn && dateRange.checkOut
+      ? Math.round((dateRange.checkOut.getTime() - dateRange.checkIn.getTime()) / 86400000)
+      : 7;
   const subtotal = property.pricePerNight * nights;
   const total = subtotal + property.cleaningFee + property.serviceFee;
 
@@ -1001,19 +955,8 @@ export default function PropertyDetails() {
                 <span className="mb-[2px] text-sm text-gray">per night</span>
               </div>
 
-              {/* Date fields — pill with divider */}
-              <div className="grid grid-cols-2 overflow-hidden rounded-[160px] border border-[#E3E3E3] divide-x divide-[#E3E3E3]">
-                <DateField
-                  label="Check In"
-                  value={checkIn}
-                  onChange={setCheckIn}
-                />
-                <DateField
-                  label="Check Out"
-                  value={checkOut}
-                  onChange={setCheckOut}
-                />
-              </div>
+              {/* Date Range Picker */}
+              <DateRangePicker variant="card" value={dateRange} onChange={setDateRange} />
 
               {/* Guests dropdown */}
               <GuestDropdown counts={guestCounts} onChange={setGuestCounts} />

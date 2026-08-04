@@ -1,13 +1,27 @@
-
+import Image from "next/image";
 import BookingSearch from "../Booking/BookingSearch";
 
 function HeroBanner() {
   return (
     <>
       <div className="px-4 md:px-[30px]">
-        <div className="relative min-h-[765px] w-full flex flex-col justify-between p-4 md:p-8 text-white
-         rounded-[22px]">
-          <div className="absolute inset-0 -z-10 bg-[url('/images/home-hero-bg.jpg')] bg-cover bg-center rounded-[22px]" />
+        <div
+          className="relative min-h-[765px] w-full flex flex-col justify-between p-4 md:p-8 text-white
+         rounded-[22px]"
+        >
+          <div className="absolute inset-0 -z-10 overflow-hidden rounded-[22px]">
+            <Image
+              src="/images/home-hero-bg.jpg"
+              alt="Home Hero Background"
+              fill
+              priority
+              fetchPriority="high"
+              loading="eager"
+              quality={100}
+              sizes="100vw"
+              className="object-cover rounded-[22px]"
+            />
+          </div>
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0F172ABF] via-[#0F172A8C] to-[#0F172ABF]  rounded-[22px]" />
           <div className="flex flex-col items-center mx-auto my-auto">
             <div className="hero-tag">
@@ -23,31 +37,31 @@ function HeroBanner() {
               Discover handpicked holiday homes, villas, cottages and unique
               stays. Book direct with trusted hosts and pay less.
             </p>
-            <BookingSearch/>
+            <BookingSearch />
             <div className="mt-5 grid grid-cols-2 gap-3 pb-4 sm:grid-cols-3 lg:grid-cols-6">
-          <button className="home-hero-label">
-            🏖️ <span>Beachfront</span>
-          </button>
+              <button className="home-hero-label">
+                🏖️ <span>Beachfront</span>
+              </button>
 
-          <button className="home-hero-label">
-            🏡 <span>Private Pool</span>
-          </button>
+              <button className="home-hero-label">
+                🏡 <span>Private Pool</span>
+              </button>
 
-          <button className="home-hero-label">
-            🌿 <span>Countryside</span>
-          </button>
+              <button className="home-hero-label">
+                🌿 <span>Countryside</span>
+              </button>
 
-          <button className="home-hero-label">
-            ⚡ <span>Mountain</span>
-          </button>
+              <button className="home-hero-label">
+                ⚡ <span>Mountain</span>
+              </button>
 
-          <button className="home-hero-label">
-            🌊 <span>Seafront</span>
-          </button>
+              <button className="home-hero-label">
+                🌊 <span>Seafront</span>
+              </button>
 
-          <button className="home-hero-label">
-            📅 <span>Events</span>
-          </button>
+              <button className="home-hero-label">
+                📅 <span>Events</span>
+              </button>
             </div>
           </div>
         </div>
