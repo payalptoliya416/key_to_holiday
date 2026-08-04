@@ -419,6 +419,7 @@ const featurePills: { Icon: React.ElementType; text: string }[] = [
 
 /* ─── Main component ───────────────────────────────────────── */
 export default function PropertyDetails() {
+  const [liked, setLiked] = useState(false);
   const [activeTab, setActiveTab] = useState("overview");
   const [dateRange, setDateRange] = useState<DateRange>({ checkIn: null, checkOut: null });
   const [guestCounts, setGuestCounts] = useState<GuestCounts>({
@@ -560,12 +561,23 @@ export default function PropertyDetails() {
                 />
                 {i === 0 && (
                   <div className="absolute right-4 top-4 flex gap-3">
-                    <button className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white shadow-lg transition hover:bg-[#FFF7EA]">
-                      <Heart size={16} />
-                    </button>
-                    <button className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white shadow-lg transition hover:bg-[#FFF7EA]">
+                   
+                  <button
+                    onClick={() => setLiked(!liked)}
+                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white shadow-lg transition hover:bg-[#FFF7EA] cursor-pointer"
+                  >
+                    <Heart
+                      size={16}
+                      className={`transition-colors ${
+                        liked
+                          ? "fill-red-500 text-red-500"
+                          : "text-black hover:fill-red-500 hover:text-red-500 cursor-pointer"
+                      }`}
+                    />
+                  </button>
+                    <Link href="#" className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white shadow-lg transition hover:bg-[#FFF7EA] cursor-pointer">
                       <Share2 size={16} />
-                    </button>
+                    </Link>
                   </div>
                 )}
                 {i === 1 && (
