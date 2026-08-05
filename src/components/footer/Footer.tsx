@@ -181,7 +181,7 @@ function Footer() {
 
           {/* Contact */}
 
-          <div className="mt-12 flex flex-col gap-6 md:pt-8 xl:flex-row xl:items-center xl:justify-between">
+          <div className="flex flex-col gap-6 pt-[38px] xl:flex-row xl:items-center xl:justify-between">
             <div className="flex flex-col gap-5 md:flex-row md:flex-wrap md:items-center">
               {/* Email */}
               <Link

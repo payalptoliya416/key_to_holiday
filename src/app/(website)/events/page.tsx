@@ -92,7 +92,7 @@ function Events() {
 
               <h2 className="section-title">Tomorrowland Belgium</h2>
 
-              <div className="mt-[30px] grid grid-cols-3 gap-8">
+              <div className="mt-[30px] grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8">
                 <div>
                   <p className="text-xs text-gray">Location</p>
                   <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-text-primary">
@@ -108,7 +108,7 @@ function Events() {
                 </div>
               </div>
 
-              <p className="text-gray mt-5 text-base">
+              <p className="text-gray mt-5 text-sm sm:text-base">
                 Experience the world's most iconic electronic dance music
                 festival. Tomorrowland brings together 400,000+ attendees from
                 across the globe for an unforgettable weekend of music, art, and
@@ -118,7 +118,7 @@ function Events() {
 
               {/* Stats */}
 
-              <div className="mt-[30px] grid grid-cols-3 gap-2 md:gap-8">
+              <div className="mt-[30px] grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8">
                 <div>
                   <p className="text-xs text-gray">Property Price</p>
                   <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-text-primary">

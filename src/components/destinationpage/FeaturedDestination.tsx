@@ -48,7 +48,7 @@ export default function FeaturedDestination() {
                 Highlights
               </h4>
 
-              <div className="grid grid-cols-2 gap-x-10 gap-y-[11px] text-sm text-[#6D6D6D]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4 sm:gap-y-[11px] text-sm text-[#6D6D6D]">
                 <div className="flex items-center gap-[10px]">
                   <Sunset size={14} className="text-[#E8A020]" />
                   Stunning sunsets
@@ -73,7 +73,7 @@ export default function FeaturedDestination() {
 
             {/* Stats */}
 
-            <div className="mt-[30px] grid grid-cols-3 gap-2 md:gap-8">
+            <div className="mt-[30px] grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8">
               <div>
                 <p className="text-xs text-gray">Best Time</p>
                 <h5 className="font-semibold text-sm md:leading-none mt-[5px] text-text-primary">Apr – Oct</h5>

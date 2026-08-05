@@ -39,7 +39,9 @@ import {
   Clock3,
   ExternalLink,
 } from "lucide-react";
-import DateRangePicker, { DateRange } from "@/components/Booking/DateRangePicker";
+import DateRangePicker, {
+  DateRange,
+} from "@/components/Booking/DateRangePicker";
 import SimilarProperti from "./SimilarProperti";
 import FaqSection from "./FaqSection";
 import LightboxGallery from "./LightboxGallery";
@@ -421,7 +423,10 @@ const featurePills: { Icon: React.ElementType; text: string }[] = [
 export default function PropertyDetails() {
   const [liked, setLiked] = useState(false);
   const [activeTab, setActiveTab] = useState("overview");
-  const [dateRange, setDateRange] = useState<DateRange>({ checkIn: null, checkOut: null });
+  const [dateRange, setDateRange] = useState<DateRange>({
+    checkIn: null,
+    checkOut: null,
+  });
   const [guestCounts, setGuestCounts] = useState<GuestCounts>({
     adults: 2,
     children: 0,
@@ -433,7 +438,10 @@ export default function PropertyDetails() {
 
   const nights =
     dateRange.checkIn && dateRange.checkOut
-      ? Math.round((dateRange.checkOut.getTime() - dateRange.checkIn.getTime()) / 86400000)
+      ? Math.round(
+          (dateRange.checkOut.getTime() - dateRange.checkIn.getTime()) /
+            86400000,
+        )
       : 7;
   const subtotal = property.pricePerNight * nights;
   const total = subtotal + property.cleaningFee + property.serviceFee;
@@ -499,7 +507,7 @@ export default function PropertyDetails() {
   return (
     <main className="">
       {/* ── Breadcrumb ──────────────────────────────────── */}
-   <div className="pt-5 mx-[30px] 2xl:container 2xl:mx-auto">
+      <div className="pt-5 mx-[30px] 2xl:container 2xl:mx-auto">
         <nav className="flex items-center gap-1 text-sm text-light-dark">
           <Link href="/" className="hover:text-[#E39A16] transition">
             Home
@@ -521,7 +529,7 @@ export default function PropertyDetails() {
       </div>
 
       {/* ── Photo Gallery ───────────────────────────────── */}
-     <div className="mt-5 mx-[30px] 2xl:container 2xl:mx-auto">
+      <div className="relative mt-5 mx-[30px] 2xl:container 2xl:mx-auto">
         <div className="grid lg:gap-3 lg:grid-cols-[2fr_1fr_1fr]">
           <div className="relative h-[260px] overflow-hidden rounded-[24px] sm:h-[380px] lg:h-[530px] mb-3 lg:mb-0">
             <Image
@@ -547,6 +555,28 @@ export default function PropertyDetails() {
               </div>
             ))}
           </div>
+          <div className="absolute right-4 top-4 z-20 flex gap-3">
+            <button
+              onClick={() => setLiked(!liked)}
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg transition hover:bg-[#FFF7EA]"
+            >
+              <Heart
+                size={18}
+                className={`transition-colors ${
+                  liked
+                    ? "fill-red-500 text-red-500"
+                    : "text-black hover:fill-red-500 hover:text-red-500"
+                }`}
+              />
+            </button>
+
+            <Link
+              href="#"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg transition hover:bg-[#FFF7EA]"
+            >
+              <Share2 size={18} />
+            </Link>
+          </div>
           <div className="gap-3 lg:grid grid-rows-2">
             {[property.images[2], property.images[4]].map((img, i) => (
               <div
@@ -559,27 +589,7 @@ export default function PropertyDetails() {
                   fill
                   className="object-cover transition duration-700 hover:scale-105"
                 />
-                {i === 0 && (
-                  <div className="absolute right-4 top-4 flex gap-3">
-                   
-                  <button
-                    onClick={() => setLiked(!liked)}
-                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white shadow-lg transition hover:bg-[#FFF7EA] cursor-pointer"
-                  >
-                    <Heart
-                      size={16}
-                      className={`transition-colors ${
-                        liked
-                          ? "fill-red-500 text-red-500"
-                          : "text-black hover:fill-red-500 hover:text-red-500 cursor-pointer"
-                      }`}
-                    />
-                  </button>
-                    <Link href="#" className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white shadow-lg transition hover:bg-[#FFF7EA] cursor-pointer">
-                      <Share2 size={16} />
-                    </Link>
-                  </div>
-                )}
+
                 {i === 1 && (
                   <button
                     onClick={() => {
@@ -605,12 +615,12 @@ export default function PropertyDetails() {
       </div>
 
       {/* ── Content + Booking sidebar ──────────────────── */}
-      <div className="container-custom py-[45px]">
+      <div className="container-custom">
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1fr_380px]">
           {/* ── LEFT ──────────────────────────────────── */}
           <div className="space-y-8">
             {/* Tabs */}
-            <div className="sticky top-[80px] z-9 bg-white border-b border-border-color">
+            <div className="sticky top-[66px] lg:top-[80px] z-9 bg-white border-b border-border-color">
               <div className="overflow-x-auto scrollbar-hide">
                 <div className="flex w-max min-w-full gap-2 sm:gap-4 lg:gap-8">
                   {tabs.map((tab) => (
@@ -902,7 +912,7 @@ export default function PropertyDetails() {
                   {reviews.map((item, index) => (
                     <div
                       key={index}
-                      className="flex h-full flex-col rounded-[18px] border border-border-color bg-white p-[25px] transition-all duration-300 hover:shadow-xl"
+                      className="flex h-full flex-col rounded-[18px] border border-border-color bg-white p-4 sm:p-[25px] transition-all duration-300 hover:shadow-xl"
                     >
                       {/* Stars */}
                       <div className="mb-[16px] flex gap-1">
@@ -958,7 +968,7 @@ export default function PropertyDetails() {
 
           {/* ── RIGHT – Booking card ───────────────────── */}
           <div className="lg:sticky lg:top-[110px] h-fit">
-            <div className="space-y-4 rounded-[16px] border border-border-dark bg-[#F8F6F2] px-5 py-[30px]">
+            <div className="space-y-4 rounded-[16px] border border-border-dark bg-[#F8F6F2] px-4 sm:px-5 py-5 sm:py-[30px]">
               {/* Price */}
               <div className="mb-[10px] flex items-end gap-1">
                 <span className="text-[28px] font-bold leading-none text-text-primary">
@@ -968,7 +978,11 @@ export default function PropertyDetails() {
               </div>
 
               {/* Date Range Picker */}
-              <DateRangePicker variant="card" value={dateRange} onChange={setDateRange} />
+              <DateRangePicker
+                variant="card"
+                value={dateRange}
+                onChange={setDateRange}
+              />
 
               {/* Guests dropdown */}
               <GuestDropdown counts={guestCounts} onChange={setGuestCounts} />

@@ -96,12 +96,12 @@ function OffersBanner() {
         <div className="mt-[60px] pb-[21px] border-t border-[#E8E8E8]"></div>
         <div className="container-custom">
           <div className="overflow-x-auto scrollbar-thin">
-            <div className="flex w-max gap-4 pb-2">
+            <div className="flex w-max gap-4">
             {categories.map((item, index) => (
               <button
                 key={item}
                 onClick={() => setActiveCategory(index)}
-                className={`h-[42px] rounded-full border px-[18px] py-[15px] text-xs !leading-none font-medium transition-all cursor-pointer ${
+                className={`h-9 sm:h-[42px] rounded-full border px-[18px] py-3 sm:py-[15px] text-xs !leading-none font-medium transition-all cursor-pointer flex items-center justify-center ${
                   activeCategory === index
                     ? "border-[#D69A17] bg-[#D69A17] text-white"
                     : "border-[#E8E8E8] bg-white hover:border-[#D69A17] hover:text-[#D69A17]"

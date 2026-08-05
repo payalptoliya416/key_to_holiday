@@ -58,7 +58,7 @@ function FaqSection() {
                       isOpen ? "border-b border-border-dark" : ""
                     }`}
                   >
-                    <span className="text-sm leading-3.5 font-medium text-text-primary">
+                    <span className="text-sm sm:leading-3.5 font-medium text-text-primary">
                       {faq.q}
                     </span>
                     <span

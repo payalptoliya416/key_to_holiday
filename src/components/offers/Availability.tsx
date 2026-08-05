@@ -112,7 +112,7 @@ function Availability() {
                   </div>
                 </div>
 
-                <div className="mt-6 flex items-center justify-between ">
+                <div className="mt-6 flex items-center justify-between flex-wrap gap-2">
                   <div className="flex items-end gap-1">
                     <span className="text-2xl font-semibold text-white">
                       £{item.price}

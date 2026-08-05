@@ -125,17 +125,17 @@ function PerfectEvents() {
                 </div>
 
                 {/* Content */}
-                <div className="p-[23px]">
+                <div className="p-4 sm:p-[23px]">
                   <h3 className="text-lg] font-semibold text-gray-dark">
                     {home.title}
                   </h3>
 
-                  <div className="mt-3 flex items-center gap-1 text-base text-light-dark">
+                  <div className="mt-3 flex items-center gap-1 text-sm sm:text-base text-light-dark">
                     <MapPin size={14} />
                     <span>{home.location}</span>
                   </div>
 
-                  <div className="mt-[23px] flex flex-wrap items-center gap-3 text-sm text-light-dark">
+                  <div className="mt-4 sm:mt-[23px] flex flex-wrap items-center gap-3 text-sm text-light-dark">
                     <div className="flex items-center gap-1">
                       <Users size={13} />
                       {home.guests} guests
@@ -152,7 +152,7 @@ function PerfectEvents() {
                     </div>
                   </div>
 
-                  <div className="mt-6 flex items-center justify-between flex-wrap">
+                  <div className="mt-6 flex items-center justify-between flex-wrap gap-2">
                     <div className="flex items-end gap-1">
                       <span className="text-[24px] font-bold text-gray-dark">
                         £{home.price}

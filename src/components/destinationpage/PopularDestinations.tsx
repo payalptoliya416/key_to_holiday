@@ -106,7 +106,7 @@ export default function PopularDestinations() {
 
                   <Link
                     href="/"
-                    className="rounded-full gold-gradient px-[18px] py-[10px] text-xs font-semibold text-white transition hover:scale-105"
+                    className="rounded-full gold-gradient px-[18px] py-2 sm:py-[10px] text-xs font-semibold text-white transition hover:scale-105 w-max"
                   >
                     Explore
                   </Link>

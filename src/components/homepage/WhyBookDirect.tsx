@@ -46,8 +46,8 @@ export default function WhyBookDirect() {
             </div>
 
             {/* Floating Card */}
-            <div className="absolute -bottom-5 right-2 md:-right-6 rounded-2xl bg-gold px-5 py-6 text-white shadow-[20px]">
-              <h3 className="text-[28px] font-bold leading-none">20%</h3>
+            <div className="absolute -bottom-5 right-2 md:-right-6 rounded-2xl bg-gold px-3 sm:px-5 py-3 sm:py-6 text-white shadow-[20px]">
+              <h3 className="text-xl sm:text-[28px] font-bold leading-none">20%</h3>
               <p className="mt-[7px] text-xs !leading-none font-medium text-[#FFFFFFCC]">
                 average savings
               </p>
