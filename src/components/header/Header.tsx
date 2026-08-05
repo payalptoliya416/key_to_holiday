@@ -15,7 +15,7 @@ const navItems = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-
+const [isSticky, setIsSticky] = useState(false);
   const isSignInPage = pathname === "/sign-in";
 
   useEffect(() => {
@@ -33,8 +33,28 @@ export default function Header() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  useEffect(() => {
+  const handleScroll = () => {
+    setIsSticky(window.scrollY > 80);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
   return (
-    <header className="sticky top-0 z-99 bg-white px-4 py-4 md:px-6 lg:px-[30px] lg:py-[25px]">
+    <header
+      className={`fixed left-0 top-0 z-[999] w-full transition-all duration-300 ease-in-out
+        ${
+          isSticky
+            ? "bg-white shadow-[0_10px_35px_rgba(0,0,0,0.08)] py-3"
+            : "bg-white/90 backdrop-blur-md py-4 lg:py-[25px]"
+        }
+        px-4 md:px-6 lg:px-[30px]
+      `}
+    >
       <div className="2xl:container 2xl:mx-auto">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
