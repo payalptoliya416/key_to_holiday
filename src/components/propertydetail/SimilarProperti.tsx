@@ -165,7 +165,7 @@ export default function SimilarProperti() {
                     <div className="absolute right-5 top-5 flex items-center gap-2 rounded-full bg-white px-3 py-[6px] shadow-lg">
                       <Star
                         size={14}
-                        className="fill-gray-dark text-gray-dark"
+                        className="text-gray-dark"
                       />
 
                       <span className="text-xs font-semibold">
