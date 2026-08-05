@@ -72,6 +72,7 @@ export default function WhyBookDirect() {
               {features.map((item, index) => {
                 return (
                   <div key={index} className="flex gap-[10px]">
+                    <div>
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FDF3D9]">
                       <Image
                         src={item.image}
@@ -80,6 +81,7 @@ export default function WhyBookDirect() {
                         height={18}
                         className="object-contain"
                       />
+                    </div>
                     </div>
 
                     <div>
