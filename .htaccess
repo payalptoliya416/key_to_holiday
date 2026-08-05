@@ -1,0 +1,20 @@
+Options -MultiViews
+
+RewriteEngine On
+
+# Existing files/folders
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Next.js assets
+RewriteRule ^_next/ - [L]
+
+# Static assets
+RewriteRule \.(css|js|png|jpg|jpeg|gif|svg|webp|ico|woff2?|ttf|eot|json|map|txt)$ - [L]
+
+# Serve folder index.html
+RewriteRule ^([^/]+)/?$ /$1/index.html [L]
+
+# Home
+RewriteRule ^$ /index.html [L]
