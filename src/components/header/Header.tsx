@@ -48,9 +48,9 @@ const [isSticky, setIsSticky] = useState(false);
     <header
       className={`fixed left-0 top-0 z-[999] w-full transition-all duration-300 ease-in-out
         ${
-          isSticky
-            ? "bg-white shadow-[0_10px_35px_rgba(0,0,0,0.08)] py-3"
-            : "bg-white/90 backdrop-blur-md py-4 lg:py-[25px]"
+         isSticky
+      ? "bg-white shadow py-3"
+      : "bg-white py-4 lg:py-[25px]"
         }
         px-4 md:px-6 lg:px-[30px]
       `}
@@ -112,7 +112,7 @@ const [isSticky, setIsSticky] = useState(false);
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-[100] lg:hidden transition-all duration-300 ${
+        className={`fixed inset-0 z-[10000] lg:hidden transition-all duration-300 ${
           open ? "visible" : "invisible"
         }`}
       >
