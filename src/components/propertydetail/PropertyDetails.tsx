@@ -466,33 +466,33 @@ export default function PropertyDetails() {
   };
 
   useEffect(() => {
-    const sections = [
-      { id: "overview", ref: overviewRef },
-      { id: "features", ref: featuresRef },
-      { id: "location", ref: locationRef },
-      { id: "reviews", ref: reviewsRef },
-    ];
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 140;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveTab(entry.target.id);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: "-140px 0px -55% 0px", // header + sticky tabs offset
-        threshold: 0.2,
-      },
-    );
+      const sections = [
+        { id: "overview", ref: overviewRef },
+        { id: "features", ref: featuresRef },
+        { id: "location", ref: locationRef },
+        { id: "reviews", ref: reviewsRef },
+      ];
 
-    sections.forEach(({ ref }) => {
-      if (ref.current) observer.observe(ref.current);
-    });
+      let current = "overview";
 
-    return () => observer.disconnect();
+      sections.forEach((section) => {
+        if (
+          section.ref.current &&
+          scrollPosition >= section.ref.current.offsetTop
+        ) {
+          current = section.id;
+        }
+      });
+
+      setActiveTab(current);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id: keyof typeof sectionRefs) => {
