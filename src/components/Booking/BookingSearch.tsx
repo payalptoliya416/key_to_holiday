@@ -76,8 +76,8 @@ function BookingSearch() {
   const guestsLabel = `${adults + children + infants} guests${pets ? ` · ${pets} pet${pets > 1 ? "s" : ""}` : ""}`;
 
   return (
-    <div className="relative w-full max-w-[1193px] mx-auto rounded-[20px] bg-white shadow-[0_15px_45px_rgba(0,0,0,0.12)] border border-[#ECE7DF] py-5 lg:py-[25px] px-5 lg:px-[35px]">
-      <div className="grid grid-cols-1 gap-5 xl:gap-[46px] md:grid-cols-2 xl:grid-cols-[2fr_1.1fr_1.1fr_1.2fr_auto]">
+    <div className="relative w-full max-w-[1193px] mx-auto rounded-[20px] bg-white shadow-[0_15px_45px_rgba(0,0,0,0.12)] border border-[#ECE7DF] py-5 lg:py-[25px] px-3 sm:px-5 lg:px-[35px]">
+      <div className="grid grid-cols-1 gap-5 xl:gap-[46px] md:grid-cols-1 xl:grid-cols-[2fr_1.1fr_1.1fr_1.2fr_auto]">
 
         {/* ── Destination ───────────────────────────── */}
         <div
@@ -106,7 +106,7 @@ function BookingSearch() {
           </div>
 
           {destOpen && (
-            <div className="absolute left-0 right-0 top-full z-30 mt-2 w-full min-w-0 rounded-2xl border border-[#ECE7DF] bg-white p-4 shadow-[0_15px_45px_rgba(0,0,0,0.12)] xl:w-[350px]">
+            <div className="absolute left-0 right-0 top-full z-30 mt-2 w-full min-w-0 rounded-2xl border border-[#ECE7DF] bg-white p-4 shadow-[0_15px_45px_rgba(0,0,0,0.12)] xl:w-[300px] flex max-h-[280px] flex-col overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-[#D6D0C7] scrollbar-track-transparent">
               <p className="mb-2 text-xs font-semibold text-[#9DA4B1]">Popular destinations</p>
               <div className="flex flex-col">
                 {POPULAR_DESTINATIONS.filter(d => d.name.toLowerCase().includes(destination.toLowerCase())).map(d => (
@@ -142,13 +142,13 @@ function BookingSearch() {
             className="flex h-10 sm:h-12 items-center gap-3 rounded-full border border-border-color px-4 sm:px-5 cursor-pointer xl:min-w-[183px]"
           >
             <Image src="/images/user.svg" alt="" width={18} height={18} />
-            <span className="w-full truncate text-sm text-gray-dark">
+            <span className="w-full truncate text-xs sm:text-sm text-gray-dark">
               {adults + children + infants > 0 ? guestsLabel : "Add guests"}
             </span>
           </div>
 
           {guestsOpen && (
-            <div className="absolute left-0 top-full z-20 mt-2 w-full min-w-[260px] rounded-2xl border border-[#ECE7DF] bg-white p-5 shadow-[0_15px_45px_rgba(0,0,0,0.12)] divide-y divide-[#ECE7DF]">
+            <div className="absolute left-0 top-full z-20 mt-2 w-full min-w-[260px] rounded-2xl border border-[#ECE7DF] bg-white p-3 sm:p-5 shadow-[0_15px_45px_rgba(0,0,0,0.12)] divide-y divide-[#ECE7DF]">
               <Counter label="Adults"   value={adults}   setValue={setAdults}   min={1} />
               <Counter label="Children" sublabel="Aged 3–17"     value={children} setValue={setChildren} />
               <Counter label="Infants"  sublabel="Aged up to 2"  value={infants}  setValue={setInfants} />

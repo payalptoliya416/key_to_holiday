@@ -274,7 +274,7 @@ export default function DateRangePicker({ value, onChange, variant = "card" }: P
   /* ── Hero Variant ─────────────────────────────────── */
   if (variant === "hero") {
     return (
-      <div ref={containerRef} className="relative flex items-center gap-5 xl:gap-[46px] flex-wrap sm:flex-nowrap">
+      <div ref={containerRef} className="relative flex items-center gap-2 sm:gap-5 xl:gap-[46px] flex-wrap sm:flex-nowrap">
         <div className="relative xl:after:absolute xl:after:right-[-23px] xl:after:top-1/2 xl:after:h-[55px] xl:after:w-px xl:after:-translate-y-1/2 xl:after:bg-[#DFDFDF]">
           <p className="mb-[10px] text-sm font-semibold text-gray-dark">Check-in</p>
           <div
@@ -287,7 +287,7 @@ export default function DateRangePicker({ value, onChange, variant = "card" }: P
             }`}
           >
             <CalendarDays size={16} className="shrink-0 text-[#9DA4B1]" />
-            <span className={`w-full truncate text-sm ${checkInLabel ? "text-gray-dark font-medium" : "text-[#9DA4B1]"}`}>
+            <span className={`w-full truncate text-xs sm:text-sm ${checkInLabel ? "text-gray-dark font-medium" : "text-[#9DA4B1]"}`}>
               {checkInLabel ?? "Add date"}
             </span>
           </div>
@@ -300,12 +300,12 @@ export default function DateRangePicker({ value, onChange, variant = "card" }: P
               setActiveField("checkOut");
               setOpen(true);
             }}
-            className={`flex h-10 sm:h-12 items-center gap-3 rounded-full border px-4 sm:px-5 cursor-pointer transition xl:min-w-[156px] ${
+            className={`flex h-10 sm:h-12 items-center gap-3 rounded-full border px-4 sm:px-5 cursor-pointer transition w-full xl:min-w-[156px] ${
               open && activeField === "checkOut" ? "border-[#F2B62D]" : "border-border-color"
             }`}
           >
             <CalendarDays size={16} className="shrink-0 text-[#9DA4B1]" />
-            <span className={`w-full truncate text-sm ${checkOutLabel ? "text-gray-dark font-medium" : "text-[#9DA4B1]"}`}>
+            <span className={`w-full truncate text-xs sm:text-sm ${checkOutLabel ? "text-gray-dark font-medium" : "text-[#9DA4B1]"}`}>
               {checkOutLabel ?? "Add date"}
             </span>
           </div>
