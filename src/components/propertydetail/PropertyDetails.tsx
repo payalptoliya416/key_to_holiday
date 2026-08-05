@@ -508,24 +508,34 @@ export default function PropertyDetails() {
     <main className="">
       {/* ── Breadcrumb ──────────────────────────────────── */}
       <div className="pt-5 mx-[30px] 2xl:container 2xl:mx-auto">
-        <nav className="flex items-center gap-1 text-sm text-light-dark">
-          <Link href="/" className="hover:text-[#E39A16] transition">
-            Home
-          </Link>
-          <ChevronRight size={14} />
-          <Link
-            href="/destinations"
-            className="hover:text-[#E39A16] transition"
-          >
-            Destinations
-          </Link>
-          <ChevronRight size={14} />
-          <span className="cursor-pointer hover:text-[#E39A16] transition">
-            Spain
-          </span>
-          <ChevronRight size={14} />
-          <span className="font-medium text-gray-dark">{property.title}</span>
-        </nav>
+        <div className="overflow-x-auto scrollbar-hide">
+          <nav className="flex w-max min-w-full items-center gap-1 whitespace-nowrap text-xs sm:text-sm text-light-dark">
+            <Link href="/" className="shrink-0 transition hover:text-[#E39A16]">
+              Home
+            </Link>
+
+            <ChevronRight size={14} className="shrink-0" />
+
+            <Link
+              href="/destinations"
+              className="shrink-0 transition hover:text-[#E39A16]"
+            >
+              Destinations
+            </Link>
+
+            <ChevronRight size={14} className="shrink-0" />
+
+            <span className="shrink-0 cursor-pointer transition hover:text-[#E39A16]">
+              Spain
+            </span>
+
+            <ChevronRight size={14} className="shrink-0" />
+
+            <span className="shrink-0 font-medium text-gray-dark">
+              {property.title}
+            </span>
+          </nav>
+        </div>
       </div>
 
       {/* ── Photo Gallery ───────────────────────────────── */}
