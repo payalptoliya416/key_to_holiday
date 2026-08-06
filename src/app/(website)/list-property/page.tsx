@@ -151,7 +151,7 @@ function ListProperty() {
               return (
                 <div
                   key={item.title}
-                  className="group flex items-start gap-[15px] rounded-[18px] border border-border-dark bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#D69A17] hover:shadow-lg"
+                  className="group flex items-start gap-[15px] rounded-[18px] border border-border-dark bg-white p-4 sm:p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#D69A17] hover:shadow-lg"
                 >
                   {/* Icon */}
 

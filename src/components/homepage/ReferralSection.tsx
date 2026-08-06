@@ -54,7 +54,7 @@ bookings. Build a passive income stream with KeyToHolidays.
           {features.map((item, index) => (
             <div
               key={index}
-              className="rounded-3xl border border-[#FFFFFF1A] bg-[#FFFFFF0D] py-[25px] px-5 transition duration-300 hover:-translate-y-2 hover:border-[#D89A12]/40"
+              className="rounded-3xl border border-[#FFFFFF1A] bg-[#FFFFFF0D] py-4 sm:py-[25px] px-4 sm:px-5 transition duration-300 hover:-translate-y-2 hover:border-[#D89A12]/40"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-[16px] bg-[#FFFFFF1A]">
                 <Image

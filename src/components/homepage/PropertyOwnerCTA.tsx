@@ -20,7 +20,7 @@ export default function PropertyOwnerCTA() {
             }}
           />
           {/* Content */}
-          <div className="relative z-10 px-8 py-14 sm:px-12 lg:px-[60px] lg:py-[60px]">
+          <div className="relative z-10 px-5 py-5 sm:py-14 sm:px-12 lg:px-[60px] lg:py-[60px]">
             <div className="max-w-xl">
               <span className="section-tag">FOR PROPERTY OWNERS</span>
 

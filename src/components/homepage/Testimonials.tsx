@@ -48,7 +48,7 @@ export default function Testimonials() {
         </div>
 
         {/* Cards */}
-        <div className="mt-14 grid grid-cols-1 gap-[19px] md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-9 sm:mt-14 grid grid-cols-1 gap-[19px] md:grid-cols-2 xl:grid-cols-4">
           {testimonials.map((item, index) => (
             <div
               key={index}

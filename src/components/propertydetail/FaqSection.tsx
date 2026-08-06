@@ -54,7 +54,7 @@ function FaqSection() {
                 >
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : i)}
-                    className={`flex w-full items-center justify-between px-5 py-5.5 text-left transition cursor-pointer ${
+                    className={`flex w-full items-center justify-between px-4 sm:px-5 py-4 sm:py-5.5 text-left transition cursor-pointer ${
                       isOpen ? "border-b border-border-dark" : ""
                     }`}
                   >

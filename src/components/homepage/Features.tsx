@@ -34,7 +34,7 @@ export default function Features() {
             return (
               <div
                 key={index}
-                className="rounded-[18px] border border-border-color py-[25px] px-5 transition-all duration-300 hover:shadow-lg"
+                className="rounded-[18px] border border-border-color py-4 sm:py-[25px] px-4 sm:px-5 transition-all duration-300 hover:shadow-lg"
               >
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F8F6F2]">
                   <Image

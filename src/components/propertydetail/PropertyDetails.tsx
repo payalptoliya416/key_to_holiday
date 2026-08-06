@@ -507,7 +507,7 @@ export default function PropertyDetails() {
   return (
     <main className="">
       {/* ── Breadcrumb ──────────────────────────────────── */}
-      <div className="pt-5 mx-[30px] 2xl:container 2xl:mx-auto">
+      <div className="pt-5 mx-4 sm:mx-[30px] 2xl:container 2xl:mx-auto">
         <div className="overflow-x-auto scrollbar-hide">
           <nav className="flex w-max min-w-full items-center gap-1 whitespace-nowrap text-xs sm:text-sm text-light-dark">
             <Link href="/" className="shrink-0 transition hover:text-[#E39A16]">
@@ -539,7 +539,7 @@ export default function PropertyDetails() {
       </div>
 
       {/* ── Photo Gallery ───────────────────────────────── */}
-      <div className="relative mt-5 mx-[30px] 2xl:container 2xl:mx-auto">
+      <div className="relative mt-5 mx-4 sm:mx-[30px] 2xl:container 2xl:mx-auto">
         <div className="grid lg:gap-3 lg:grid-cols-[2fr_1fr_1fr]">
           <div className="relative h-[260px] overflow-hidden rounded-[24px] sm:h-[380px] lg:h-[530px] mb-3 lg:mb-0">
             <Image
@@ -746,7 +746,7 @@ export default function PropertyDetails() {
                     return (
                       <div
                         key={index}
-                        className="flex items-center gap-[10px] rounded-[14px] border border-border-dark p-5 transition-all duration-300 hover:shadow-lg hover:border-[#D69A17] hover:-translate-y-1"
+                        className="flex items-center gap-[10px] rounded-[14px] border border-border-dark p-4 sm:p-5 transition-all duration-300 hover:shadow-lg hover:border-[#D69A17] hover:-translate-y-1"
                       >
                         {/* Icon */}
                         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FDF3E0]">
@@ -810,7 +810,7 @@ export default function PropertyDetails() {
                     return (
                       <div
                         key={index}
-                        className="flex items-center gap-[10px] rounded-[14px] border border-border-dark p-5 transition-all duration-300 hover:shadow-lg"
+                        className="flex items-center gap-[10px] rounded-[14px] border border-border-dark p-4 sm:p-5 transition-all duration-300 hover:shadow-lg"
                       >
                         {/* Icon */}
                         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FDF3E0]">
@@ -1020,11 +1020,11 @@ export default function PropertyDetails() {
               </div>
 
               {/* Book Now */}
-              <button className="gold-gradient w-full rounded-full py-[14px] text-sm font-semibold text-white transition hover:opacity-90 mt-4 cursor-pointer">
+              <button className="gold-gradient w-full rounded-full py-3 sm:py-[14px] text-sm font-semibold text-white transition hover:opacity-90 mt-4 cursor-pointer">
                 Book Now
               </button>
 
-              <button className="w-full rounded-full border border-[#DBDBDB] py-[14px] text-sm font-semibold text-text-primary transition hover:border-[#E8A020] hover:text-[#E8A020] cursor-pointer">
+              <button className="w-full rounded-full border border-[#DBDBDB] py-3 sm:py-[14px] text-sm font-semibold text-text-primary transition hover:border-[#E8A020] hover:text-[#E8A020] cursor-pointer">
                 Contact Host
               </button>
 
