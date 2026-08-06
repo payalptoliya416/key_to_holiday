@@ -3,18 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "export": "next export"
   },
   "dependencies": {
-    "@floating-ui/react": "^0.27.20",
-    "@headlessui/react": "^2.2.10",
-    "date-fns": "^4.4.0",
     "lucide-react": "^1.27.0",
     "next": "16.2.11",
     "react": "19.2.4",
-    "react-day-picker": "^10.0.1",
     "react-dom": "19.2.4",
     "react-phone-input-2": "^2.15.1",
     "react-select": "^5.10.2",
